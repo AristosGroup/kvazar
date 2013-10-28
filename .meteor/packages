@@ -4,9 +4,13 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
 insecure
 preserve-inputs
 select2
 moment
 bootstrap-3
+router
+accounts-ui-bootstrap-dropdown
+accounts-password
+accounts-github
+spin

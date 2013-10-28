@@ -1,0 +1,60 @@
+<template name="issueDetail">
+    <div id="detail_header">
+
+        <div class="btn-group  btn-group-flat">
+            <button type="button" class="btn btn-default btn-customer">
+
+                {{#if assigned_to}}
+                {{user-avatar user=this.model.assigned_to avatarSize=20}}
+                {{assigned_to.shortName}}
+                {{else}}
+                <span class="glyphicon glyphicon-user"></span>
+                Unassigned
+                {{/if}}
+
+            </button>
+            <button type="button" class="btn btn-default btn-due-date"><span class="glyphicon glyphicon-calendar"></span> Due date</button>
+            <button type="button" class="btn btn-default btn-subtask"><span class="glyphicon glyphicon-tasks"></span></button>
+            <button type="button" class="btn btn-default btn-tags"><span class="glyphicon glyphicon-tags"></span></button>
+            <button type="button" class="btn btn-default btn-attachments"><span class="glyphicon glyphicon-paperclip"></span></button>
+            <button type="button" class="btn btn-default btn-share"><span class="glyphicon glyphicon-heart"></span></button>
+            <button type="button" class="btn btn-default btn-time"><span class="glyphicon glyphicon-time"></span></button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle btn-more" data-toggle="dropdown"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+
+            <button type="button" class="btn btn-default pull-right" aria-hidden="true" {{action close bubbles=false}}><span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+
+        <div id="detail_projects">
+
+        </div>
+
+    </div>
+    {{currentIssue.subject}}  {{status.name}}
+    <div class="row"> <div class="col-lg-12 col-sm-12">{{textarea valueBinding="description" placeholder="description" cols="80" rows="6"}}</div></div>
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+
+
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+
+
+
+        </div>
+    </div>
+
+    <div><button>✓</button></div>
+</template>

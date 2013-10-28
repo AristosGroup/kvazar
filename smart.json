@@ -2,6 +2,9 @@
   "packages": {
     "select2": {},
     "moment": {},
-    "bootstrap-3": {}
+    "bootstrap-3": {},
+    "router": {},
+    "accounts-ui-bootstrap-dropdown": {},
+    "spin": {}
   }
 }
