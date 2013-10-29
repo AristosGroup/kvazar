@@ -14,3 +14,5 @@ accounts-ui-bootstrap-dropdown
 accounts-password
 accounts-github
 spin
+showdown
+autopublish
