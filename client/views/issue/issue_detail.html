@@ -1,4 +1,5 @@
 <template name="issueDetail">
+    {{#with currentIssue}}
     <div id="detail_header">
 
         <div class="btn-group  btn-group-flat">
@@ -35,13 +36,13 @@
         </div>
 
     </div>
-    {{currentIssue.subject}}  {{status.name}}
+    {{subject}}  {{status.name}}
     <div class="row"> <div class="col-lg-12 col-sm-12">
         <div class="preview">
             {{#markdown}}{{{markdown_data}}}{{/markdown}}
         </div>
 
-        <textarea rows="10" cols="80" class="description" name="description">{{currentIssue.description}}</textarea>
+        <textarea rows="10" cols="80" class="description" name="description">{{description}}</textarea>
 
     </div></div>
 
@@ -63,4 +64,5 @@
     </div>
 
     <div><button>✓</button></div>
+    {{/with}}
 </template>

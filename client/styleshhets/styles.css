@@ -17,6 +17,10 @@ body{
 
 }
 
+.row.active{
+    background-color: #dde4ea;
+}
+
 .ember-list-view {
     overflow: auto;
     position: relative;

@@ -5,6 +5,8 @@
     "bootstrap-3": {},
     "router": {},
     "accounts-ui-bootstrap-dropdown": {},
-    "spin": {}
+    "spin": {},
+    "keybindings": {},
+    "filepicker": {}
   }
 }
