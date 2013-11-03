@@ -4,22 +4,54 @@ Template.issueDetail.helpers({
     },
     markdown_data: function () {
         return Session.get("markdown_data");
+    },
+    statusObj: function () {
+
+
+        return  Statuses.findOne(this.status);
+    },
+
+    tagsString: function () {
+        var tags = this.tags;
+
+        if (!tags) return '';
+        var str = tags.join(',');
+        return str;
     }
 });
 
 
-
-Template.issueDetail.rendered = function () {
+Template.issueDetail.rendered = function (e) {
 
     var id = Session.get('currentIssueId');
 
-    console.log('render #issue_item_' + id);
 
     $('div.row.active').removeClass('active');
     var $issueRow = $('#issue_item_' + id);
 
     $issueRow.addClass('active');
     $issueRow.find('input').focus();
+
+
+    /**
+     * tags
+     */
+    var $this = this;
+
+
+    var alltags = Tags.find().fetch();
+    alltags = _.map(alltags, function (tag, key) {
+        return tag.title;
+    });
+    var tags = $($this.find('input.tags'));
+    tags.select2({tags: alltags
+
+    }).change(
+        function (e) {
+            Issues.update(id, {$set: {tags: e.val}});
+            Meteor.call('tagsUpdate', e.added, e.removed, function (error, result) {  } );
+        }
+    );
 
 
 };

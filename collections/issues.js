@@ -3,7 +3,7 @@ Issues = new Meteor.Collection('issues');
 Issues.allow({
     insert: function(userId, doc) {
         // only allow posting if you are logged in
-        return !! userId;
+        return true;
     },
 
     update: function(userId, doc) {
@@ -14,7 +14,7 @@ Issues.allow({
 
 
 Meteor.methods({
-    issueCreate: function() {
+    issueCreate: function(postAttributes) {
         var user = Meteor.user();
          //   postWithSameLink = Issues.findOne({url: postAttributes.url});
 
@@ -24,14 +24,18 @@ Meteor.methods({
 
 
         // pick out the whitelisted keys
-        var post =  {
+        var post = _.extend(_.pick(postAttributes, 'order', 'subject'), {
             userId: user._id,
-            author: user.username,
+          //  author: user.profile.name,
             submitted: new Date().getTime(),
             status:1
-        };
+        });
 
         var issueId = Issues.insert(post);
+
+        Issues.update({order: {$gte: postAttributes.order}},
+            {$inc: {order: 1}},
+            {multi: true});
 
         return issueId;
     }

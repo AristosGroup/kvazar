@@ -1,7 +1,13 @@
 <template name="issuesList">
     <div class="grid">
-        {{#each issues}}
-        {{> issueItem}}
+        {{#each key_value issues}}
+       <div> <strong>{{> issuesGroup}}</strong>
+
+           {{#each value}}
+           {{> issueItem}}
+           {{/each}}
+       </div>
+
         {{/each}}
     </div>
 </template>

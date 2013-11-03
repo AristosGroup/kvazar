@@ -1,9 +1,9 @@
 <template name="issueItem">
     <div id="issue_item_{{_id}}" class="row">
-    <div class="col-lg-1 col col-number"></div>
+    <div class="col-lg-1 col col-number">{{order}}</div>
     <div class="col-lg-1 col col-assig">1</div>
     <div class="col-lg-1 col col-status">
-        {{status}}
+        {{statusObj.title}}
     </div>
 
     <div class="col-lg-9 col col-title"><div class="pull-left">

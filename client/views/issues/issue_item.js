@@ -4,6 +4,11 @@ Template.issueItem.helpers({
         var a = document.createElement('a');
         a.href = this.url;
         return a.hostname;
+    },
+
+    statusObj: function() {
+
+        return  Statuses.findOne(this.status);
     }
 });
 
@@ -31,14 +36,20 @@ Template.issueItem.events({
     'keydown input':function(e) {
         if(jwerty.is('enter', e))
         {
+
+            var neworder = this.order+1;
+
             Issues.update(this._id, {$set: {subject: e.target.value}}, function(error) {
                 if (error) {
                     // display the error to the user
                     alert(error.reason);
                 } else {
+                    var issue = {
+                        subject:'',
+                        order:neworder
+                    };
 
-
-                    Meteor.call('issueCreate', function(error, id) {
+                    Meteor.call('issueCreate', issue, function(error, id) {
                         if (error)
                             return alert(error.reason);
 
