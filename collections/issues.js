@@ -1,6 +1,18 @@
-Issues = new Meteor.Collection('issues');
+Issue = _.extend( Commentable,{
+_collection: new Meteor.Collection('issues'),
 
-Issues.allow({
+
+belongs_to: [
+    {name: 'assignedTo', class_name: 'User'},
+    {name: 'author', class_name: 'User'}
+]
+});
+
+
+Issues = Issue._collection;
+
+
+Issue._collection.allow({
     insert: function(userId, doc) {
         // only allow posting if you are logged in
         return true;

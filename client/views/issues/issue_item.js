@@ -8,18 +8,28 @@ Template.issueItem.helpers({
 
     statusObj: function() {
 
-        return  Statuses.findOne(this.status);
+        return  Status.find(this.status);
     }
 });
 
 
 
 Template.issueItem.events({
+
+    'click span.points': function(e) {
+        e.preventDefault();
+
+
+
+
+    },
+
     'click input': function(e) {
         e.preventDefault();
 
 
-        Meteor.Router.to('issueDetail', this._id);
+
+        Router.go('issueDetail',{_id: this._id}) ;
     },
     'focusout input' :function(e,template){
 
@@ -53,7 +63,7 @@ Template.issueItem.events({
                         if (error)
                             return alert(error.reason);
 
-                        Meteor.Router.to('issueDetail', id);
+                        Router.go('issueDetail', {_id:id});
                     });
                 }
             });

@@ -8,10 +8,8 @@ Handlebars.registerHelper('key_value', function (context, options) {
 
 Template.issuesList.helpers({
     issues: function () {
-        var issues = Issues.find({}, {sort: {order: 1}});
-        var res = _.groupBy(issues.fetch(), function (item) {
-            return item.status;
-        });
-        return res;
+        var issues = Issue.find({}, {sort: {order: 1}});
+
+        return issues;
     }
 });

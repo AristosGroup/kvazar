@@ -5,9 +5,9 @@
         <div class="btn-group  btn-group-flat">
             <button type="button" class="btn btn-default btn-customer">
 
-                {{#if assigned_to}}
-                {{user-avatar user=this.model.assigned_to avatarSize=20}}
-                {{assigned_to.shortName}}
+                {{#if assignedTo}}
+                {{user_avatar user=assignedTo avatarSize=20}}
+                {{assignedTo.username}}
                 {{else}}
                 <span class="glyphicon glyphicon-user"></span>
                 Unassigned
@@ -64,5 +64,6 @@
     </div>
 
     <div><button>✓</button></div>
+
     {{/with}}
 </template>

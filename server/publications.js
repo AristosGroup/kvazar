@@ -5,7 +5,7 @@ Meteor.publish('issues', function() {
     date: false
   }});
      */
-    return Issues.find({}, {sort: {order: 1}});
+    return Issue.find({}, {sort: {order: 1}});
 
 });
 
@@ -29,6 +29,6 @@ Meteor.publish('statuses', function() {
     date: false
   }});
      */
-    return Statuses.find();
+    return Status.find();
 
 });

@@ -8,6 +8,10 @@
     "spin": {},
     "keybindings": {},
     "filepicker": {},
-    "jqueryui": {}
+    "jqueryui": {},
+    "npm": {},
+    "dropbox": {},
+    "comments": {},
+    "roles": {}
   }
 }

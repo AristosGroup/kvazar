@@ -1,14 +1,55 @@
+Handlebars.registerHelper('user_avatar', function (options) {
+  var user = options.hash.user;
+   // console.log(options.hash.user);
+
+  var avatarSize = options.hash.avatarSize;
+
+    loadAvatar = function() {
+
+        var self = this;
+        var url  =gravatarUrl();
+
+
+        var img = $("<img/>")
+            .load(function() {
+                self.$().append(img);
+            })
+            .error(function() {
+                self.$().append('<span class="avatar" style="width:'+avatarSize+'px; height:'+avatarSize+'px; background: #4285f4"></span>');
+            })
+            .attr("src", url);
+
+        return img;
+
+
+    };
+
+    gravatarUrl =  function() {
+
+        var
+            email = 'mrakobesov@gmail.com',
+            size = avatarSize;
+
+
+
+        return 'http://www.gravatar.com/avatar/' + email + '?s=' + size+'&d=404';
+    };
+
+
+    return loadAvatar();
+});
+
+
+
 Template.issueDetail.helpers({
     currentIssue: function () {
-        return Issues.findOne(Session.get('currentIssueId'));
+        return Issue.find(Session.get('currentIssueId'));
     },
     markdown_data: function () {
         return Session.get("markdown_data");
     },
     statusObj: function () {
-
-
-        return  Statuses.findOne(this.status);
+        return  Status.find(this.status);
     },
 
     tagsString: function () {
@@ -17,6 +58,15 @@ Template.issueDetail.helpers({
         if (!tags) return '';
         var str = tags.join(',');
         return str;
+    },
+
+    assignedTo:function () {
+        if(this.assigned_to)
+        {
+            return Meteor.users.find(this.assigned_to);
+        } else {
+            return false;
+        }
     }
 });
 
