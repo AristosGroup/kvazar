@@ -12,6 +12,7 @@
     "npm": {},
     "dropbox": {},
     "comments": {},
-    "roles": {}
+    "roles": {},
+    "iron-router-progress": {}
   }
 }

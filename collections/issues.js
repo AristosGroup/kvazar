@@ -1,11 +1,15 @@
 Issue = _.extend(Minimongoid, {
     _collection: new Meteor.Collection('issues'),
 
+    isValid:function() {
+        return true;
+    }
 
+/*
     defaults: {
         subject: '',
         description:'',
-        order:0
+        order:0*/
         // history:[]
         // comments:[]
         // points:[]
@@ -14,7 +18,7 @@ Issue = _.extend(Minimongoid, {
         // timeline - шкала с отображением всех стартов и стопов, для расчета реального времени и тд
         // realpoints - реальная оценка задачи
         //prognozEnd  -прогнозируемая дата завершения
-    }
+  //  }
 
 /*
     belongs_to: [
@@ -45,6 +49,12 @@ Issue._collection.allow({
         // only allow posting if you are logged in
         return true;
     },
+
+    remove: function (userId, doc) {
+        // only allow posting if you are logged in
+        return true;
+    },
+
 
     update: function (userId, doc) {
         // only allow posting if you are logged in

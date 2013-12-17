@@ -8,10 +8,5 @@ User = _.extend(Minimongoid, {
 
         }
         return user;
-    },
-
-
-    has_many: [
-        {name: 'issues', foreign_key: 'userId'}
-    ]
+    }
 });
