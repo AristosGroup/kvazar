@@ -7,9 +7,8 @@ Handlebars.registerHelper('key_value', function (context, options) {
 });
 
 Template.issuesList.helpers({
-    issues: function () {
-        var issues = Issue.find({}, {sort: {order: 1}});
+    issuesListAll: function () {
+        return this.issues;
 
-        return issues;
     }
 });

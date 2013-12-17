@@ -1,11 +1,39 @@
-Issue = _.extend( Commentable,{
-_collection: new Meteor.Collection('issues'),
+Issue = _.extend(Minimongoid, {
+    _collection: new Meteor.Collection('issues'),
 
 
-belongs_to: [
-    {name: 'assignedTo', class_name: 'User'},
-    {name: 'author', class_name: 'User'}
-]
+    defaults: {
+        subject: '',
+        description:'',
+        order:0
+        // history:[]
+        // comments:[]
+        // points:[]
+        // startTime:[] - запуск задачи в работу
+        // endTime:[] - полное окончание работы
+        // timeline - шкала с отображением всех стартов и стопов, для расчета реального времени и тд
+        // realpoints - реальная оценка задачи
+        //prognozEnd  -прогнозируемая дата завершения
+    }
+
+/*
+    belongs_to: [
+        {name: 'assignedTo', class_name: 'User'},
+        {name: 'author', class_name: 'User'},
+        {name: 'workspace', class_name: 'Workspace'},
+        {name: 'category', class_name: 'Category'},
+        {name: 'status', class_name: 'Status'}
+    ],
+
+    has_many: [
+        {name: 'projects', class_name: 'Project'},
+        {name: 'followers', class_name: 'User'}
+    ],
+
+    has_and_belongs_to_many: [
+        {name: 'subtasks'}
+
+    ]*/
 });
 
 
@@ -13,12 +41,12 @@ Issues = Issue._collection;
 
 
 Issue._collection.allow({
-    insert: function(userId, doc) {
+    insert: function (userId, doc) {
         // only allow posting if you are logged in
         return true;
     },
 
-    update: function(userId, doc) {
+    update: function (userId, doc) {
         // only allow posting if you are logged in
         return true;
     }
@@ -26,9 +54,9 @@ Issue._collection.allow({
 
 
 Meteor.methods({
-    issueCreate: function(postAttributes) {
+    issueCreate: function (postAttributes) {
         var user = Meteor.user();
-         //   postWithSameLink = Issues.findOne({url: postAttributes.url});
+        //   postWithSameLink = Issues.findOne({url: postAttributes.url});
 
         // ensure the user is logged in
         if (!user)
@@ -37,17 +65,21 @@ Meteor.methods({
 
         // pick out the whitelisted keys
         var post = _.extend(_.pick(postAttributes, 'order', 'subject'), {
-            userId: user._id,
-          //  author: user.profile.name,
-            submitted: new Date().getTime(),
-            status:1
+           // userId: user._id,
+            //  author: user.profile.name,
+           // submitted: new Date().getTime(),
+           // status: 1
         });
 
-        var issueId = Issues.insert(post);
+        var issue = Issue.create(post);
 
-        Issues.update({order: {$gte: postAttributes.order}},
+        console.log(issue);
+
+
+        var issueId = issue._id;
+     /*   Issues.update({order: {$gte: postAttributes.order}},
             {$inc: {order: 1}},
-            {multi: true});
+            {multi: true});*/
 
         return issueId;
     }
