@@ -1,9 +1,9 @@
 <template name="layout">
-  <div class="container">
-    {{>header}}
+
+<div class="container-full">
     {{> errors}}
-    <div id="main" class="row-fluid">
-      {{yield}}
+    <div class="row content">
+        {{yield}}
     </div>
-  </div>
+</div>
 </template>
