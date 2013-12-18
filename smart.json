@@ -13,6 +13,7 @@
     "dropbox": {},
     "comments": {},
     "roles": {},
-    "iron-router-progress": {}
+    "iron-router-progress": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }

@@ -9,3 +9,8 @@ Meteor.publish('issues', function(options) {
 
 });
 
+
+Meteor.publish('notifications', function() {
+    return Notification.find({userId: this.userId});
+});
+

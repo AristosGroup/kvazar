@@ -10,7 +10,6 @@ select2
 moment
 bootstrap-3
 router
-accounts-ui-bootstrap-dropdown
 accounts-password
 accounts-github
 spin
@@ -26,3 +25,4 @@ coffeescript
 iron-router
 roles
 iron-router-progress
+accounts-ui-bootstrap-3

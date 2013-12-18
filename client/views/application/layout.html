@@ -1,8 +1,10 @@
 <template name="layout">
 
 <div class="container-full">
+    {{>header}}
     {{> errors}}
     <div class="row content">
+        {{>sidebar}}
         {{yield}}
     </div>
 </div>
