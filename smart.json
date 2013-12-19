@@ -7,13 +7,16 @@
     "spin": {},
     "keybindings": {},
     "filepicker": {},
-    "jqueryui": {},
     "npm": {},
     "dropbox": {},
     "comments": {},
     "roles": {},
     "iron-router-progress": {},
     "accounts-ui-bootstrap-3": {},
-    "event-hooks": {}
+    "event-hooks": {},
+    "x-editable-bootstrap3": {},
+    "pnotify-bootstrap-3": {},
+    "bootstrap-daterangepicker": {},
+    "autocomplete": {}
   }
 }

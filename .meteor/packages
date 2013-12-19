@@ -27,3 +27,7 @@ roles
 iron-router-progress
 accounts-ui-bootstrap-3
 event-hooks
+x-editable-bootstrap3
+pnotify-bootstrap-3
+bootstrap-daterangepicker
+autocomplete
