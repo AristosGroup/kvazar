@@ -1,5 +1,7 @@
 // When adding tag to a todo, ID of the workspace
-Session.setDefault('workspaceCategory_tag', null);
+Session.set('newCategories', []);
+
+
 
 var activateInput = function (input) {
     input.focus();
@@ -13,6 +15,8 @@ var OkCancelEvents = function (selector, callbacks) {
     var events = {};
     events['keyup '+selector+', keydown '+selector+', focusout '+selector] =
         function (evt) {
+
+
             if (evt.type === "keydown" && evt.which === 27) {
                 // escape = cancel
                 cancel.call(this, evt);
@@ -25,7 +29,10 @@ var OkCancelEvents = function (selector, callbacks) {
                     ok.call(this, value, evt);
                 else
                     cancel.call(this, evt);
+
             }
+
+
         };
 
     return events;
@@ -56,45 +63,58 @@ Template.leftsidebar.helpers({
     }
 });
 
-Template.workspaceDialogNew.workspaceCategory_tag = function () {
-    return Session.equals('workspaceCategory_tag', 1);
-};
 
+Template.leftsidebar.events({
+    'click #workspaceNew':function() {
 
-Template.workspaceDialogNew.events({
-    'click #workspaceNewCategoriesFormAdd': function (evt, tmpl) {
-        Session.set('workspaceCategory_tag', 1);
-        console.log('xx');
+        bootbox.dialog({
+            message: $('#workspaceDialogNew'),
+            title: "New workspace",
+            buttons: {
+                success: {
+                    label: "Save Workspace!",
+                    className: "btn-success",
+                    callback: function() {
+                        //Example.show("great success");
+                    }
+                },
+                danger: {
+                    label: "Close!",
+                    className: "btn-danger",
+                    callback: function() {
+                        var title = $('#WorkspaceNewTitle').val();
 
-        //Deps.flush(); // update DOM before focus
-       // activateInput(tmpl.find("#workspaceNewCategoryInput"));
-    },
-
-    'click .btn-primary': function () {
-
-        var title = $('#WorkspaceNewTitle').val();
-
-        Workspace.create({
-            title: title,
-            members: [
-                Meteor.userId()
-            ]
+                        Workspace.create({
+                            title: title,
+                            members: [
+                                Meteor.userId()
+                            ]
+                        });
+                    }
+                }
+            }
         });
-
-
-        $('#workspaceDialogNewModal').modal('hide');
-
     }
 });
+
+
+
+
+Template.workspaceDialogNew.newCategories = function() {
+    return  Session.get('newCategories');
+};
 
 
 Template.workspaceDialogNew.events(OkCancelEvents(
     '#workspaceNewCategoryInput',
     {
         ok: function (value) {
-            //Todos.update(this._id, {$addToSet: {tags: value}});
-            console.log('xx');
-            Session.set('workspaceCategory_tag', null);
+
+            console.log(value);
+            var newCategories = Session.get('newCategories');
+            newCategories.push({title:value});
+
+            Session.set('newCategories', newCategories);
         },
         cancel: function () {
             Session.set('workspaceCategory_tag', null);

@@ -26,3 +26,4 @@ iron-router
 roles
 iron-router-progress
 accounts-ui-bootstrap-3
+event-hooks

@@ -13,4 +13,12 @@ Meteor.publish('workspaces', function() {
     return Workspace.find();
 });
 
+/**
+ * Создаем личный воркспейс для юзера, при его регистрации
+ * @param userId
+ */
+Hooks.onCreateUser = function (userId) {
+    Workspace.create({title:'My workspace', userId:userId, members:[userId]});
+};
+
 

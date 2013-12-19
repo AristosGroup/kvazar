@@ -4,7 +4,6 @@
     "moment": {},
     "bootstrap-3": {},
     "router": {},
-    "accounts-ui-bootstrap-dropdown": {},
     "spin": {},
     "keybindings": {},
     "filepicker": {},
@@ -14,6 +13,7 @@
     "comments": {},
     "roles": {},
     "iron-router-progress": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "event-hooks": {}
   }
 }
