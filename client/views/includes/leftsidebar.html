@@ -1,4 +1,4 @@
-<template name="sidebar">
+<template name="leftsidebar">
     <div class="col-lg-2 col-sm-2 content-col">
         <div id="sidebar">
             <div class="row">
@@ -8,7 +8,10 @@
                         <div class="dropdown"><a data-toggle="dropdown" href="#"><span>{{currentWorkspace.title}}</span>
                             <span class="glyphicon glyphicon-cog"></span></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                <li><a href="">Workspace1</a></li>
+                               {{#each userWorkspaces}}
+                                <li><a href="">{{title}}</a></li>
+                               {{/each}}
+
 
 
 
@@ -22,6 +25,15 @@
 
                         </div>
 
+
+                    </div>
+
+                    <div>
+                        <ul>
+                        {{#each categories}}
+                            <li><a href="">{{title}}</a></li>
+                        {{/each}}
+                        </ul>
 
                     </div>
                 </div>
@@ -46,12 +58,32 @@
                 </div>
                 <div class="modal-body">
                   <label>Название <input type="text" id="WorkspaceNewTitle" name="WorkspaceNewTitle"/></label>
+
+                    <div id="WorkspaceNewCategories">
+
+                        {{#if workspaceCategory_tag}}
+                        <div class="">
+                            <input type="text" id="workspaceNewCategoryInput" value="" />
+                        </div>
+                        {{else}}
+                        <div class="">
+                            <button id="workspaceNewCategoriesFormAdd" type="button" class="btn btn-default">Add category</button>
+
+                        </div>
+                        {{/if}}
+
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button id="" type="button" class="btn btn-primary">Save changes</button>
+                    <button  type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 </template>
+
+        <template name="workspaceNewCategoriesForm">
+            <li><input type="text" name="category[{{id}}]" id="newCategory_{{id}}" /></li>
+        </template>

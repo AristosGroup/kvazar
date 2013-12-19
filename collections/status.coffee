@@ -1,10 +1,6 @@
-class @Workspace extends Minimongoid
+class @Status extends Minimongoid
   # indicate which collection to use
-  @_collection: new Meteor.Collection('workspaces'),
-
-  @embeds_many: [
-    {name:'categories'}
-  ]
+  @_collection: new Meteor.Collection('statuses')
 
 
 

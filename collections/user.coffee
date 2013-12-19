@@ -22,10 +22,20 @@ class @User extends Minimongoid
 
 
   currentWorkspace: ->
-    if(@currentWorkspaceId)
-      return Workspace.init(@currentWorkspaceId);
-    else
-      return Workspace.init(@defaultWorkspaceId);
+    return Workspace.first({title:"Aristos"});
+
+    #if(@currentWorkspaceId)
+    #  return Workspace.init(@currentWorkspaceId);
+   # else
+    #  return Workspace.init(@defaultWorkspaceId);
+
+
+  workspaces: ->
+    return Workspace.find({members:Meteor.userId()});
+
+  workspacesWhithoutCurrent: ->
+    cur = @currentWorkspace();
+    return Workspace.find($and:[{members:@id},{_id:{$ne:cur.id}}]);
 
 
 

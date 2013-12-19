@@ -1,10 +1,8 @@
-class @Workspace extends Minimongoid
+class @Category extends Minimongoid
   # indicate which collection to use
-  @_collection: new Meteor.Collection('workspaces'),
+  @_collection: new Meteor.Collection('categories'),
 
-  @embeds_many: [
-    {name:'categories'}
-  ]
+  @embedded_in: 'workspace'
 
 
 

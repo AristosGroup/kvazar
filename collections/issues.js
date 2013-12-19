@@ -41,7 +41,7 @@ Issue = _.extend(Minimongoid, {
 });
 
 
-Issues = Issue._collection;
+//Issues = Issue._collection;
 
 
 Issue._collection.allow({
