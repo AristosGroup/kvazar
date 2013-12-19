@@ -19,4 +19,4 @@ Gravatar = {
             return user.services.twitter.profile_image_url; //for the oauth-login avatar, diff for diff oauth, maybe it could be better
         }
     }
-}
+};

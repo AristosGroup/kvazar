@@ -1,0 +1,80 @@
+<template name="issuessidebar">
+    <!-- .aside -->
+    <aside class="aside aside-md bg-dark">
+        <section class="vbox">
+            <header class="dk header">
+                <button class="btn btn-icon btn-default btn-sm pull-right"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-icon btn-default btn-sm pull-right visible-xs m-r-xs" data-toggle="class:show" data-target="#mail-nav"><i class="fa fa-bars"></i></button>
+                <p class="h4">Aristos</p>
+            </header>
+            <section>
+                <section>
+                    <section id="mail-nav" class="hidden-xs">
+                        <ul class="nav nav-pills nav-stacked no-radius">
+                            <li>
+                                <a href="#">
+                                    <span class="badge pull-right">15</span>
+                                    <i class="fa fa-fw fa-inbox"></i>
+                                    Inbox
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">
+                                    <i class="fa fa-fw fa-envelope-o"></i>
+                                    Sent mail
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="badge badge-hollow pull-right">4</span>
+                                    <i class="fa fa-fw fa-bookmark-o"></i>
+                                    Important
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-fw fa-pencil"></i>
+                                    Draft
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="badge badge-hollow pull-right">3</span>
+                                    <i class="fa fa-fw fa-star-o"></i>
+                                    Spam
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-pills nav-stacked no-radius m-t-sm">
+                            <li class="padder dk text-sm l-h-2x">
+                                <p>Labels</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-circle text-danger pull-right m-t-xs"></i>
+                                    Work
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-circle pull-right m-t-xs"></i>
+                                    Private
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-circle text-success pull-right m-t-xs"></i>
+                                    Clients
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+            </section>
+            <footer class="dk footer text-center">
+                <button class="btn btn-sm btn-info" data-toggle="class:layout-box" data-target="html">Toggle box layout</button>
+            </footer>
+        </section>
+    </aside>
+    <!-- /.aside -->
+</template>

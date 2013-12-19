@@ -1,0 +1,99 @@
+.galcolumn{
+	background-color: #000;
+}
+
+.gallery .item{
+	position: relative;
+	/*opacity: 0.8 !important;
+  	filter: alpha(opacity=80) !important;*/
+}
+
+.gallery .item:hover,
+.gallery .item:focus,
+.gallery .item:active
+.gallery .item.active
+{
+	opacity: 1 !important;
+  	filter: alpha(opacity=100) !important;
+}
+.gallery .item:hover ~ .item{
+	opacity: 0.5 !important;
+  	filter: alpha(opacity=50) !important;
+}
+
+.gallery .item > a{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 2;
+	display: inline-block;
+}
+
+.gallery .item > img{
+	max-width: 100%;
+}
+
+.gallery .item > h5{
+	font-size: 12px;
+	color: #fff;
+	position: absolute;
+	margin: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.7)
+}
+
+.gallery .item .desc{
+	border: 1px solid #fb6b5b;
+	padding: 10px 20px;
+	color: #fff;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	-webkit-transition: all .25s;
+  	transition: all .25s;
+}
+
+.gallery .item .desc h3{
+	margin-top: 5px;
+}
+
+.gallery .item .desc a{
+	color: #ddd;
+}
+
+.gallery .item .desc p{
+	color: #ccc;
+	font-size: 11px;
+	max-height: 30px;
+	overflow: hidden;
+}
+
+.gallery .item .desc span{
+	position: absolute;
+	bottom: 15px;
+	font-size: 10px;
+}
+
+.gallery .item:hover .desc,
+.gallery .item:focus .desc,
+.gallery .item:active .desc,
+.gallery .item.active .desc{
+	z-index: 1;
+	border-width: 10px;
+	display: block;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.8);
+}
+.gallery .item:hover > h5,
+.gallery .item:focus > h5,
+.gallery .item:active > h5,
+.gallery .item.active > h5{
+	display: none;
+}

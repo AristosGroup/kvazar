@@ -1,0 +1,68 @@
+.bg-gradient{
+  #gradient > .vertical(rgba(40,50,60,0), rgba(40,50,60,0.05), 0, 100%);
+  filter:none;
+}
+
+.bg-light {
+	.color-variant(@brand-light, 2%, 4%, 2%, 4%);
+	color: @text-color;
+}
+
+.bg-dark {
+	.color-variant(@brand-dark, 3.5%, 7.5%, 3.5%, 7%);
+	.font-variant(@brand-dark, #fff, 35%, 10%, 50%, 45%);
+}
+
+.bg-black {
+	.color-variant(@brand-black, 3.5%, 7.5%, 3.5%, 7%);
+	.font-variant(@brand-black, #fff, 35%, 10%, 50%, 45%);
+}
+
+.bg-primary {
+	.color-variant(@brand-primary, 3.5%, 7.5%, 3.5%, 7%);
+	.font-variant(@brand-primary, #fff, 35%, 10%, 50%, 45%);
+}
+
+// some light color
+
+.bg-success {
+	.color-variant(@brand-success, 3.5%, 7.5%, 3.5%, 7%);
+	.font-variant(@brand-success, #fff, 35%, -20%, 45%, 40%);
+}
+
+.bg-info {
+	.color-variant(@brand-info, 3.5%, 7.5%, 3.5%, 7%);
+	.font-variant(@brand-info, #fff, 35%, -20%, 45%, 40%);
+}
+
+.bg-warning {
+	.color-variant(@brand-warning, 3.5%, 7.5%, 3.5%, 7%);
+	.font-variant(@brand-warning, #fff, 35%, -20%, 45%, 40%);
+}
+
+.bg-danger {
+	.color-variant(@brand-danger, 3.5%, 7.5%, 3.5%, 7%);
+	.font-variant(@brand-danger, #fff, 35%, -20%, 45%, 40%);
+}
+
+.bg-white {
+	background-color: #fff;
+	color: @text-color;
+	a {
+		color: @link-color;
+		&:hover{
+			color: darken(@link-color, 10%);
+		}
+	}
+	.text-muted{color: @text-muted}
+}
+
+.bg{
+	color:#fff;
+	a {
+		&,
+		&:hover{
+			color: #fff;
+		}
+	}
+}

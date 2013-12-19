@@ -1,21 +1,28 @@
 <template name="focus">
+    <section class="hbox stretch">
+    {{>issuessidebar}}
 
-    {{>leftsidebar}}
+     {{>issuesList}}
 
-<div class="col-lg-5 col-sm-5 content-col"  id="center">
-    <div id="header">
-        <h2>Philips</h2>
-        <div id="project_description"></div>
-    </div>
-
-    {{> issuesToolbar}}
-    <div id="grid">
-        {{> issuesList}}
-    </div>
-
-</div>
-
-<div class="col-lg-5 col-sm-5 content-col" id="detail">
-    {{> issueDetail}}
-</div>
+        </section>
 </template>
+
+        <template name="old">
+
+            <div class="col-lg-5 col-sm-5 content-col"  id="center">
+                <div id="header">
+                    <h2>Philips</h2>
+                    <div id="project_description"></div>
+                </div>
+
+                {{> issuesToolbar}}
+                <div id="grid">
+                    {{> issuesList}}
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 col-sm-5 content-col" id="detail">
+                {{> issueDetail}}
+            </div>
+        </template>

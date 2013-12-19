@@ -1,0 +1,96 @@
+.btn-default{
+	.button-variant(@btn-default-color, @btn-default-bg, @btn-default-border);
+	.caret {
+	border-top-color: #fff;
+	}
+}
+
+.btn-twitter{
+	.button-variant(@btn-twitter-color, @btn-twitter-bg, @btn-twitter-border);
+}
+
+.btn-white:hover, .btn-white:focus, .btn-white:active, .btn-white.active{
+	background-color: lighten(@brand-light, 5%);
+}
+
+.btn-link{
+	color: @text-color;
+	&.active{
+		webkit-box-shadow:none;
+		box-shadow:none;
+	}
+}
+
+.btn-primary{
+	.button-variant(@btn-primary-color, @btn-primary-bg, @btn-primary-border);
+}
+
+.btn-success{
+	.button-variant(@btn-success-color, @btn-success-bg, @btn-success-border);
+}
+
+.btn-info{
+	.button-variant(@btn-info-color, @btn-info-bg, @btn-info-border);
+}
+
+.btn-warning{
+	.button-variant(@btn-warning-color, @btn-warning-bg, @btn-warning-border);
+}
+
+.btn-danger{
+	.button-variant(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+}
+
+.btn-facebook{
+	.button-variant(@btn-facebook-color, @btn-facebook-bg, @btn-facebook-border);
+}
+
+.btn-gplus{
+	.button-variant(@btn-gplus-color, @btn-gplus-bg, @btn-gplus-border);
+}
+
+.btn-white{
+	border-color: @btn-white-border;
+	border-color: rgba(150,160,180,0.3);
+	color: @btn-white-color !important;
+	background-color: @btn-white-bg;
+	box-shadow: inset 0 -1px 1px rgba(0,0,0,0.05);
+	background-clip: padding-box;
+}
+
+.btn{font-weight: 500}
+.bg .btn-white{border-color:rgba(0,0,0,0.1);}
+.btn-white .caret{border-top-color: #656565}
+.dropup .btn-white .caret{border-bottom-color: #656565}
+
+.btn-icon{
+	padding-left: 0;
+	padding-right: 0;
+	width:34px;
+	text-align: center;
+	.btn-sm&{
+		width: 30px;
+	}
+}
+
+.text-active, .active > .text, .active .auto .text{display: none !important;}
+.active > .text-active, .active .auto .text-active{display: inline-block !important;}
+
+[class^="icon-"]:before, [class*=" icon-"]:before{text-decoration: none;margin-left: 0.2em;margin-right: 0.2em}
+.icon-stack [class^="icon-"]:before, .icon-stack [class*=" icon-"]:before{margin: 0;}
+.icon-xlarge:before{font-size:1.5em;vertical-align: -14%;}
+
+.btn-group-justified{border-collapse: separate;}
+.btn-rounded{border-radius: 50px}
+
+.btn > i{
+	&.pull-left,
+	&.pull-right{
+		line-height: 1.428571429;
+	}	
+}
+
+.btn-block {
+	padding-left: 12px;
+	padding-right: 12px;
+}

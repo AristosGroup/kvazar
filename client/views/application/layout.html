@@ -1,10 +1,14 @@
 <template name="layout">
 
-<div class="container-full">
-    {{>header}}
     {{> errors}}
-    <div class="row content">
+    <section class="hbox stretch">
+        {{>aside}}
+        <section id="content">
         {{yield}}
-    </div>
-</div>
+
+            <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+
+        </section>
+   </section>
+
 </template>
