@@ -1,3 +1,4 @@
+/*
 Template.issuesToolbar.events({
 
     'click button.new':function(e) {
@@ -15,3 +16,4 @@ Template.issuesToolbar.events({
         });
     }
 });
+*/

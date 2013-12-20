@@ -1,5 +1,5 @@
 
-// data-shift api 
+// data-shift api
 !function ($) {
 
     "use strict"; // jshint ;_;
