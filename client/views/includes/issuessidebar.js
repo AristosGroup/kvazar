@@ -38,7 +38,7 @@ var OkCancelEvents = function (selector, callbacks) {
     return events;
 };
 
-Template.leftsidebar.helpers({
+Template.issuessidebar.helpers({
     currentWorkspace: function (/* route names */) {
 
         var user = User.current();
@@ -64,8 +64,8 @@ Template.leftsidebar.helpers({
 });
 
 
-Template.leftsidebar.events({
-    'click #workspaceNew':function() {
+Template.issuessidebar.events({
+    'click button.workspace-menu':function() {
 
         bootbox.dialog({
             message: $('#workspaceDialogNew'),

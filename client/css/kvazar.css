@@ -1,0 +1,9 @@
+.aside-md .header .dropdown-menu {
+    margin-left: 9px;
+    width: 300px;
+    top: -8px;
+}
+
+.aside-md .header .arrow.left {
+    top: 25px;
+}

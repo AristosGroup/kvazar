@@ -3,9 +3,39 @@
     <aside class="aside aside-md bg-dark">
         <section class="vbox">
             <header class="dk header">
-                <button class="btn btn-icon btn-default btn-sm pull-right"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-icon btn-default btn-sm  pull-right dropdown-toggle" data-toggle="dropdown"><i class="fa fa-desktop"></i></button>
                 <button class="btn btn-icon btn-default btn-sm pull-right visible-xs m-r-xs" data-toggle="class:show" data-target="#mail-nav"><i class="fa fa-bars"></i></button>
-                <p class="h4">Aristos</p>
+                <p class="h4">{{currentWorkspace.title}}</p>
+                <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                    <div class="arrow left"></div>
+                    <section class="panel bg-white">
+                        <header class="panel-heading">
+                            <strong>Workspace menu</strong>
+                        </header>
+                        <div class="list-group">
+                            <a href="#" class="media list-group-item">
+                      <span class="pull-left thumb-sm">
+                        <img src="images/avatar.jpg" alt="John said" class="img-circle">
+                      </span>
+                      <span class="media-body block m-b-none">
+                        Use awesome animate.css<br>
+                        <small class="text-muted">28 Aug 13</small>
+                      </span>
+                            </a>
+                            <a href="#" class="media list-group-item">
+                      <span class="media-body block m-b-none">
+                        1.0 initial released<br>
+                        <small class="text-muted">27 Aug 13</small>
+                      </span>
+                            </a>
+                        </div>
+                        <footer class="panel-footer text-sm">
+                            <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                            <a href="#">Add new workspace</a>
+                        </footer>
+                    </section>
+                </section>
+
             </header>
             <section>
                 <section>
@@ -77,4 +107,25 @@
         </section>
     </aside>
     <!-- /.aside -->
+
+
+</template>
+
+
+<template name="workspaceDialogNew">
+
+    <div id="workspaceDialogNew">
+        <label>Название <input type="text" id="WorkspaceNewTitle" name="WorkspaceNewTitle"/></label>
+
+        <div id="WorkspaceNewCategories">
+            <label>Добавить категорию <input type="text" id="workspaceNewCategoryInput" value=""/></label>
+
+            <ul>
+                {{#each newCategories}}
+                <li><a href="">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
 </template>
