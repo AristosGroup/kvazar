@@ -1,7 +1,7 @@
 // super, super simple
 Gravatar = {
     getGravatar: function(user, options) {
-        if(user.email()){
+        if(user && user.email()){
             var options = options || {};
 
             var protocol = options.secure ? 'https' : 'http';
