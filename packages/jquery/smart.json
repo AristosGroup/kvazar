@@ -1,0 +1,8 @@
+{
+    "name": "jquery",
+    "description": "Simple lightweight pull-in for jQuery UI in Meteor",
+    "homepage": "https://github.com/mizzao/meteor-jqueryui",
+    "author": "Andrew Mao  (http://www.andrewmao.net)",
+    "version": "1.10.2"
+
+}
