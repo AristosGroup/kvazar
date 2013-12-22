@@ -1,5 +1,7 @@
+body {overflow: hidden;}
+
 .aside-md .header .dropdown-menu {
-    margin-left: 9px;
+    margin-left: -1px;
     width: 300px;
     top: -8px;
 }
