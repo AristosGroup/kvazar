@@ -12,3 +12,14 @@ Template.issuesList.helpers({
 
     }
 });
+
+
+Template.issuesList.events({
+    'click li.list-group-item a':function(e) {
+
+        e.preventDefault();
+        $('li.list-group-item').removeClass('active');
+        Show($(e.target).parents('li.list-group-item'), $('#issue-detail'));
+
+    }
+});

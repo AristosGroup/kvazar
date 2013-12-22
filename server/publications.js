@@ -13,6 +13,10 @@ Meteor.publish('workspaces', function() {
     return Workspace.find();
 });
 
+Meteor.publish('projects', function() {
+    return Project.find();
+});
+
 /**
  * Создаем личный воркспейс для юзера, при его регистрации
  * @param userId

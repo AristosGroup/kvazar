@@ -10,28 +10,18 @@
                     <div class="arrow left"></div>
                     <section class="panel bg-white">
                         <header class="panel-heading">
-                            <strong>Workspace menu</strong>
+                            <strong>{{currentWorkspace.title}} workspace</strong>
                         </header>
                         <div class="list-group">
+                            {{#each userWorkspaces}}
                             <a href="#" class="media list-group-item">
-                      <span class="pull-left thumb-sm">
-                        <img src="images/avatar.jpg" alt="John said" class="img-circle">
-                      </span>
-                      <span class="media-body block m-b-none">
-                        Use awesome animate.css<br>
-                        <small class="text-muted">28 Aug 13</small>
-                      </span>
+                                <span class="media-body block m-b-none">{{title}}</span>
                             </a>
-                            <a href="#" class="media list-group-item">
-                      <span class="media-body block m-b-none">
-                        1.0 initial released<br>
-                        <small class="text-muted">27 Aug 13</small>
-                      </span>
-                            </a>
+                            {{/each}}
                         </div>
                         <footer class="panel-footer text-sm">
-                            <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
-                            <a href="#">Add new workspace</a>
+                            <div class="pull-right"><a href="#workspaceNew" class="btn btn-sm btn-info" id="workspace-new"><i class="fa fa-css3"></i> New workspace</a></div>
+                        <div class="clearfix"></div>
                         </footer>
                     </section>
                 </section>
@@ -78,28 +68,14 @@
 
                         <ul class="nav nav-pills nav-stacked no-radius m-t-sm">
                             <li class="padder dk text-sm l-h-2x">
-                                <p>Projects</p>
+                                <p>Projects
+                                    <i class="fa fa-circle text-danger pull-right m-t-xs project-new"></i>
+                                </p>
                             </li>
-                            <li class="fuelux">
-                                <div class="form-inline">
-                                <label class="checkbox checkbox-custom"><input type="checkbox"><i class="checkbox"></i>Item One</label>
-                                <a href="#xxx">
-                                    <i class="fa fa-circle text-danger pull-right m-t-xs"></i>
-                                </a>
-                                    </div>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-circle pull-right m-t-xs"></i>
-                                    Oursson
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-circle text-success pull-right m-t-xs"></i>
-                                    Olympus
-                                </a>
-                            </li>
+
+                     {{#each projects}}
+                                {{>projectBar}}
+                            {{/each}}
                         </ul>
 
 
@@ -125,6 +101,7 @@
                                     Design
                                 </a>
                             </li>
+
                         </ul>
 
                     </section>
@@ -136,14 +113,14 @@
         </section>
     </aside>
     <!-- /.aside -->
-
+{{>workspaceDialogNew}}
 
 </template>
 
 
 <template name="workspaceDialogNew">
 
-    <div id="workspaceDialogNew">
+    <div style="display:none" id="workspaceDialogNew">
         <label>Название <input type="text" id="WorkspaceNewTitle" name="WorkspaceNewTitle"/></label>
 
         <div id="WorkspaceNewCategories">
@@ -158,3 +135,31 @@
     </div>
 
 </template>
+
+        <template name="projectBar">
+            <li class="project-row" id="{{_id}}">
+
+                <div> <label class="checkbox-custom">
+                    <input type="checkbox" name="checkboxB"> <i class="fa fa-square-o"></i> {{title}} </label>
+
+                    <a class="project-dropdown" href="#" data-toggle="dropdown"> <i class="fa fa-circle pull-right m-t-xs" style="color:{{color}}"></i></a>
+
+                    <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                        <div class="arrow left"></div>
+                        <section class="panel bg-white">
+                            <header class="panel-heading">
+                                <a href="#" class="project-name-edit" data-type="text"  data-title="Enter project name">{{title}}</a>
+                            </header>
+                            <div class="list-group">
+                                <div class="colorpalette"></div>
+                            </div>
+                            <footer class="panel-footer text-sm">
+                                <div class="pull-right"><a href="#projectNew" class="btn btn-sm btn-info project-new" ><i class="fa fa-css3"></i> New Project</a></div>
+                                <div class="clearfix"></div>
+                            </footer>
+                        </section>
+                    </section>
+                </div>
+
+            </li>
+        </template>

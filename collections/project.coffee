@@ -1,11 +1,18 @@
-class @Category extends Minimongoid
+class @Project extends Minimongoid
   # indicate which collection to use
-  @_collection: new Meteor.Collection('categories')
+  @_collection: new Meteor.Collection('projects')
 
   # model relations
   @belongs_to: [
-    {name: 'workspace'}
+    {name: 'workspace',class_name: 'Workspace'}
   ]
+
+  error_message: ->
+      msg = ''
+      for i in @errors
+        for key,value of i
+          msg += "<strong>#{key}:</strong> #{value}"
+      msg
 
 
 

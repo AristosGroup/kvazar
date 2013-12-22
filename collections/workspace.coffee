@@ -1,10 +1,18 @@
 class @Workspace extends Minimongoid
   # indicate which collection to use
-  @_collection: new Meteor.Collection('workspaces'),
+  @_collection: new Meteor.Collection('workspaces')
 
-  @embeds_many: [
-    {name:'categories'}
+  @has_many: [
+    {name: 'categories', foreign_key: 'workspace_id'},
+    {name: 'projects', foreign_key: 'workspace_id'},
   ]
+
+  allProjects: ->
+    return Project.find({workspace_id:this._id});
+
+  allCategories: ->
+    return Category.find({workspace_id:this._id});
+
 
 
 

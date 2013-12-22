@@ -114,6 +114,15 @@ Template.issueDetail.events({
         if (e.type != 'focus' && e.keyCode != 13) return;
 
         Session.set("markdown_data", e.target.value);
+    },
+
+    'click a.closeIssueDetail' : function(e)
+    {
+        e.preventDefault();
+
+        $('li.list-group-item').removeClass('active');
+        $('#issue-detail').removeClass('show');
+
     }
 });
 

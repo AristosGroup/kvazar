@@ -16,7 +16,6 @@ spin
 showdown
 keybindings
 underscore
-jqueryui
 accounts-google
 npm
 dropbox
@@ -32,3 +31,4 @@ pnotify-bootstrap-3
 bootstrap-daterangepicker
 autocomplete
 font-awesome
+

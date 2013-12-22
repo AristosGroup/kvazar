@@ -3,8 +3,19 @@
 <section class="vbox">
 <header class="bg-light dker header clearfix">
     <div class="btn-group pull-right">
-        <button type="button" class="btn btn-sm btn-white"><i class="fa fa-chevron-left"></i></button>
-        <button type="button" class="btn btn-sm btn-white"><i class="fa fa-chevron-right"></i></button>
+        <div class="m-b-sm">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option1"> Option 1
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option2"> Option 2
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option3"> Option 3
+                </label>
+            </div>
+        </div>
     </div>
     <div class="btn-toolbar">
         <div class="btn-group select">
@@ -20,7 +31,8 @@
             </ul>
         </div>
         <div class="btn-group">
-            <button class="btn btn-sm btn-white" data-toggle="tooltip" data-placement="bottom" data-title="Refresh"><i class="fa fa-refresh"></i></button>
+            <button class="btn btn-sm btn-white" data-toggle="tooltip" data-placement="bottom" data-title="Refresh"><i
+                    class="fa fa-refresh"></i></button>
         </div>
     </div>
 </header>
@@ -36,7 +48,7 @@
         <span>Wellcome and play this web application template ... </span>
     </a>
 </li>
-<li class="list-group-item animated bounceInLeft" href="#email-content" data-toggle="class:show">
+<li class="list-group-item animated bounceInLeft" href="#">
     <a href="#" class="thumb-xs pull-left m-r-sm">
         <img src="images/avatar.jpg" class="img-circle">
     </a>
@@ -106,7 +118,7 @@
         <span>Morbi nec nunc condimentum...</span>
     </a>
 </li>
-<li class="list-group-item" href="#email-content" data-toggle="class:show">
+<li class="list-group-item" href="#">
     <a href="#" class="thumb-xs pull-left m-r-sm">
         <img src="images/avatar_default.jpg" class="img-circle">
     </a>
@@ -186,7 +198,7 @@
         <span>Morbi nec nunc condimentum...</span>
     </a>
 </li>
-<li class="list-group-item" href="#email-content" data-toggle="class:show">
+<li class="list-group-item" href="#">
     <a href="#" class="thumb-xs pull-left m-r-sm">
         <img src="images/avatar_default.jpg" class="img-circle">
     </a>
@@ -242,6 +254,7 @@
     <form class="m-t-sm">
         <div class="input-group">
             <input type="text" class="input-sm form-control input-s-sm" placeholder="Search">
+
             <div class="input-group-btn">
                 <button class="btn btn-sm btn-white"><i class="fa fa-search"></i></button>
             </div>
@@ -250,7 +263,6 @@
 </footer>
 </section>
 </aside>
-
 
 
 </template>
