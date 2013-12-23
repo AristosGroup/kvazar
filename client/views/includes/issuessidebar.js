@@ -118,11 +118,11 @@ Template.issuessidebar.events({
 
         var currentWorkspace = User.current().currentWorkspace();
         console.log(currentWorkspace._id);
-        var attrs = {title: '', workspace_id: currentWorkspace._id, color: '#f3f5f9'};
+        var attrs = {title: 'New project', workspace_id: currentWorkspace._id, color: '#f3f5f9'};
 
         var newProject = Project.create(attrs);
 
-        $('#'+newProject._id).find('a.project-dropdown').click();
+
 
 
 
@@ -191,6 +191,7 @@ Template.projectBar.rendered = function(e)
         $this.checkbox($this.data());
     });
 };
+
 
 
 
