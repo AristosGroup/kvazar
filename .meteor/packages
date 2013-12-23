@@ -19,7 +19,7 @@ underscore
 accounts-google
 npm
 dropbox
-comments
+minimongoid
 coffeescript
 iron-router
 roles
@@ -31,4 +31,4 @@ pnotify-bootstrap-3
 bootstrap-daterangepicker
 autocomplete
 font-awesome
-
+crypto-md5

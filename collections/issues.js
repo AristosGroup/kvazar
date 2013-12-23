@@ -62,36 +62,26 @@ Issue._collection.allow({
     }
 });
 
+/**
+ * Assuming you have a unique order_column column in your database:
 
-Meteor.methods({
-    issueCreate: function (postAttributes) {
-        var user = Meteor.user();
-        //   postWithSameLink = Issues.findOne({url: postAttributes.url});
+ To add a new row at position x:
 
-        // ensure the user is logged in
-        if (!user)
-            throw new Meteor.Error(401, "You need to login to post new stories");
-
-
-        // pick out the whitelisted keys
-        var post = _.extend(_.pick(postAttributes, 'order', 'subject'), {
-           // userId: user._id,
-            //  author: user.profile.name,
-           // submitted: new Date().getTime(),
-           // status: 1
-        });
-
-        var issue = Issue.create(post);
-
-        console.log(issue);
+ Lock tables
+ update all rows where position >= x and add 1
+ Then insert the new row at position x
+ Unlock tables
 
 
-        var issueId = issue._id;
-     /*   Issues.update({order: {$gte: postAttributes.order}},
-            {$inc: {order: 1}},
-            {multi: true});*/
+ To swap positions x and y:
 
-        return issueId;
-    }
-});
+ UPDATE table SET x=(@temp:=x), x = y, y = @temp;
+ (source)
 
+ To remove a row at position x:
+
+ Lock tables
+ Remove row at position x
+ update all rows where position > x and subtract 1
+ Unlock tables
+ **/

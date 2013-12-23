@@ -17,6 +17,7 @@
     "x-editable-bootstrap3": {},
     "pnotify-bootstrap-3": {},
     "bootstrap-daterangepicker": {},
-    "autocomplete": {}
+    "autocomplete": {},
+    "crypto-md5": {}
   }
 }

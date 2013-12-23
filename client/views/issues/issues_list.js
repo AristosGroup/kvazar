@@ -23,3 +23,12 @@ Template.issuesList.events({
 
     }
 });
+
+Template.issuesList.rendered = function() {
+    $('.sortable').sortable({
+    }).bind('sortupdate', function(e, ui) {
+            console.log(ui.item);
+            console.log(ui.oldIndex);
+            console.log(ui.newIndex);
+        });
+};

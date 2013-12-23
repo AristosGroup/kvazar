@@ -8,6 +8,14 @@ class @Category extends Minimongoid
   ]
 
 
+  @createNewCategory: (data) ->
+    data.user_id = User.current()._id
+    data.title  = 'New category' if(!data.title)
+    data.color  = '#f3f5f9' if(!data.color)
+    return Category.create(data);
+
+
+
 
 
 

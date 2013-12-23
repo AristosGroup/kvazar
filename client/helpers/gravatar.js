@@ -6,7 +6,7 @@ Gravatar = {
 
             var protocol = options.secure ? 'https' : 'http';
             delete options.secure;
-            var hash = md5(user.email());
+            var hash = CryptoJS.MD5(user.email()).toString();
             var url = protocol + '://www.gravatar.com/avatar/' + hash;
 
             var params = _.map(options, function(val, key) { return key + "=" + val}).join('&');

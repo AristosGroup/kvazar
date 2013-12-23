@@ -1,10 +1,10 @@
 class @Project extends Minimongoid
-  # indicate which collection to use
+
   @_collection: new Meteor.Collection('projects')
 
-  # model relations
+
   @belongs_to: [
-    {name: 'workspace',class_name: 'Workspace'}
+    {name: 'workspace', class_name: 'Workspace'}
   ]
 
   error_message: ->
@@ -13,6 +13,13 @@ class @Project extends Minimongoid
         for key,value of i
           msg += "<strong>#{key}:</strong> #{value}"
       msg
+
+
+  @createNewProject: (data) ->
+    data.user_id = User.current()._id
+    data.title  = 'New project' if(!data.title)
+    data.color  = '#f3f5f9' if(!data.color)
+    return Project.create(data);
 
 
 

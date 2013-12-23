@@ -2,17 +2,10 @@ class @User extends Minimongoid
   # indicate which collection to use
   @_collection: Meteor.users
 
-  @default: {
-    defaultWorkspaceId:1,
-    currentWorkspaceId:false
-  },
-
-  # class methods
   @current: ->
     User.init(Meteor.user()) if Meteor.userId()
 
 
-  # instance methods
   # return true if user is friends with User where id==user_id
   friendsWith: (user_id) ->
     _.contains @friend_ids, user_id
@@ -22,24 +15,34 @@ class @User extends Minimongoid
 
 
   currentWorkspace: ->
-    return Workspace.first({title:"Aristos"});
-
-    #if(@currentWorkspaceId)
-    #  return Workspace.init(@currentWorkspaceId);
-   # else
-    #  return Workspace.init(@defaultWorkspaceId);
-
+    return Workspace.first({_id: this.current_workspace_id});
 
   workspaces: ->
-    return Workspace.find({members:Meteor.userId()});
+    return Workspace.find({members: Meteor.userId()});
 
   workspacesWhithoutCurrent: ->
     cur = @currentWorkspace();
-    return Workspace.find($and:[{members:@id},{_id:{$ne:cur.id}}]);
-
-
+    return Workspace.find($and: [
+      {members: @id},
+      {_id: {$ne: cur.id}}
+    ]);
 
 
   # grab the first email off the emails array
   email: ->
     if (@emails and @emails.length) then @emails[0].address else ''
+
+
+  userName: ->
+    email = this.email()
+    parts = email.split('@')
+    addr = parts[0]
+    if(addr.indexOf('.') > 0)
+      parts = addr.split('.')
+      user_name = parts[0].charAt(0) + parts[1].charAt(0)
+      return user_name.toUpperCase();
+
+    return addr.charAt(0).toUpperCase() + addr.slice(1);
+
+
+
