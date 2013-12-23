@@ -5,6 +5,7 @@ class @Workspace extends Minimongoid
   @has_many: [
     {name: 'categories', foreign_key: 'workspace_id'},
     {name: 'projects', foreign_key: 'workspace_id'}
+    {name: 'groups', foreign_key: 'workspace_id'}
   ]
 
   allProjects: ->
@@ -14,24 +15,11 @@ class @Workspace extends Minimongoid
     return Category.find({workspace_id: this._id});
 
   allMembers: ->
-    return User.find({_id: {$in: this.members}});
+    return User.find({_id: {$in: this.members}}) if(this.members)
 
   notMembers: ->
-    return User.find({_id: {$nin: this.members}});
+    return User.find({_id: {$nin: this.members}}) if(this.members)
 
+  allGroups: ->
+    return Group.find({workspace_id: this._id});
 
-###
-
-Workspace._collection.allow({
-  insert: function(userId, doc) {
-// only allow posting if you are logged in
-return !! userId;
-},
-
-update: function(userId, doc) {
-// only allow posting if you are logged in
-return true;
-}
-});
-
-###

@@ -5,9 +5,8 @@ Meteor.publish('issues', function (options) {
 });
 
 Meteor.publish('users', function () {
-    return User.find({},{fields: {'current_workspace_id':1}});
+    return User.find({}, {fields: {'current_workspace_id': 1}});
 });
-
 
 
 Meteor.publish('notifications', function () {
@@ -16,6 +15,11 @@ Meteor.publish('notifications', function () {
 
 Meteor.publish('workspaces', function () {
     return Workspace.find();
+});
+
+
+Meteor.publish('groups', function () {
+    return Group.find();
 });
 
 Meteor.publish('projects', function () {
@@ -30,27 +34,29 @@ Meteor.publish('categories', function () {
 
 /**
  * Создаем личный воркспейс для юзера, при его регистрации
- * @param userId
+ *
  */
-Hooks.onCreateUser = function (userId) {
-    var workspace = Workspace.create({title: 'My workspace', user_id: userId, members: [userId]});
-    User.first({_id:userId}).update({current_workspace_id: workspace._id})
-};
 
-/*Posts.find().observe({
-    added: function(post) {
-        // when 'added' callback fires, add HTML element
-        $('ul').append('<li id="' + post._id + '">' + post.title + '</li>');
-    },
-    changed: function(post) {
-        // when 'changed' callback fires, modify HTML element's text
-        $('ul li#' + post._id).text(post.title);
-    },
-    removed: function(post) {
-        // when 'removed' callback fires, remove HTML element
-        $('ul li#' + post._id).remove();
+User.find().observe({
+ added: function(user) {
+     var userId=user._id;
+     var workspace = Workspace.create({title: 'My workspace', user_id: userId});
+     User.init(user).update({current_workspace_id: workspace._id})
+ }
+ });
+
+
+/**
+ * Создаем гуппу админов, при создании воркспейса
+ */
+Workspace.find().observe({
+    added: function(workspace) {
+        var workspaceId=workspace._id;
+
+        var group = Group.create({title: 'Admins', user_id: workspace.user_id, members: [workspace.user_id], workspace_id: workspaceId});
+
     }
-});*/
+});
 
 
 

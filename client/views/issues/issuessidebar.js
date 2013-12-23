@@ -29,12 +29,12 @@ Template.issuessidebar.helpers({
         return projects;
     },
 
-    members: function () {
+    groups: function () {
         var user = User.current();
         var currentWorkspace = User.current().currentWorkspace();
-        var members = currentWorkspace.allMembers();
+        var groups = currentWorkspace.allGroups();
 
-        return members;
+        return groups;
     },
 
     notMembers : function () {
@@ -199,7 +199,7 @@ Template.categoryBar.rendered = function () {
 };
 
 
-Template.memberBar.rendered = function() {
+Template.groupBar.rendered = function() {
     $(this.findAll('.checkbox-custom > input')).each(function () {
 
         var $this = $(this);
@@ -212,7 +212,7 @@ Template.memberBar.rendered = function() {
 };
 
 
-Template.memberBar.helpers({
+Template.groupBar.helpers({
     user_name: function () {
         var user = User.init(this);
         return user.userName();

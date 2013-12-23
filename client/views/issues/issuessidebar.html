@@ -120,8 +120,8 @@
                                 </p>
                             </li>
 
-                            {{#each members}}
-                            {{>memberBar}}
+                            {{#each groups}}
+                            {{>groupBar}}
                             {{/each}}
                         </ul>
 
@@ -208,16 +208,12 @@
 </template>
 
 
-<template name="memberBar">
+<template name="groupBar">
     <li class="filter-row" id="{{_id}}">
         <div>
             <label class="checkbox-custom">
-                <input type="checkbox" name="checkboxM"> <i class="fa fa-square-o"></i> <span class="member-row-title">{{user_name}}</span>
+                <input type="checkbox" name="checkboxM"> <i class="fa fa-square-o"></i> <span class="group-row-title">{{title}}</span>
             </label>
-            <a href="#" data-toggle="dropdown" class="thumb-xs pull-right">
-                <img src="{{avatar}}" class="img-circle">
-            </a>
-
 
             <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
                 <div class="arrow left"></div>
