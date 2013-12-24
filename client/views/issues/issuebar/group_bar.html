@@ -1,0 +1,71 @@
+<template name="groupBar">
+    <ul class="nav nav-pills nav-stacked no-radius m-t-sm">
+        <li class="padder dk text-sm l-h-2x">
+            <p>
+
+            <div>Members
+                <a href="#" data-toggle="dropdown" class="group-new"><i
+                        class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
+
+                <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                    <div class="arrow left"></div>
+                    <section class="panel bg-white">
+                        <header class="panel-heading">
+                            Add group to workspace
+                        </header>
+                        <div class="list-group">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Group name</label>
+
+                                <div class="col-sm-10"><input type="text" class="form-control"
+                                                              placeholder="group name"></div>
+                            </div>
+                        </div>
+                        <footer class="panel-footer text-sm">
+                            <div class="pull-right"><a href="#removeProject"
+                                                       class="btn btn-sm btn-success group-add"><i
+                                    class="fa"></i> Remove Project</a></div>
+                            <div class="clearfix"></div>
+                        </footer>
+                    </section>
+                </section>
+
+            </div>
+            </p>
+        </li>
+
+        {{#each groups}}
+        {{>groupBarRow}}
+        {{/each}}
+    </ul>
+</template>
+
+
+<template name="groupBarRow">
+    <li class="filter-row" id="{{_id}}">
+        <div>
+            <label class="checkbox-custom">
+                <input type="checkbox" name="checkboxM"> <i class="fa fa-square-o"></i> <span class="group-row-title">{{title}}</span>
+            </label>
+
+            <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                <div class="arrow left"></div>
+                <section class="panel bg-white">
+                    <header class="panel-heading">
+                        {{user_name}}
+                    </header>
+                    <div class="list-group">
+
+                    </div>
+                    <footer class="panel-footer text-sm">
+                        <div class="pull-right"><a href="#removeMember" class="btn btn-sm btn-danger member-remove"><i
+                                class="fa"></i> Remove {{user_name}} from workspace</a></div>
+                        <div class="clearfix"></div>
+                    </footer>
+                </section>
+            </section>
+
+        </div>
+    </li>
+
+</template>

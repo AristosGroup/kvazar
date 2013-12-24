@@ -1,0 +1,28 @@
+<template name="workspaceBar">
+    <button class="btn btn-icon btn-default btn-sm  pull-right" data-toggle="dropdown"><i
+            class="fa fa-desktop"></i></button>
+    <button class="btn btn-icon btn-default btn-sm pull-right visible-xs m-r-xs" data-toggle="class:show"
+            data-target="#mail-nav"><i class="fa fa-bars"></i></button>
+    <p class="h4">{{currentWorkspace.title}}</p>
+    <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+        <div class="arrow left"></div>
+        <section class="panel bg-white">
+            <header class="panel-heading">
+                <strong>{{currentWorkspace.title}} workspace</strong>
+            </header>
+            <div class="list-group">
+                {{#each userWorkspaces}}
+                <a href="#" class="media list-group-item">
+                    <span class="media-body block m-b-none">{{title}}</span>
+                </a>
+                {{/each}}
+            </div>
+            <footer class="panel-footer text-sm">
+                <div class="pull-right"><a href="#workspaceNew" class="btn btn-sm btn-info"
+                                           id="workspace-new"><i class="fa fa-css3"></i> New workspace</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+        </section>
+    </section>
+</template>

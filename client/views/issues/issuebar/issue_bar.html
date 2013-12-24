@@ -1,0 +1,47 @@
+<template name="issueBar">
+    <!-- .aside -->
+    <aside class="aside aside-md bg-dark">
+        <section class="vbox">
+            <header class="dk header">
+            {{>workspaceBar}}
+            </header>
+            <section>
+                <section>
+                    <section id="mail-nav" class="hidden-xs">
+                        <ul class="nav nav-pills nav-stacked no-radius">
+                            <li>
+                                <a href="#">
+                                    <span class="badge pull-right">15</span>
+                                    <i class="fa fa-fw fa-inbox"></i>
+                                    Inbox
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">
+                                    <i class="fa fa-fw fa-envelope-o"></i>
+                                    Sent mail
+                                </a>
+                            </li>
+                        </ul>
+                        {{>projectBar}}
+                        {{>categoryBar}}
+                        {{>groupBar}}
+                    </section>
+                </section>
+            </section>
+            <footer class="dk footer text-center">
+                <button class="btn btn-sm btn-info" data-toggle="class:layout-box" data-target="html">Toggle box
+                    layout
+                </button>
+            </footer>
+        </section>
+    </aside>
+    <!-- /.aside -->
+
+
+</template>
+
+
+<template name="memberSelectOption">
+    <option value="{{_id}}">dfg{{user_name}}</option>
+</template>
