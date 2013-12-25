@@ -22,22 +22,3 @@ class @Project extends Minimongoid
     data.color  = '#f3f5f9' if(!data.color)
     return Project.create(data);
 
-
-
-
-
-###
-
-Workspace._collection.allow({
-  insert: function(userId, doc) {
-// only allow posting if you are logged in
-return !! userId;
-},
-
-update: function(userId, doc) {
-// only allow posting if you are logged in
-return true;
-}
-});
-
-###

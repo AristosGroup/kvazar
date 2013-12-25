@@ -14,35 +14,17 @@
     </ul>
 </template>
 
-
 <template name="categoryBarRow">
     <li class="filter-row" id="{{_id}}">
 
         <div><label class="checkbox-custom">
             <input type="checkbox" name="checkboxC"> <i class="fa fa-square-o"></i> <span class="category-row-title">{{title}}</span>
         </label>
-
-            <a class="category-dropdown" href="#" data-toggle="dropdown"> <i class="fa fa-circle pull-right m-t-xs"
-                                                                             style="color:{{color}}"></i></a>
-
-            <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
-                <div class="arrow left"></div>
-                <section class="panel bg-white">
-                    <header class="panel-heading">
-                        <a href="#" class="filter-name-edit" data-type="text"
-                           data-title="Enter category name">{{title}}</a>
-                    </header>
-                    <div class="list-group">
-                        <div class="colorpalette"></div>
-                    </div>
-                    <footer class="panel-footer text-sm">
-                        <div class="pull-right"><a href="#removeCategory" class="btn btn-sm btn-danger category-remove"><i
-                                class="fa"></i> Remove Category</a></div>
-                        <div class="clearfix"></div>
-                    </footer>
-                </section>
-            </section>
-        </div>
+            <a class="filter-edit" href="#" data-toggle="dropdown" data-target="#"> <i
+                    class="fa fa-circle pull-right m-t-xs"
+                    style="color:{{color}}"></i></a></div>
 
     </li>
 </template>
+
+

@@ -1,5 +1,4 @@
 Meteor.publish('issues', function (options) {
-    //todo возращать задачи только назначенные этому пользователю или если он подписан на них.
     return Issue.find({}, options);
 
 });
@@ -33,7 +32,7 @@ Meteor.publish('categories', function () {
 
 
 /**
- * Создаем личный воркспейс для юзера, при его регистрации
+ * Create a personal workspace for the user, when sign up
  *
  */
 
@@ -47,12 +46,11 @@ User.find().observe({
 
 
 /**
- * Создаем гуппу админов, при создании воркспейса
+ * Create a group Admins to create workspace
  */
 Workspace.find().observe({
     added: function(workspace) {
         var workspaceId=workspace._id;
-
         var group = Group.create({title: 'Admins', user_id: workspace.user_id, members: [workspace.user_id], workspace_id: workspaceId});
 
     }

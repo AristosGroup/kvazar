@@ -18,6 +18,15 @@ Template.groupBar.helpers({
     }
 });
 
+Template.groupBar.events({
+    'click a.group-new' : function(e) {
+        KMenu(e, $('#newGroupDropdown'));
+    }
+});
+
+
+
+
 Template.groupBarRow.helpers({
     user_name: function () {
         var user = User.init(this);

@@ -6,11 +6,17 @@ body {overflow: hidden;}
     top: -8px;
 }
 
+.aside-md li.padder .dropdown-menu {
+    margin-left: 14px;
+    width: 300px;
+    top: -14px;
+}
+
 .aside-md  .arrow.left {
     top: 22px;
 }
 
-.bg-dark .nav li > div {
+.bg-dark .nav li.filter-row > div {
 
     position: relative;
     display: block;

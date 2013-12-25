@@ -15,10 +15,10 @@ class @User extends Minimongoid
 
 
   currentWorkspace: ->
-    return Workspace.first({_id: this.current_workspace_id});
+    return Workspace.first({_id: this.current_workspace_id})
 
   workspaces: ->
-    return Workspace.find({members: Meteor.userId()});
+    return Workspace.find({members: Meteor.userId()})
 
   workspacesWhithoutCurrent: ->
     return Workspace.find($and: [
@@ -36,12 +36,18 @@ class @User extends Minimongoid
     email = this.email()
     parts = email.split('@')
     addr = parts[0]
-    if(addr.indexOf('.') > 0)
-      parts = addr.split('.')
+    return addr.charAt(0).toUpperCase() + addr.slice(1)
+
+
+
+
+  shortUserName: ->
+    if(@userName().indexOf('.') > 0)
+      parts = @userName().split('.')
       user_name = parts[0].charAt(0) + parts[1].charAt(0)
       return user_name.toUpperCase();
+    return @userName().charAt(0).toUpperCase()
 
-    return addr.charAt(0).toUpperCase() + addr.slice(1);
 
 
 

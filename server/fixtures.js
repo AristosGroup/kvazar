@@ -1,20 +1,32 @@
-/*
+
 
 
 if (Status.find().count() === 0) {
-    Statuses.insert({
+    Status.create({
         title: 'New',
         default:1
     });
 
-    Statuses.insert({
+    Status.create({
         title: 'Approved'
     });
 
-    Statuses.insert({
+    Status.create({
+        title: 'In progress'
+    });
+
+    Status.create({
+        title: 'In progress'
+    });
+
+
+    Status.create({
         title: 'Complete'
     });
 }
+
+
+/*
 
 if (Tags.find().count() === 0) {
     Tags.insert({

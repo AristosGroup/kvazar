@@ -24,3 +24,15 @@ Show = function(el, target) {
     el.addClass('active');
     target.addClass('show');
 };
+
+
+KMenu = function(e, dropdown) {
+    e.preventDefault();
+    var target = e.currentTarget;
+    dropdown.detach();
+    dropdown.appendTo($(target).parent());
+    dropdown.on('click', function(e) {
+        e.stopPropagation();
+    });
+    $(target).dropdown();
+};
