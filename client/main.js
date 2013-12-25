@@ -3,8 +3,6 @@
 //Meteor.subscribe('statuses');
 
 Meteor.startup(function(){
-    Hooks.init();
-
 
 });
 

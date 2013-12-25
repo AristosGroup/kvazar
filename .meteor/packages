@@ -9,7 +9,6 @@ preserve-inputs
 select2
 moment
 bootstrap-3
-router
 accounts-password
 accounts-github
 spin
@@ -25,7 +24,6 @@ iron-router
 roles
 iron-router-progress
 accounts-ui-bootstrap-3
-event-hooks
 x-editable-bootstrap3
 pnotify-bootstrap-3
 bootstrap-daterangepicker
