@@ -3,7 +3,7 @@
         <li class="padder dk text-sm l-h-2x">
             <div>
                 Members
-                <a href="#" class="project-dropdown group-new"  data-toggle="dropdown" data-target="#"><i
+                <a href="#" class="project-dropdown group-new" data-toggle="dropdown" data-target="#"><i
                         class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
 
             </div>
@@ -14,6 +14,7 @@
         {{/each}}
     </ul>
     {{>newGroupDropdown}}
+    {{>groupEditDropdown}}
 </template>
 
 
@@ -23,51 +24,86 @@
             <label class="checkbox-custom">
                 <input type="checkbox" name="checkboxM"> <i class="fa fa-square-o"></i> <span class="group-row-title">{{title}}</span>
             </label>
-
-            <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
-                <div class="arrow left"></div>
-                <section class="panel bg-white">
-                    <header class="panel-heading">
-                        {{user_name}}
-                    </header>
-                    <div class="list-group">
-
-                    </div>
-                    <footer class="panel-footer text-sm">
-                        <div class="pull-right"><a href="#removeMember" class="btn btn-sm btn-danger member-remove"><i
-                                class="fa"></i> Remove {{user_name}} from workspace</a></div>
-                        <div class="clearfix"></div>
-                    </footer>
-                </section>
-            </section>
-
+            <a class="group-edit" href="#" data-toggle="dropdown" data-target="#"> <i
+                    class="fa fa-circle pull-right m-t-xs"
+                    ></i></a>
         </div>
     </li>
+
+    {{#each members}}
+    <li class="filter-row" id="{{_id}}">
+        <div>
+            <label class="checkbox-custom">
+                <input type="checkbox" name="checkboxM"> <i class="fa fa-square-o"></i> <span class="group-row-title">{{userName}}</span>
+            </label>
+            <a class="  member-edit" href="#" data-toggle="dropdown" data-target="#">
+                <img class="thumb-xs pull-right  img-circle" src="{{avatar}}" >
+            </a>
+        </div>
+    </li>
+    {{/each}}
 
 </template>
 
 
-        <template name="newGroupDropdown">
+<template name="newGroupDropdown">
 
-            <section id="newGroupDropdown" class="dropdown-menu m-l-sm pull-left animated fadeInRight">
-                <div class="arrow left"></div>
-                <section class="panel bg-white">
-                    <header class="panel-heading">
-                        Add group to workspace
-                    </header>
-                    <div class="list-group">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Group name</label>
-                            <div class="col-sm-10"><input type="text" class="form-control"
-                                                          placeholder="group name"></div>
+    <section id="newGroupDropdown" class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+        <div class="arrow left"></div>
+        <section class="panel bg-white">
+            <header class="panel-heading">
+                Add group to workspace
+            </header>
+            <div class="list-group">
+                <div class="list-group-item form-group">
+
+                    <div class="col-sm-12"><input id="new-group-name" type="text" class="form-control"
+                                                  placeholder="Group name"></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <footer class="panel-footer text-sm">
+                <div class="pull-right"><a href="#addGroup"
+                                           class="btn btn-sm btn-success group-add">
+                    <i class="fa"></i> Add Group</a></div>
+                <div class="clearfix"></div>
+            </footer>
+        </section>
+    </section>
+</template>
+
+
+
+<template name="groupEditDropdown">
+
+    <section id="groupEditDropdown" class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+        <div class="arrow left"></div>
+        <section class="panel bg-white">
+            <header class="panel-heading">
+
+            </header>
+            <div class="list-group">
+                <div class="list-group-item form-group">
+
+                    <div class="col-sm-12">
+                        <div class="m-b">
+                            <select id="members-group-select" style="width:260px">
+                              {{#each notMembers}}
+                               <option value="{{_id}}">{{userName}}</option>
+                                {{/each}}
+                            </select>
                         </div>
+
                     </div>
-                    <footer class="panel-footer text-sm">
-                        <div class="pull-right"><a href="#removeProject"
-                                                   class="btn btn-sm btn-success group-add">
-                            <i class="fa"></i> Remove Project</a></div>
-                        <div class="clearfix"></div>
-                    </footer>
-                </section>
-            </section>
-        </template>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <footer class="panel-footer text-sm">
+                <div class="pull-right"><a href="#addGroup"
+                                           class="btn btn-sm btn-success member-group-add">
+                    <i class="fa"></i> Add User to group</a></div>
+                <div class="clearfix"></div>
+            </footer>
+        </section>
+    </section>
+</template>

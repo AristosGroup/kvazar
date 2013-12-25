@@ -10,12 +10,23 @@ class @Group extends Minimongoid
 
 
   allMembers: ->
-    User.find({_id: {$in: this.members}}) if(this.members)
+    User.find({_id: {$in: @members}}) if(@members)
 
   notMembers: ->
-    User.find({_id: {$nin: this.members}}) if(this.members)
+    User.find({_id: {$nin: @members}}) if(@members)
 
 
   addUserToGroup: (user) ->
-    @push({members: user._id});
+    @push({members: user._id})
+
+
+  @createNewGroup: (data) ->
+    data.user_id = User.current()._id
+   # data.members = [User.current()._id]
+    return Group.create(data)
+
+  addMembersToGroup: (data) ->
+    @push(members:data.member_id)
+
+
 

@@ -24,20 +24,3 @@ Template.issueBar.events({
         e.stopPropagation();
     }
 });
-
-
-Template.issueBar.rendered = function () {
-    $("#members-workspace-select").select2({
-
-        escapeMarkup: function (m) {
-            return m;
-        }
-    });
-};
-
-
-
-
-
-
-

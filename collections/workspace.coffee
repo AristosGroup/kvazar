@@ -18,7 +18,8 @@ class @Workspace extends Minimongoid
     return User.find({_id: {$in: this.members}}) if(this.members)
 
   notMembers: ->
-    return User.find({_id: {$nin: this.members}}) if(this.members)
+    return User.find({_id: {$nin: @members}})
+
 
   allGroups: ->
     return Group.find({workspace_id: this._id});

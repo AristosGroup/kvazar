@@ -1,6 +1,3 @@
-
-
-
 Template.categoryBar.helpers({
 
     categories: function () {

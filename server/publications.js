@@ -4,7 +4,7 @@ Meteor.publish('issues', function (options) {
 });
 
 Meteor.publish('users', function () {
-    return User.find({}, {fields: {'current_workspace_id': 1}});
+    return User.find({}, {fields: {'current_workspace_id': 1,emails:1}});
 });
 
 
