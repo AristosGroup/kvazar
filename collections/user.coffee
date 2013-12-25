@@ -21,10 +21,9 @@ class @User extends Minimongoid
     return Workspace.find({members: Meteor.userId()});
 
   workspacesWhithoutCurrent: ->
-    cur = @currentWorkspace();
     return Workspace.find($and: [
       {members: @id},
-      {_id: {$ne: cur.id}}
+      {_id: {$ne: @current_workspace_id}}
     ]);
 
 

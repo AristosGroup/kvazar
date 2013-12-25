@@ -10,25 +10,25 @@ Meteor.publish('users', function () {
 
 
 Meteor.publish('notifications', function () {
-    return Notification.find({userId: this.userId});
+    return Notification.find({user_id: this.userId});
 });
 
 Meteor.publish('workspaces', function () {
-    return Workspace.find();
+    return Workspace.find({members:this.userId});
 });
 
 
 Meteor.publish('groups', function () {
-    return Group.find();
+    return Group.find({members:this.userId});
 });
 
 Meteor.publish('projects', function () {
-    return Project.find();
+    return Project.find({members:this.userId});
 });
 
 
 Meteor.publish('categories', function () {
-    return Category.find();
+    return Category.find({members:this.userId});
 });
 
 
@@ -40,7 +40,7 @@ Meteor.publish('categories', function () {
 User.find().observe({
  added: function(user) {
      var userId=user._id;
-     var workspace = Workspace.create({title: 'My workspace', user_id: userId});
+     var workspace = Workspace.create({title: 'My workspace', user_id: userId, members: [userId]});
      User.init(user).update({current_workspace_id: workspace._id})
  }
  });
