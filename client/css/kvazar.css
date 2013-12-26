@@ -16,21 +16,30 @@ body {overflow: hidden;}
     top: 22px;
 }
 
+.bg-dark .nav-stacked > li + li {
+    margin-top: 0px;
+}
 .bg-dark .nav li.filter-row > div {
 
     position: relative;
     display: block;
-    padding: 5px 15px 5px 30px;
+    padding: 4px 15px 4px 30px;
     cursor: pointer;
 
     color: #a7afbd;
 }
 .nav li > div label.checkbox-custom {
     font-weight: normal;
+    cursor: pointer;
 }
 
 .bg-dark .nav li > div:hover {
     background-color: #414957;
+}
+
+
+.bg-dark .nav li.user-filter-row > div {
+    padding: 3px 15px 3px 35px;
 }
 
 .nav li > div * {
@@ -42,6 +51,20 @@ body {overflow: hidden;}
     user-select: none;
 }
 
+.nav li .radio-custom > i:before, .checkbox-custom > i:before {
+    font-size: 1.000em;
+}
+
 .colorpalette {
-    width: 200px;
+    width: 225px;
+    padding-left: 12px;
+    padding-right: 0px;
+}
+
+/**
+Issue list
+**/
+
+.list-group .list-group-item {
+    border-right: 5px #fff solid;
 }

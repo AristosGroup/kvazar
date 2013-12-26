@@ -1,5 +1,6 @@
 Session.set('categoryNewColor', null);
 
+
 Template.categoryBar.helpers({
 
     categories: function () {

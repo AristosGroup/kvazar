@@ -1,9 +1,11 @@
+/*
 Issue = _.extend(Minimongoid, {
     _collection: new Meteor.Collection('issues'),
 
     isValid:function() {
         return true;
     }
+*/
 
 /*
     defaults: {
@@ -38,7 +40,7 @@ Issue = _.extend(Minimongoid, {
         {name: 'subtasks'}
 
     ]*/
-});
+/*});*/
 
 
 //Issues = Issue._collection;

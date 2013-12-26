@@ -1,4 +1,5 @@
-Session.set('filterEdit', null);
+Session.set('filterEditType', null);
+Session.set('filterEditId', null);
 
 Template.editingFilter.helpers({
     title: function () {
@@ -19,9 +20,9 @@ Template.editingFilter.helpers({
 Template.editingFilter.events({
     'click .filter-remove': function (e) {
         e.preventDefault();
+        currentEditingFilterObj().destroy();
         Session.set('filterEditId', null);
         Session.set('filterEditType', null);
-        currentEditingFilterObj().destroy();
 
     }
 });

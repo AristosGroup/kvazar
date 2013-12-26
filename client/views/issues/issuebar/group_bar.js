@@ -47,6 +47,7 @@ Template.groupBarRow.events({
     }
 });
 
+
 Template.newGroupDropdown.events({
     'click a.group-add': function (e) {
         e.preventDefault();
@@ -91,7 +92,7 @@ Template.groupEditDropdown.rendered = function () {
 };
 
 Template.groupEditDropdown.events({
-    'click a.member-group-add': function (e) {
+    'click a.user-group-add': function (e) {
         e.preventDefault();
 
         var attrs = {user_id: $("#members-group-select").select2('val')};

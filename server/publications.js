@@ -3,6 +3,11 @@ Meteor.publish('issues', function (options) {
 
 });
 
+Meteor.publish('statuses', function () {
+    return Status.find({});
+
+});
+
 Meteor.publish('users', function () {
     return User.find({}, {fields: {'current_workspace_id': 1}});
 });

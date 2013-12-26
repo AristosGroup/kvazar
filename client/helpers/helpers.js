@@ -26,6 +26,13 @@ Show = function(el, target) {
 };
 
 
+/**
+ *
+ * todo Меню не отрабатывает 2ой раз, так как после апдейта шаблона, в который он вставляется, затирается блок с дропдауном
+ * @param e
+ * @param dropdown
+ * @constructor
+ */
 KMenu = function(e, dropdown) {
     e.preventDefault();
     var target = e.currentTarget;

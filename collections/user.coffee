@@ -5,6 +5,10 @@ class @User extends Minimongoid
   @current: ->
     User.init(Meteor.user()) if Meteor.userId()
 
+  @default : {
+    issues_view_mode:"quick"
+  }
+
 
   # return true if user is friends with User where id==user_id
   friendsWith: (user_id) ->

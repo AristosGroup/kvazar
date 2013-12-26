@@ -1,4 +1,4 @@
-if (Status.find().count() === 0) {
+if (Status.find().count() == 0) {
     Status.create({
         title: 'New',
         default:1

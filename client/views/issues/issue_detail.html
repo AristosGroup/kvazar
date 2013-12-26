@@ -1,14 +1,16 @@
 <template name="issueDetail">
+
+
     {{#with currentIssue}}
-<aside class="bg-white hide col-lg-6 b-l animated bounceInRight" id="issue-detail">
     <section class="vbox">
+
         <section class="scrollable w-f">
             <div class="wrapper b-b">
                 <a href="#" data-toggle="class" class="pull-left m-r-xs"><i class="fa fa-star-o fa-lg text"></i><i class="fa fa-star text-warning fa-lg text-active"></i></a>
                 <a  href="#close"  class="pull-right  closeIssueDetail">
                     <i class="fa fa-trash-o"></i>
                 </a>
-                <h4 class="m-n">Kickoff meeting</h4>
+                <h4 class="m-n">{{subject}}</h4>
             </div>
             <div class="text-sm padder m-t">
                 <div class="block clearfix m-b">
@@ -54,6 +56,7 @@
                 </div>
             </div>
         </section>
+
         <footer class="footer b-t bg-white-only">
             <form class="m-t-sm">
                 <div class="input-group">
@@ -65,6 +68,7 @@
             </form>
         </footer>
     </section>
-</aside>
     {{/with}}
+
+
     </template>

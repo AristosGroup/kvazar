@@ -1,6 +1,6 @@
 Template.issueDetail.helpers({
     currentIssue: function () {
-        return Issue.find(Session.get('currentIssueId'));
+        return Issue.find(Session.get('currentIssueDetailId'));
     },
     markdown_data: function () {
         return Session.get("markdown_data");
@@ -10,36 +10,7 @@ Template.issueDetail.helpers({
 
 Template.issueDetail.rendered = function (e) {
 
-    var id = Session.get('currentIssueId');
-
-
-    $('div.row.active').removeClass('active');
-    var $issueRow = $('#issue_item_' + id);
-
-    $issueRow.addClass('active');
-    $issueRow.find('input').focus();
-
-
-    /**
-     * tags
-     */
-    var $this = this;
-
-
-    var alltags = Tags.find().fetch();
-    alltags = _.map(alltags, function (tag, key) {
-        return tag.title;
-    });
-    var tags = $($this.find('input.tags'));
-    tags.select2({tags: alltags
-
-    }).change(
-        function (e) {
-            Issue.update(id, {$set: {tags: e.val}});
-            Meteor.call('tagsUpdate', e.added, e.removed, function (error, result) {  } );
-        }
-    );
-
+    var id = Session.get('currentIssueDetailId');
 
 };
 

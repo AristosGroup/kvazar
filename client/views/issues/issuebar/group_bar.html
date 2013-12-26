@@ -2,7 +2,7 @@
     <ul class="nav nav-pills nav-stacked no-radius m-t-sm">
         <li class="padder dk text-sm l-h-2x">
             <div>
-                Members
+                Assigned to
                 <a href="#" class="project-dropdown group-new" data-toggle="dropdown" data-target="#"><i
                         class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
 
@@ -19,7 +19,7 @@
 
 
 <template name="groupBarRow">
-    <li class="filter-row" id="{{_id}}">
+    <li class="filter-row group-filter-row" id="{{_id}}">
         <div>
             <label class="checkbox-custom">
                 <input type="checkbox" name="checkboxM"> <i class="fa fa-square-o"></i> <span class="group-row-title">{{title}}</span>
@@ -31,7 +31,7 @@
     </li>
 
     {{#each users}}
-    <li class="filter-row" id="{{_id}}">
+    <li class="filter-row user-filter-row" id="{{_id}}">
         <div>
             <label class="checkbox-custom">
                 <input type="checkbox" name="checkboxM"> <i class="fa fa-square-o"></i> <span class="group-row-title">{{userName}}</span>
@@ -99,8 +99,8 @@
                 </div>
             </div>
             <footer class="panel-footer text-sm">
-                <div class="pull-right"><a href="#addGroup"
-                                           class="btn btn-sm btn-success member-group-add">
+                <div class="pull-right"><a href="#addUserToGroup"
+                                           class="btn btn-sm btn-success user-group-add">
                     <i class="fa"></i> Add User to group</a></div>
                 <div class="clearfix"></div>
             </footer>
