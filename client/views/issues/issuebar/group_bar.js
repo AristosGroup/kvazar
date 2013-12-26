@@ -1,3 +1,6 @@
+Session.set('groupEditId', null);
+
+
 Template.groupBar.helpers({
 
 
@@ -48,7 +51,7 @@ Template.groupBarRow.events({
 
 
 
-        Session.set('filterEditId', this._id);
+        Session.set('groupEditId', this._id);
         Session.set('filterEditType', 'Group');
         KMenu(e, $('#groupEditDropdown'));
 
@@ -71,7 +74,7 @@ Template.newGroupDropdown.events({
 
 Template.groupEditDropdown.helpers({
     notMembers:function() {
-        var groupId = Session.get('filterEditId');
+        var groupId = Session.get('groupEditId');
         return Group.first(groupId).notMembers();
     },
 

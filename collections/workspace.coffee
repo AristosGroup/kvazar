@@ -8,6 +8,11 @@ class @Workspace extends Minimongoid
     {name: 'groups', foreign_key: 'workspace_id'}
   ]
 
+
+  @after_create: (workspace) ->
+    if(Group.find({workspace_id:workspace._id}).count() < 1)
+      Group.create({title: 'Admins', user_id: workspace.user_id, members: [workspace.user_id], workspace_id: workspace._id})
+
   allProjects: ->
     return Project.find({workspace_id: this._id});
 
