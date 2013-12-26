@@ -14,12 +14,10 @@ Template.groupBar.helpers({
 });
 
 Template.groupBar.events({
-    'click a.group-new' : function(e) {
+    'click a.group-new': function (e) {
         KMenu(e, $('#newGroupDropdown'));
     }
 });
-
-
 
 
 Template.groupBarRow.helpers({
@@ -33,14 +31,13 @@ Template.groupBarRow.helpers({
         return Gravatar.getGravatar(user);
     },
 
-    members:function() {
+    users: function () {
         return Group.first(this._id).allUsers();
     }
 });
 
 Template.groupBarRow.events({
     'click a.group-edit': function (e) {
-
 
 
         Session.set('groupEditId', this._id);
@@ -51,11 +48,10 @@ Template.groupBarRow.events({
 });
 
 Template.newGroupDropdown.events({
-    'click a.group-add' : function(e) {
+    'click a.group-add': function (e) {
         e.preventDefault();
-
         var currentWorkspace = User.current().currentWorkspace();
-        var attrs = {workspace_id: currentWorkspace._id, title:$('#new-group-name').val()};
+        var attrs = {workspace_id: currentWorkspace._id, title: $('#new-group-name').val()};
         var newGroup = Group.createNewGroup(attrs);
         $('#newGroupDropdown').parent().removeClass('open');
 
@@ -65,12 +61,12 @@ Template.newGroupDropdown.events({
 
 
 Template.groupEditDropdown.helpers({
-    notMembers:function() {
+    notUsers: function () {
         var groupId = Session.get('groupEditId');
         return Group.first(groupId).notUsers();
     },
 
-    userName: function() {
+    userName: function () {
         return User.init(this).userName();
     },
     avatar: function () {
@@ -79,10 +75,10 @@ Template.groupEditDropdown.helpers({
     }
 });
 
-Template.groupEditDropdown.rendered=function(){
+Template.groupEditDropdown.rendered = function () {
     var format = function (data) {
         var user = User.first(data.id);
-        return "<img class='thumb-xs img-circle' src='"+Gravatar.getGravatar(user)+"'/>" +' '+ user.userName();
+        return "<img class='thumb-xs img-circle' src='" + Gravatar.getGravatar(user) + "'/>" + ' ' + user.userName();
     };
 
     $("#members-group-select").select2({
@@ -95,10 +91,10 @@ Template.groupEditDropdown.rendered=function(){
 };
 
 Template.groupEditDropdown.events({
-    'click a.member-group-add':function(e) {
+    'click a.member-group-add': function (e) {
         e.preventDefault();
 
-        var attrs = {user_id:$("#members-group-select").select2('val')};
+        var attrs = {user_id: $("#members-group-select").select2('val')};
         var newMember = Group.first(this._id).addUserToGroup(attrs);
         $('#groupEditDropdown').parent().removeClass('open');
     }

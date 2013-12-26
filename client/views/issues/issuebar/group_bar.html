@@ -30,7 +30,7 @@
         </div>
     </li>
 
-    {{#each members}}
+    {{#each users}}
     <li class="filter-row" id="{{_id}}">
         <div>
             <label class="checkbox-custom">
@@ -80,7 +80,7 @@
         <div class="arrow left"></div>
         <section class="panel bg-white">
             <header class="panel-heading">
-
+            Add user to group
             </header>
             <div class="list-group">
                 <div class="list-group-item form-group">
@@ -88,7 +88,7 @@
                     <div class="col-sm-12">
                         <div class="m-b">
                             <select id="members-group-select" style="width:260px">
-                              {{#each notMembers}}
+                              {{#each notUsers}}
                                <option value="{{_id}}">{{userName}}</option>
                                 {{/each}}
                             </select>

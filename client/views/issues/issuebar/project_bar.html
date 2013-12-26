@@ -2,7 +2,7 @@
     <ul class="nav nav-pills nav-stacked no-radius m-t-sm">
         <li class="padder dk text-sm l-h-2x">
             <p>Projects
-                <a href="#" class="project-new"><i class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
+                <a href="#"  data-toggle="dropdown" data-target="#" class="project-new"><i class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
             </p>
         </li>
 
@@ -10,6 +10,7 @@
         {{>projectBarRow}}
         {{/each}}
     </ul>
+    {{>projectAddDropdown}}
 </template>
 
 
@@ -24,4 +25,47 @@
         </div>
 
     </li>
+</template>
+
+
+<template name="projectAddDropdown">
+
+    <section id="projectAddDropdown" class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+        <div class="arrow left"></div>
+        <section class="panel bg-white">
+            <header class="panel-heading">
+                Add project
+            </header>
+            <div class="list-group">
+                <div class="list-group-item form-group">
+
+                    <div class="col-sm-12">
+                        <div class="m-b">
+
+                            <div class="col-sm-12"><input id="new-project-name" type="text" class="form-control"
+                                                          placeholder="Project name"></div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="list-group-item form-group">
+                    <div class="m-b">
+                        <div class="col-sm-12">
+                            <div class="colorpalette"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <footer class="panel-footer text-sm">
+                <div class="pull-right"><a href="#addProject"
+                                           class="btn btn-sm btn-success project-add">
+                    <i class="fa"></i> Add Project</a></div>
+                <div class="clearfix"></div>
+            </footer>
+        </section>
+    </section>
 </template>

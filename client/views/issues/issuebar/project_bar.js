@@ -1,3 +1,5 @@
+Session.set('projectNewColor', null);
+
 Template.projectBar.helpers({
 
 
@@ -11,13 +13,11 @@ Template.projectBar.helpers({
 
 
 Template.projectBar.events({
-    //create new project
+
     'click .project-new': function (e) {
         e.preventDefault();
 
-        var currentWorkspace = User.current().currentWorkspace();
-        var attrs = { workspace_id: currentWorkspace._id};
-        var newProject = Project.createNewProject(attrs);
+        KMenu(e, $('#projectAddDropdown'));
     }
 });
 
@@ -31,4 +31,30 @@ Template.projectBarRow.events({
 
     }
 });
+
+
+Template.projectAddDropdown.rendered = function () {
+    var options = {
+        colors: [General.backgroundColors]
+    };
+    $(this.find('div.colorpalette')).colorPalette(options)
+        .on('selectColor', function (e) {
+            Session.set('projectNewColor', e.color);
+
+        });
+
+};
+
+Template.projectAddDropdown.events({
+    'click a.project-add': function (e) {
+        e.preventDefault();
+
+        var currentWorkspace = User.current().currentWorkspace();
+        var attrs = {workspace_id: currentWorkspace._id, color: Session.get('projectNewColor'), title:$('#new-project-name').val()};
+        var newProject = Project.createNewProject(attrs);
+
+        $('#projectAddDropdown').parent().removeClass('open');
+    }
+});
+
 

@@ -3,7 +3,7 @@
     <ul class="nav nav-pills nav-stacked no-radius m-t-sm">
         <li class="padder dk text-sm l-h-2x">
             <p>Categories
-                <a href="" class="category-new"><i
+                <a href="#" data-toggle="dropdown" data-target="#" class="category-new"><i
                         class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
             </p>
         </li>
@@ -12,6 +12,7 @@
         {{>categoryBarRow}}
         {{/each}}
     </ul>
+    {{>categoryAddDropdown}}
 </template>
 
 <template name="categoryBarRow">
@@ -25,6 +26,49 @@
                     style="color:{{color}}"></i></a></div>
 
     </li>
+</template>
+
+
+<template name="categoryAddDropdown">
+
+    <section id="categoryAddDropdown" class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+        <div class="arrow left"></div>
+        <section class="panel bg-white">
+            <header class="panel-heading">
+                Add category
+            </header>
+            <div class="list-group">
+                <div class="list-group-item form-group">
+
+                    <div class="col-sm-12">
+                        <div class="m-b">
+
+                            <div class="col-sm-12"><input id="new-category-name" type="text" class="form-control"
+                                                          placeholder="Category name"></div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="list-group-item form-group">
+                    <div class="m-b">
+                    <div class="col-sm-12">
+                        <div class="colorpalette"></div>
+                    </div>
+                        </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <footer class="panel-footer text-sm">
+                <div class="pull-right"><a href="#addCategory"
+                                           class="btn btn-sm btn-success category-add">
+                    <i class="fa"></i> Add Category</a></div>
+                <div class="clearfix"></div>
+            </footer>
+        </section>
+    </section>
 </template>
 
 

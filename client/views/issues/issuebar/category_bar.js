@@ -1,3 +1,5 @@
+Session.set('categoryNewColor', null);
+
 Template.categoryBar.helpers({
 
     categories: function () {
@@ -14,9 +16,7 @@ Template.categoryBar.events({
     'click .category-new': function (e) {
         e.preventDefault();
 
-        var currentWorkspace = User.current().currentWorkspace();
-        var attrs = {workspace_id: currentWorkspace._id};
-        var newCategory = Category.createNewCategory(attrs);
+        KMenu(e, $('#categoryAddDropdown'));
     }
 
 
@@ -30,6 +30,31 @@ Template.categoryBarRow.events({
         Session.set('filterEditType', 'Category');
         KMenu(e, $('#editingFilter'));
 
+    }
+});
+
+
+Template.categoryAddDropdown.rendered = function () {
+    var options = {
+        colors: [General.backgroundColors]
+    };
+    $(this.find('div.colorpalette')).colorPalette(options)
+        .on('selectColor', function (e) {
+            Session.set('categoryNewColor', e.color);
+
+        });
+
+};
+
+Template.categoryAddDropdown.events({
+    'click a.category-add': function (e) {
+        e.preventDefault();
+
+        var currentWorkspace = User.current().currentWorkspace();
+        var attrs = {workspace_id: currentWorkspace._id, color: Session.get('categoryNewColor'), title:$('#new-category-name').val()};
+        var newCategory = Category.createNewCategory(attrs);
+
+        $('#categoryAddDropdown').parent().removeClass('open');
     }
 });
 
