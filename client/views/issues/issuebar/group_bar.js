@@ -10,14 +10,6 @@ Template.groupBar.helpers({
         var groups = currentWorkspace.allGroups();
 
         return groups;
-    },
-
-    notMembers : function () {
-        var user = User.current();
-        var currentWorkspace = User.current().currentWorkspace();
-        var members = currentWorkspace.notMembers();
-
-        return members;
     }
 });
 
@@ -42,7 +34,7 @@ Template.groupBarRow.helpers({
     },
 
     members:function() {
-        return Group.first(this._id).allMembers();
+        return Group.first(this._id).allUsers();
     }
 });
 
@@ -75,7 +67,7 @@ Template.newGroupDropdown.events({
 Template.groupEditDropdown.helpers({
     notMembers:function() {
         var groupId = Session.get('groupEditId');
-        return Group.first(groupId).notMembers();
+        return Group.first(groupId).notUsers();
     },
 
     userName: function() {
@@ -106,8 +98,8 @@ Template.groupEditDropdown.events({
     'click a.member-group-add':function(e) {
         e.preventDefault();
 
-        var attrs = {member_id:$("#members-group-select").select2('val')};
-        var newMember = Group.first(this._id).addMembersToGroup(attrs);
+        var attrs = {user_id:$("#members-group-select").select2('val')};
+        var newMember = Group.first(this._id).addUserToGroup(attrs);
         $('#groupEditDropdown').parent().removeClass('open');
     }
 });

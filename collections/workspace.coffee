@@ -9,9 +9,10 @@ class @Workspace extends Minimongoid
   ]
 
 
-  @after_create: (workspace) ->
-    if(Group.find({workspace_id:workspace._id}).count() < 1)
-      Group.create({title: 'Admins', user_id: workspace.user_id, members: [workspace.user_id], workspace_id: workspace._id})
+  @after_create: (obj) ->
+    if(Group.find({workspace_id:obj._id}).count() < 1)
+      Group.create({title: 'Admins', user_id: obj.user_id, members: [obj.user_id], users: [obj.user_id], workspace_id: obj._id})
+    return obj
 
   allProjects: ->
     return Project.find({workspace_id: this._id});

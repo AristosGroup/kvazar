@@ -35,7 +35,8 @@ Meteor.publish('categories', function () {
 Accounts.onCreateUser(function(options, user) {
     var userId=user._id;
     var workspace = Workspace.create({title: 'My workspace', user_id: userId, members: [userId]});
-    User.init(user).update({current_workspace_id: workspace._id})
+    user.current_workspace_id = workspace._id;
+
     return user;
 });
 
