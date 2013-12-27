@@ -1,6 +1,10 @@
 class @Issue extends Minimongoid
   @_collection: new Meteor.Collection('issues')
 
+  @defaults : {
+    type:"Task" # epic, remind
+  }
+
   @createNewByContext: (data, context) ->
     status  = Status.first({default: 1})
     data.workspace_id = User.current().current_workspace_id
