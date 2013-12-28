@@ -9,36 +9,65 @@ Template.issuesList.helpers({
 
 
 Template.issuesList.events({
-    'click li.list-group-item a': function (e) {
 
-        e.preventDefault();
-        $('li.list-group-item').removeClass('active');
-        Show($(e.target).parents('li.list-group-item'), $('#issue-detail'));
 
-    },
-
-    //добвление "быстрой" задачи
+    //quick task create
     'keydown #new-simple-issue': function (e) {
 
-
-
-        //сабмит
+        //submit quick task
         if (jwerty.is('enter', e)) {
             e.preventDefault();
             var val = $(e.currentTarget).val();
             var context = {};
-            Issue.createNewByContext({subject: val}, context);
+            var issue = Issue.createNewTaskByContext({subject: val}, context);
             $(e.currentTarget).val('');
-
+            Session.set('currentIssueDetailId', issue._id);
 
         }
+    },
+
+    //keydown on the listIssue section
+    'keydown section.vbox': function (e) {
+        var current = $('#' + Session.get('currentIssueDetailId'));
+
+        //activate next issue in the list
+        if (jwerty.is('↓', e)) {
+            var newId = current.next().attr('id');
+            if (newId)
+                Session.set('currentIssueDetailId', newId);
+            e.preventDefault();
+
+        }
+        //activate prev issue in the list
+
+        if (jwerty.is('↑', e)) {
+            var newId = current.prev().attr('id');
+            if (newId)
+                Session.set('currentIssueDetailId', newId);
+            e.preventDefault();
+
+        }
+
+        if (jwerty.is('←', e)) {
+
+            e.preventDefault();
+
+        }
+
+        if (jwerty.is('→', e)) {
+
+            e.preventDefault();
+
+        }
+
+
     }
 });
 
 
 Template.issuesList.rendered = function () {
 
-    //фокус на форму быстрого добавления задачи
+    //focus to the quick task input
     $('#new-simple-issue').focus();
 
     $('.sortable').sortable({
@@ -51,20 +80,25 @@ Template.issuesList.rendered = function () {
 
 
 Template.issueListItem.events({
+    //oped issue detail sidebar
     'click li.list-group-item a': function (e) {
-
         e.preventDefault();
         Session.set('currentIssueDetailId', this._id);
+        $(e.currentTarget).focus();
 
-        $('li.list-group-item').removeClass('active');
-        Show($(e.target).parents('li.list-group-item'), $('#issue-detail'));
-
-
+        $('#new-simple-issue').blur();
     }
+
 });
 
 
 Template.issueListItem.helpers({
+    isActive: function () {
+        return Session.equals("currentIssueDetailId", this._id) ?
+            "active" : "";
+
+    },
+
     categoryColor: function () {
         return General.backgroundColors[Math.floor(Math.random() * General.backgroundColors.length)];
     },
@@ -86,6 +120,8 @@ Template.issueListItem.helpers({
     },
 
     createdAt: function () {
+        var day = moment.unix(this.createdAt / 1000);
+        return moment(day, "YYYYMMDD").fromNow();
 
     }
 

@@ -1,26 +1,45 @@
 <template name="issueDetail">
 
+    <aside class="bg-white hide col-lg-6 b-l  {{detailOpen}}" id="issue-detail">
 
     {{#with currentIssue}}
     <section class="vbox">
 
         <section class="scrollable w-f">
             <div class="wrapper b-b">
-                <a href="#" data-toggle="class" class="pull-left m-r-xs"><i class="fa fa-star-o fa-lg text"></i><i class="fa fa-star text-warning fa-lg text-active"></i></a>
-                <a  href="#close"  class="pull-right  closeIssueDetail">
-                    <i class="fa fa-trash-o"></i>
-                </a>
+                <a href="#" data-toggle="class" class="pull-left m-r-xs"><i class="fa fa-star-o fa-lg text"></i><i
+                        class="fa fa-star text-warning fa-lg text-active"></i></a>
+
+                <div class="pull-right">
+                    <div class="m-b-sm ">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-success">Approve</button>
+                            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Pause</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <h4 class="m-n">{{subject}}</h4>
             </div>
             <div class="text-sm padder m-t">
                 <div class="block clearfix m-b">
-                    <a href="#" class="thumb-xs inline"><img src="images/avatar.jpg" class="img-circle"></a>
+                    <a href="#" class="thumb-xs inline"><img src="/images/avatar.jpg" class="img-circle"></a>
                   <span class="inline m-t-xs">Mika Sokeil
                   &lt;mica_sokeil@gmail.com&gt; to me</span>
-                    <div class="pull-right inline">May 12 (<em>4 days ago</em>)
+
+                    <div class="pull-right inline">May 12 (<em>{{createdAt}}</em>)
                         <div class="btn-group">
-                            <button class="btn btn-white btn-xs" data-toggle="tooltip" data-title="Reply"><i class="fa fa-reply"></i></button>
-                            <button class="btn btn-white btn-xs dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <button class="btn btn-white btn-xs" data-toggle="tooltip" data-title="Reply"><i
+                                    class="fa fa-reply"></i></button>
+                            <button class="btn btn-white btn-xs dropdown-toggle" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
                             <ul class="dropdown-menu pull-right">
                                 <li><a href="#"><i class="fa fa-reply"></i> Reply</a></li>
                                 <li><a href="#"><i class="fa fa-signout"></i> Forward</a></li>
@@ -35,16 +54,43 @@
                 </div>
                 <div class="line pull-in"></div>
                 <p>Mr. Soe</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin
+                    venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis
+                    mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada augue. Donec eleifend
+                    condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu
+                    malesuada sem, dapibus porta quam lacus eu neque.</p>
                 <blockquote>
-                    <em>Morbi nec nunc condimentum, egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementum ligula. Nunc placerat purus quam, ac adipiscing arcu rutrum eu. Vestibulum adipiscing ut augue ut auctor. Vestibulum nec lorem imperdiet nibh mollis gravida ut a justo.<br><br>Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis</em>
+                    <em>Morbi nec nunc condimentum, egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae
+                        elementum ligula. Nunc placerat purus quam, ac adipiscing arcu rutrum eu. Vestibulum adipiscing
+                        ut augue ut auctor. Vestibulum nec lorem imperdiet nibh mollis gravida ut a justo.<br><br>Vestibulum
+                        ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat.
+                        Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu
+                        consectetur. Integer eleifend, nisl venenatis consequat iaculis</em>
                 </blockquote>
                 <div class="show">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
-                    <p>Duis non malesuada est, quis congue nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
-                    <p>Duis non malesuada est, quis congue nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada augue. Donec eleifend</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam
+                        sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum.
+                        Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada
+                        augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis
+                        consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+
+                    <p>Duis non malesuada est, quis congue nibh. Pellentesque habitant morbi tristique senectus et netus
+                        et malesuada fames ac turpis egestas.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam
+                        sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum.
+                        Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada
+                        augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis
+                        consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+
+                    <p>Duis non malesuada est, quis congue nibh. Pellentesque habitant morbi tristique senectus et netus
+                        et malesuada fames ac turpis egestas.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam
+                        sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum.
+                        Mauris convallis mauris at pellentesque volutpat. Phasellus at ultricies neque, quis malesuada
+                        augue. Donec eleifend</p>
                 </div>
                 <p>Best Regards<br>Mical</p>
             </div>
@@ -61,6 +107,7 @@
             <form class="m-t-sm">
                 <div class="input-group">
                     <input type="text" class="input-sm form-control input-s-sm" placeholder="Search">
+
                     <div class="input-group-btn">
                         <button class="btn btn-sm btn-white"><i class="fa fa-search"></i></button>
                     </div>
@@ -69,6 +116,6 @@
         </footer>
     </section>
     {{/with}}
+    </aside>
 
-
-    </template>
+</template>

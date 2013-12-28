@@ -1,3 +1,4 @@
+/*
 Tags = new Meteor.Collection('tags');
 
 Tags.allow({
@@ -52,7 +53,4 @@ Meteor.methods({
     }
 });
 
-
-
-
-
+*/

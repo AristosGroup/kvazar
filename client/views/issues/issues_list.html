@@ -41,6 +41,7 @@
                     {{/each}}
                 </ul>
             </section>
+            {{#constant}}
             <footer class="footer b-t bg-white-only">
                 <form class="m-t-sm">
                     <div class="input-group">
@@ -53,6 +54,7 @@
                     </div>
                 </form>
             </footer>
+            {{/constant}}
         </section>
     </aside>
 
@@ -62,14 +64,14 @@
 
 <template name="issueListItem">
 
-    <li class="list-group-item" style="border-right-color: {{categoryColor}};">
+    <li class="list-group-item {{isActive}}" style="border-right-color: {{categoryColor}};" id="{{_id}}">
         <a href="#" class="thumb-xs pull-left m-r-sm">
-            <img src="images/avatar_default.jpg" class="img-circle">
+            <img src="/images/avatar_default.jpg" class="img-circle">
         </a>
         <a href="#" class="clear">
             <strong>Drew Wllon</strong> <span class="label label-sm bg-primary text-uc">work</span>
             <span>{{subject}} </span>
-            <small class="pull-right">3 minuts ago</small>
+            <small class="pull-right">{{createdAt}}</small>
         </a>
     </li>
 </template>
