@@ -9,6 +9,7 @@ class @Issue extends Minimongoid
     status = Status.first({default: 1})
     data.workspace_id = User.current().current_workspace_id
     data.user_id = User.current()._id
+    data.owner_id = User.current()._id
     data.status_id = status._id
     data.status_title = status.title
     data.followers = [User.current()._id]
@@ -23,4 +24,6 @@ class @Issue extends Minimongoid
     data.status_title = status.title
     data.followers = [User.current()._id]
     Issue.create(data);
+
+#Houston.add_collection(Issue._collection)
 

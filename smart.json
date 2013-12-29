@@ -16,6 +16,9 @@
     "bootstrap-daterangepicker": {},
     "autocomplete": {},
     "crypto-md5": {},
-    "i18n": {}
+    "i18n": {},
+    "profile": {},
+    "smart-collections": {},
+    "houston": {}
   }
 }

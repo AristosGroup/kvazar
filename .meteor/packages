@@ -23,7 +23,6 @@ coffeescript
 iron-router
 roles
 iron-router-progress
-accounts-ui-bootstrap-3
 x-editable-bootstrap3
 pnotify-bootstrap-3
 bootstrap-daterangepicker
@@ -31,3 +30,7 @@ autocomplete
 font-awesome
 crypto-md5
 i18n
+profile
+email
+accounts-ui-bootstrap-3
+smart-collections

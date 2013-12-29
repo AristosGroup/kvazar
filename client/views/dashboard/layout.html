@@ -1,0 +1,207 @@
+<template name="dashboardLayout">
+
+<!-- .aside -->
+<aside class="aside aside-lg b-r">
+    <section class="vbox">
+        <header class="header text-center">
+            <p class="h4">Project name</p>
+        </header>
+        <section class="wrapper">
+            <div class="text-center clearfix">
+                <a href="#" class="btn btn-success m-b-lg"><i class="fa fa-plus"></i> Create project</a>
+            </div>
+            <div id="calendar" class="m-t-lg">
+
+            </div>
+            <div class="list-group bg-white">
+                <a href="#" class="list-group-item text-ellipsis">
+                    <span class="badge bg-danger">7:30</span>
+                    Meet a friend
+                </a>
+                <a href="#" class="list-group-item text-ellipsis">
+                    <span class="badge bg-success">9:30</span>
+                    Have a kick off meeting with .inc company
+                </a>
+                <a href="#" class="list-group-item text-ellipsis">
+                    <span class="badge bg-light">19:30</span>
+                    Milestone release
+                </a>
+            </div>
+        </section>
+    </section>
+</aside>
+<!-- /.aside -->
+<!-- .aside -->
+<aside class="">
+    <section class="vbox">
+        <header class="header bg-white pos-rlt navbar navbar-default show">
+            <span class="arrow left"></span>
+            <div class="collapse navbar-collapse pull-in">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Tasks</a></li>
+                    <li class="font-bold"><a href="#l">Stream</a></li>
+                    <li><a href="#l">Team</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Files <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Documents</a></li>
+                            <li><a href="#">Media</a></li>
+                            <li><a href="#">Upload one</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#l">About</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden-xs">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge up bg-success m-l-n-sm">2</span>
+                        </a>
+                        <section class="dropdown-menu animated fadeInUp input-s-lg">
+                            <section class="panel bg-white">
+                                <header class="panel-heading">
+                                    <strong>You have <span class="count-n">2</span> notifications</strong>
+                                </header>
+                                <div class="list-group">
+                                    <a href="#" class="media list-group-item">
+                            <span class="pull-left thumb-sm">
+                              <img src="images/avatar.jpg" alt="John said" class="img-circle">
+                            </span>
+                            <span class="media-body block m-b-none">
+                              Use awesome animate.css<br>
+                              <small class="text-muted">28 Aug 13</small>
+                            </span>
+                                    </a>
+                                    <a href="#" class="media list-group-item">
+                            <span class="media-body block m-b-none">
+                              1.0 initial released<br>
+                              <small class="text-muted">27 Aug 13</small>
+                            </span>
+                                    </a>
+                                </div>
+                                <footer class="panel-footer text-sm">
+                                    <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                                    <a href="#">See all the notifications</a>
+                                </footer>
+                            </section>
+                        </section>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <aside>
+                    <section class="vbox">
+                        <section class="scrollable wrapper">
+                            <div class="clearfix">
+                                <section class="panel panel-info col-lg-6 no-padder">
+                                    <form>
+                                        <textarea class="form-control no-border" rows="2" placeholder="Share something..."></textarea>
+                                    </form>
+                                    <footer class="panel-footer bg-light lter">
+                                        <button class="btn btn-info pull-right btn-sm font-bold">SHARE</button>
+                                        <ul class="nav nav-pills nav-sm">
+                                            <li><a href="#"><i class="fa fa-camera text-muted"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-video-camera text-muted"></i></a></li>
+                                        </ul>
+                                    </footer>
+                                </section>
+                            </div>
+                            <div class="btn-group m-b" data-toggle="buttons">
+                                <label class="btn btn-sm btn-white active">
+                                    <input type="radio" name="options" id="option1"> Timeline
+                                </label>
+                                <label class="btn btn-sm btn-white">
+                                    <input type="radio" name="options" id="option2"> Activity
+                                </label>
+                            </div>
+                            <section class="comment-list block">
+                                <article id="comment-id-1" class="comment-item">
+                          <span class="fa-stack pull-left m-l-xs">
+                            <i class="fa fa-circle text-info fa-stack-2x"></i>
+                            <i class="fa fa-film fa-stack-1x text-white"></i>
+                          </span>
+                                    <section class="comment-body m-b-lg">
+                                        <header>
+                                            <a href="#"><strong>John smith</strong></a> shared a <a href="#" class="text-info">video</a> to you
+                              <span class="text-muted text-xs">
+                                24 minutes ago
+                              </span>
+                                        </header>
+                                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.</div>
+                                    </section>
+                                </article>
+                                <!-- .comment-reply -->
+                                <article id="comment-id-2" class="comment-reply">
+                                    <article class="comment-item">
+                                        <a class="pull-left thumb-sm">
+                                            <img src="images/avatar_default.jpg" class="img-circle">
+                                        </a>
+                                        <section class="comment-body m-b-lg">
+                                            <header>
+                                                <a href="#"><strong>John smith</strong></a>
+                                <span class="text-muted text-xs">
+                                  26 minutes ago
+                                </span>
+                                            </header>
+                                            <div> Morbi id neque quam. Aliquam.</div>
+                                        </section>
+                                    </article>
+                                    <article class="comment-item">
+                                        <a class="pull-left thumb-sm">
+                                            <img src="images/avatar.jpg" class="img-circle">
+                                        </a>
+                                        <section class="comment-body m-b-lg">
+                                            <header>
+                                                <a href="#"><strong>Mike</strong></a>
+                                <span class="text-muted text-xs">
+                                  26 minutes ago
+                                </span>
+                                            </header>
+                                            <div>Good idea.</div>
+                                        </section>
+                                    </article>
+                                </article>
+                                <!-- / .comment-reply -->
+                                <article id="comment-id-2" class="comment-item">
+                          <span class="fa-stack pull-left m-l-xs">
+                            <i class="fa fa-circle text-success fa-stack-2x"></i>
+                            <i class="fa fa-file-text-o text-white fa-stack-1x"></i>
+                          </span>
+                                    <section class="comment-body m-b-lg">
+                                        <header>
+                                            <a href="#"><strong>John Doe</strong></a>
+                              <span class="text-muted text-xs">
+                                1 hour ago
+                              </span>
+                                        </header>
+                                        <div>Lorem ipsum dolor sit amet, consecteter adipiscing elit.</div>
+                                    </section>
+                                </article>
+                                <article id="comment-id-2" class="comment-item">
+                          <span class="fa-stack pull-left m-l-xs">
+                            <i class="fa fa-circle text-danger fa-stack-2x"></i>
+                            <i class="fa fa-check fa-stack-1x text-white"></i>
+                          </span>
+                                    <section class="comment-body m-b-lg">
+                                        <header>
+                                            <a href="#"><strong>Jonathan</strong></a> completed a task
+                              <span class="text-muted text-xs">
+                                1 hour ago
+                              </span>
+                                        </header>
+                                        <div>Consecteter adipiscing elit.</div>
+                                    </section>
+                                </article>
+                            </section>
+                            <a href="#" class="btn btn-white btn-sm"><i class="fa fa-plus icon-muted"></i> more</a>
+                        </section>
+                    </section>
+                </aside>
+            </section>
+        </section>
+    </section>
+</aside>
+<!-- /.aside -->
+</template>

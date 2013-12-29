@@ -24,5 +24,9 @@ Template.aside.events({
         e.preventDefault();
         $('#nav').toggleClass('nav-vertical');
 
+    },
+    'click a.logout':function(e){
+        e.preventDefault();
+        Meteor.logout();
     }
 });
