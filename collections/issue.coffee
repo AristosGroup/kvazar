@@ -25,5 +25,19 @@ class @Issue extends Minimongoid
     data.followers = [User.current()._id]
     Issue.create(data);
 
+
+  projects : () ->
+    Project.find({_id:@projects_id});
+
+  category : () ->
+    Category.find({_id:@category_id});
+
+  changeCategory : (category) ->
+    @save({category_id:category})
+
+  changeProjects : (projects) ->
+    @save({projects_id:projects})
+
+
 #Houston.add_collection(Issue._collection)
 

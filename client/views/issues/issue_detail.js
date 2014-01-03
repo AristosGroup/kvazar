@@ -42,6 +42,75 @@ Template.issueDetail.helpers({
 
 Template.issueDetail.rendered = function (e) {
 
+    var issue = Issue.find(Session.get('currentIssueDetailId'));
+
+    $('#projects').editable({
+
+        value:issue.projects_id,
+        escape: false,
+        viewseparator: ' ',
+        /*@TODO deps autorn*/
+        source: User.current().currentWorkspace().allProjects().map(function (project) {
+            project.text = project.title;
+            project.id = project._id;
+            return project
+        }),
+        select2: {
+            multiple: true,
+
+            formatResult: function (item) {
+                return '<span style="color: '+item.color+'">' + item.title + '</span>';
+            },
+            formatSelection: function (item) {
+                return '<span class="label btn-primary" style="background: '+item.color+'">' + item.title + '</span>';
+
+            },
+            escapeMarkup: function (m) {
+                return m;
+            }
+        }
+
+
+    });
+
+    $('#categories').editable({
+
+        value:issue.category_id,
+        escape: false,
+        viewseparator: ' ',
+        /*@TODO deps autorn*/
+        source: User.current().currentWorkspace().allCategories().map(function (project) {
+            project.text = project.title;
+            project.id = project._id;
+            return project
+        }),
+        select2: {
+
+
+            formatResult: function (item) {
+                return '<span style="color: '+item.color+'">' + item.title + '</span>';
+            },
+            formatSelection: function (item) {
+                return '<span class="label btn-primary" style="background: '+item.color+'">' + item.title + '</span>';
+
+            },
+            escapeMarkup: function (m) {
+                return m;
+            }
+        }
+
+
+    });
+
+    $('#projects').on('save', function(e, params) {
+        issue.changeProjects(params.newValue);
+    });
+
+    $('#categories').on('save', function(e, params) {
+        issue.changeCategory(params.newValue);
+    });
+
+
     //  var id = Session.get('currentIssueDetailId');
 
 };

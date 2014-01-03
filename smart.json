@@ -1,9 +1,9 @@
 {
   "packages": {
-    "select2": {},
     "moment": {},
     "bootstrap-3": {},
-    "spin": {},
+      "select2": {},
+      "spin": {},
     "keybindings": {},
     "filepicker": {},
     "npm": {},
@@ -19,6 +19,7 @@
     "i18n": {},
     "profile": {},
     "smart-collections": {},
-    "houston": {}
+    "houston": {},
+    "Dropzonejs": {}
   }
 }
