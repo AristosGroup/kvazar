@@ -1,17 +1,18 @@
 {
-    "packages": {
-        "moment": {},
-        "bootstrap-3": {},
-        "select2": {},
-        "keybindings": {},
-        "npm": {},
-        "iron-router": {},
-        "iron-router-progress": {},
-        "accounts-ui-bootstrap-3": {},
-        "x-editable-bootstrap3": {},
-        "bootstrap-daterangepicker": {},
-        "autocomplete": {},
-        "crypto-md5": {},
-        "Dropzonejs": {}
-    }
+  "packages": {
+    "moment": {},
+    "bootstrap-3": {},
+    "select2": {},
+    "keybindings": {},
+    "npm": {},
+    "iron-router": {},
+    "iron-router-progress": {},
+    "accounts-ui-bootstrap-3": {},
+    "x-editable-bootstrap3": {},
+    "bootstrap-daterangepicker": {},
+    "autocomplete": {},
+    "crypto-md5": {},
+    "Dropzonejs": {},
+    "spin": {}
+  }
 }
