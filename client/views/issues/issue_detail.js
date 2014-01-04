@@ -73,34 +73,39 @@ Template.issueDetail.rendered = function (e) {
 
     });
 
-    $('#categories').editable({
+  //  Deps.autorun(function() {
 
-        value:issue.category_id,
-        escape: false,
-        viewseparator: ' ',
-        /*@TODO deps autorn*/
-        source: User.current().currentWorkspace().allCategories().map(function (project) {
-            project.text = project.title;
-            project.id = project._id;
-            return project
-        }),
-        select2: {
+       // $('#categories').editable('disable');
+        $('#categories').editable({
+
+            value:issue.category_id,
+            escape: false,
+            viewseparator: ' ',
+
+            source: User.current().currentWorkspace().allCategories().map(function (project) {
+                project.text = project.title;
+                project.id = project._id;
+                return project
+            }),
+            select2: {
 
 
-            formatResult: function (item) {
-                return '<span style="color: '+item.color+'">' + item.title + '</span>';
-            },
-            formatSelection: function (item) {
-                return '<span class="label btn-primary" style="background: '+item.color+'">' + item.title + '</span>';
+                formatResult: function (item) {
+                    return '<span style="color: '+item.color+'">' + item.title + '</span>';
+                },
+                formatSelection: function (item) {
+                    return '<span class="label btn-primary" style="background: '+item.color+'">' + item.title + '</span>';
 
-            },
-            escapeMarkup: function (m) {
-                return m;
+                },
+                escapeMarkup: function (m) {
+                    return m;
+                }
             }
-        }
 
 
-    });
+        });
+  //  });
+
 
     $('#projects').on('save', function(e, params) {
         issue.changeProjects(params.newValue);

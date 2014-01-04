@@ -1,25 +1,17 @@
 {
-  "packages": {
-    "moment": {},
-    "bootstrap-3": {},
-      "select2": {},
-      "spin": {},
-    "keybindings": {},
-    "filepicker": {},
-    "npm": {},
-    "dropbox": {},
-    "roles": {},
-    "iron-router-progress": {},
-    "accounts-ui-bootstrap-3": {},
-    "x-editable-bootstrap3": {},
-    "pnotify-bootstrap-3": {},
-    "bootstrap-daterangepicker": {},
-    "autocomplete": {},
-    "crypto-md5": {},
-    "i18n": {},
-    "profile": {},
-    "smart-collections": {},
-    "houston": {},
-    "Dropzonejs": {}
-  }
+    "packages": {
+        "moment": {},
+        "bootstrap-3": {},
+        "select2": {},
+        "keybindings": {},
+        "npm": {},
+        "iron-router": {},
+        "iron-router-progress": {},
+        "accounts-ui-bootstrap-3": {},
+        "x-editable-bootstrap3": {},
+        "bootstrap-daterangepicker": {},
+        "autocomplete": {},
+        "crypto-md5": {},
+        "Dropzonejs": {}
+    }
 }
