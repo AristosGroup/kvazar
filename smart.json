@@ -13,6 +13,8 @@
     "autocomplete": {},
     "crypto-md5": {},
     "Dropzonejs": {},
-    "spin": {}
+    "spin": {},
+    "collection2": {},
+    "collection-hooks": {}
   }
 }

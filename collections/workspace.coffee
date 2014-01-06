@@ -15,7 +15,7 @@ class @Workspace extends Minimongoid
     return obj
 
   allProjects: ->
-    return Project.find({workspace_id: this._id});
+    return Projects.find({workspace_id: this._id});
 
   allCategories: ->
     return Category.find({workspace_id: this._id});

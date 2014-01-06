@@ -1,5 +1,5 @@
 Meteor.publish('issues', function (options) {
-    return Issue.find({}, options);
+    return Issues.find({}, options);
 
 });
 
@@ -27,7 +27,7 @@ Meteor.publish('groups', function () {
 });
 
 Meteor.publish('projects', function () {
-    return Project.find({members:this.userId});
+    return Projects.find({members:this.userId});
 });
 
 

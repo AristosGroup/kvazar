@@ -1,6 +1,6 @@
 Template.issueDetail.helpers({
     currentIssue: function () {
-        return Issue.find(Session.get('currentIssueDetailId'));
+        return Issues.findOne(Session.get('currentIssueDetailId'));
     },
 
     detailOpen: function () {
@@ -30,23 +30,19 @@ Template.issueDetail.helpers({
 
     assignedTo: function () {
 
-    },
-
-    createdAt: function () {
-        var day = moment.unix(this.createdAt / 1000);
-        return moment(day, "YYYYMMDD").fromNow();
-
     }
 });
 
 
 Template.issueDetail.rendered = function (e) {
 
-    var issue = Issue.find(Session.get('currentIssueDetailId'));
+    var issue = Issues.findOne(Session.get('currentIssueDetailId'));
+
+    if(!issue) return;
 
     $('#projects').editable({
 
-        value:issue.projects_id,
+        value:issue.projectsId,
         escape: false,
         viewseparator: ' ',
         /*@TODO deps autorn*/
@@ -108,7 +104,14 @@ Template.issueDetail.rendered = function (e) {
 
 
     $('#projects').on('save', function(e, params) {
-        issue.changeProjects(params.newValue);
+       // issue.changeProjects(params.newValue);
+
+        Issues.update(issue._id, {$set:{projectsId:params.newValue}}, function(error, result) {
+            //The update will fail, error will be set,
+            //and result will be undefined because "copies" is required.
+            //
+            //The list of errors is available by calling Books.simpleSchema().namedContext().invalidKeys()
+        });
     });
 
     $('#categories').on('save', function(e, params) {
