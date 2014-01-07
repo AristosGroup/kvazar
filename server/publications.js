@@ -38,7 +38,7 @@ Meteor.publish('categories', function () {
 
 Accounts.onCreateUser(function (options, user) {
     var userId = user._id;
-    var workspace = Workspaces.insert({title: 'My workspace', userId: userId, members: [userId]});
+    var workspace = Workspaces.insert({title: 'Personal', userId: userId, members: [userId]});
     user.currentWorkspaceId = workspace;
 
     if (Groups.find({workspaceId: workspace}).count() < 1)
