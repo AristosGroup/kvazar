@@ -8,6 +8,11 @@ Meteor.publish('statuses', function () {
 
 });
 
+Meteor.publish('workflows', function () {
+    return Workflows.find();
+});
+
+
 Meteor.publish('users', function () {
     return Meteor.users.find({}, {fields: {'currentWorkspaceId': 1, emails: 1, profile: 1}});
 });
@@ -42,7 +47,7 @@ Accounts.onCreateUser(function (options, user) {
     user.currentWorkspaceId = workspace;
 
     if (Groups.find({workspaceId: workspace}).count() < 1)
-        Groups.insert({title: 'Admins', userId: userId, members: [userId], users: [userId], workspaceId: workspace});
+        Groups.insert({title: 'Admins', userId: userId, members: [userId], users: [userId], workspaceId: workspace, workflowCode: 'manager'});
 
     return user;
 });

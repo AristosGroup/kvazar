@@ -10,7 +10,7 @@ Meteor.startup(function(){
 if (Meteor.isClient) {
     Meteor.startup(function() {
         Deps.autorun(function() {
-            var context = Groups.namedContext();
+            var context = Workflows.namedContext();
             if (!context.isValid()) {
                 console.log(context.invalidKeys());
             }

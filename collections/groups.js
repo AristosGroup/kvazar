@@ -20,6 +20,12 @@ Groups = new Meteor.Collection2("groups", {
 
         },
 
+        workflowCode: {
+            type: String,
+            optional: true
+
+        },
+
         members: {
             type: [String],
             label: "Members"
@@ -79,6 +85,21 @@ GroupsManager = {
     notUsers: function (group) {
         return  Meteor.users.find({_id: {$nin: group.users}});
 
+    },
+    /**
+     * user group for current workspace
+     * @param user
+     */
+    userGroup: function (user) {
+        return Groups.findOne({$and: {workspaceId: user.currentWorkspaceId, members: user._id}});
+    },
+
+    /**
+     * user group for  workspace
+     * @param user
+     */
+    userGroupForWorkspace: function (user, workspaceId) {
+        return Groups.findOne({$and: {workspaceId: workspaceId, members: user._id}});
     }
 };
 
