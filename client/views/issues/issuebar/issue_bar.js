@@ -1,6 +1,6 @@
 $.fn.editable.defaults.mode = 'inline';
 
-Template.issueBar.helpers({
+Template.taskBar.helpers({
 
 
 });
@@ -19,7 +19,7 @@ Template.memberSelectOption.helpers({
 });
 
 
-Template.issueBar.events({
+Template.taskBar.events({
     //чтобы не закрывалось меню при клике на элементы формы
     'click .dropdown-menu header': function (e) {
         e.stopPropagation();

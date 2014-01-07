@@ -1,4 +1,4 @@
-Issues = new Meteor.Collection2("issues", {
+Tasks = new Meteor.Collection2("tasks", {
     schema: {
         subject: {
             type: String,
@@ -100,21 +100,21 @@ Issues = new Meteor.Collection2("issues", {
 
     virtualFields: {
 
-        createdAtfromNow: function (issue) {
-            var day = moment.unix(issue.createdAt / 1000);
+        createdAtfromNow: function (task) {
+            var day = moment.unix(task.createdAt / 1000);
             return moment(day, "YYYYMMDD").fromNow();
         }
 
     }
 });
 
-IssuesManager = {
-    projectsByIssue: function (issue) {
-        return Projects.find({_id:  issue.projects_id});
+TasksManager = {
+    projectsByTask: function (task) {
+        return Projects.find({_id:  task.projects_id});
     },
 
-    categoryByIssue: function (issue) {
-        return Categories.findOne({_id: issue.category_id});
+    categoryByTask: function (task) {
+        return Categories.findOne({_id: task.category_id});
     }
 
 
@@ -136,19 +136,19 @@ Meteor.methods({
         attributes.authorId = user._id;
         attributes.ownerId = user._id;
 
-        var issue = Issues.insert(attributes);
+        var task = Tasks.insert(attributes);
 
-        return issue;
+        return task;
     },
 
-    updateTask: function (issue, attributes) {
+    updateTask: function (task, attributes) {
 
         var user = Meteor.user();
         // ensure the user is logged in
         if (!user)
             throw new Meteor.Error(401, "You need to login to post new stories");
 
-        return Issues.update(issue._id, {$set: attributes});
+        return Tasks.update(task._id, {$set: attributes});
     }
 });
 
@@ -203,7 +203,7 @@ Meteor.methods({
  data.status_id = status._id
  data.status_title = status.title
  data.followers = [User.current()._id]
- Issue.create(data);
+ Task.create(data);
 
  @createNewEpic: (data) ->
  status = Status.first({default: 1})
@@ -213,7 +213,7 @@ Meteor.methods({
  data.status_id = status._id
  data.status_title = status.title
  data.followers = [User.current()._id]
- Issue.create(data);
+ Task.create(data);
 
 
  projects : () ->

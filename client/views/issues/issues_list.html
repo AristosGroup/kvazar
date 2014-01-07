@@ -1,4 +1,4 @@
-<template name="issuesList">
+<template name="tasksList">
     <aside class="bg-light lter">
         <section class="vbox">
             <header class="bg-light dker header clearfix">
@@ -36,8 +36,8 @@
             </header>
             <section class="scrollable">
                 <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-alt list-group-lg sortable">
-                    {{#each issuesListAll}}
-                    {{>issueListItem}}
+                    {{#each tasksListAll}}
+                    {{>taskListItem}}
                     {{/each}}
                 </ul>
             </section>
@@ -45,8 +45,8 @@
             <footer class="footer b-t bg-white-only">
                 <form class="m-t-sm">
                     <div class="input-group">
-                        <input id="new-simple-issue" type="text" class="input-sm form-control input-s-sm"
-                               placeholder="Add new issue">
+                        <input id="new-simple-task" type="text" class="input-sm form-control input-s-sm"
+                               placeholder="Add new task">
 
                         <div class="input-group-btn">
                             <button class="btn btn-sm btn-success"><i class="fa fa-ticket"></i></button>
@@ -62,7 +62,7 @@
 </template>
 
 
-<template name="issueListItem">
+<template name="taskListItem">
 
     <li class="list-group-item {{isActive}}" style="border-right-color: {{categoryColor}};" id="{{_id}}">
         <a href="#" class="thumb-xs pull-left m-r-sm">

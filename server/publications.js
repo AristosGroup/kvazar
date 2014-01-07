@@ -1,5 +1,5 @@
-Meteor.publish('issues', function (options) {
-    return Issues.find({}, options);
+Meteor.publish('tasks', function (options) {
+    return Tasks.find({}, options);
 
 });
 

@@ -81,7 +81,7 @@ Meteor.methods({
     },
 
     deleteProject: function (projectId) {
-        Issues.update({projectsId: projectId}, { $pull: { projectsId: projectId} }, true);
+        Tasks.update({projectsId: projectId}, { $pull: { projectsId: projectId} }, true);
         return Projects.remove(projectId);
 
     }

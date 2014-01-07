@@ -1,10 +1,10 @@
-Template.issueDetail.helpers({
-    currentIssue: function () {
-        return Issues.findOne(Session.get('currentIssueDetailId'));
+Template.taskDetail.helpers({
+    currentTask: function () {
+        return Tasks.findOne(Session.get('currentTaskDetailId'));
     },
 
     detailOpen: function () {
-        return Session.get("currentIssueDetailId") ?
+        return Session.get("currentTaskDetailId") ?
             "show" : "";
     },
 
@@ -34,15 +34,15 @@ Template.issueDetail.helpers({
 });
 
 
-Template.issueDetail.rendered = function (e) {
+Template.taskDetail.rendered = function (e) {
 
-    var issue = Issues.findOne(Session.get('currentIssueDetailId'));
+    var task = Tasks.findOne(Session.get('currentTaskDetailId'));
 
-    if (!issue) return;
+    if (!task) return;
 
     $('#projects').editable({
 
-        value: issue.projectsId,
+        value: task.projectsId,
         escape: false,
         viewseparator: ' ',
         /*@TODO deps autorn*/
@@ -74,7 +74,7 @@ Template.issueDetail.rendered = function (e) {
     // $('#categories').editable('disable');
     $('#categories').editable({
 
-        value: issue.categoryId,
+        value: task.categoryId,
         escape: false,
         viewseparator: ' ',
 
@@ -104,10 +104,10 @@ Template.issueDetail.rendered = function (e) {
 
 
     $('#projects').on('save', function (e, params) {
-        // issue.changeProjects(params.newValue);
+        // task.changeProjects(params.newValue);
 
 
-        Meteor.call('updateTask', issue, {projectsId: params.newValue}, function (error, id) {
+        Meteor.call('updateTask', task, {projectsId: params.newValue}, function (error, id) {
             if (error)
                 return alert(error.reason);
 
@@ -117,7 +117,7 @@ Template.issueDetail.rendered = function (e) {
 
     $('#categories').on('save', function (e, params) {
 
-        Meteor.call('updateTask', issue, {categoryId: params.newValue}, function (error, id) {
+        Meteor.call('updateTask', task, {categoryId: params.newValue}, function (error, id) {
             if (error)
                 return alert(error.reason);
 
@@ -125,12 +125,12 @@ Template.issueDetail.rendered = function (e) {
     });
 
 
-    //  var id = Session.get('currentIssueDetailId');
+    //  var id = Session.get('currentTaskDetailId');
 
 };
 
 
-Template.issueDetail.events({
+Template.taskDetail.events({
 
     'keypress, focus textarea.description': function (e) {
 
@@ -139,9 +139,9 @@ Template.issueDetail.events({
         Session.set("markdown_data", e.target.value);
     },
 
-    'click a.closeIssueDetail': function (e) {
+    'click a.closeTaskDetail': function (e) {
         e.preventDefault();
-        Session.set('currentIssueDetailId', null);
+        Session.set('currentTaskDetailId', null);
 
     }
 });

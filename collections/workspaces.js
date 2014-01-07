@@ -14,7 +14,8 @@ Workspaces = new Meteor.Collection2("workspaces", {
 
         color: {
             type: String,
-            label: "Color"
+            label: "Color",
+            optional: true
 
 
         },

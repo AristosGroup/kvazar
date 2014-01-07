@@ -1,18 +1,18 @@
-Session.set('currentIssueDetailId', null);
+Session.set('currentTaskDetailId', null);
 
-Template.issuesList.helpers({
-    issuesListAll: function () {
-        return this.issues;
+Template.tasksList.helpers({
+    tasksListAll: function () {
+        return this.tasks;
 
     }
 });
 
 
-Template.issuesList.events({
+Template.tasksList.events({
 
 
     //quick task create
-    'keydown #new-simple-issue': function (e) {
+    'keydown #new-simple-task': function (e) {
 
         //submit quick task
         if (jwerty.is('enter', e)) {
@@ -20,31 +20,31 @@ Template.issuesList.events({
             var val = $(e.currentTarget).val();
             Meteor.call('createTask', {subject: val}, function (error, id) {
                 $(e.currentTarget).val('');
-                Session.set('currentIssueDetailId', id);
+                Session.set('currentTaskDetailId', id);
             });
 
 
         }
     },
 
-    //keydown on the listIssue section
+    //keydown on the listTask section
     'keydown section.vbox': function (e) {
-        var current = $('#' + Session.get('currentIssueDetailId'));
+        var current = $('#' + Session.get('currentTaskDetailId'));
 
-        //activate next issue in the list
+        //activate next task in the list
         if (jwerty.is('↓', e)) {
             var newId = current.next().attr('id');
             if (newId)
-                Session.set('currentIssueDetailId', newId);
+                Session.set('currentTaskDetailId', newId);
             e.preventDefault();
 
         }
-        //activate prev issue in the list
+        //activate prev task in the list
 
         if (jwerty.is('↑', e)) {
             var newId = current.prev().attr('id');
             if (newId)
-                Session.set('currentIssueDetailId', newId);
+                Session.set('currentTaskDetailId', newId);
             e.preventDefault();
 
         }
@@ -66,10 +66,10 @@ Template.issuesList.events({
 });
 
 
-Template.issuesList.rendered = function () {
+Template.tasksList.rendered = function () {
 
     //focus to the quick task input
-    $('#new-simple-issue').focus();
+    $('#new-simple-task').focus();
 
     $('.sortable').sortable({
     }).bind('sortupdate', function (e, ui) {
@@ -80,22 +80,22 @@ Template.issuesList.rendered = function () {
 };
 
 
-Template.issueListItem.events({
-    //oped issue detail sidebar
+Template.taskListItem.events({
+    //oped task detail sidebar
     'click li.list-group-item a': function (e) {
         e.preventDefault();
-        Session.set('currentIssueDetailId', this._id);
+        Session.set('currentTaskDetailId', this._id);
         $(e.currentTarget).focus();
 
-        $('#new-simple-issue').blur();
+        $('#new-simple-task').blur();
     }
 
 });
 
 
-Template.issueListItem.helpers({
+Template.taskListItem.helpers({
     isActive: function () {
-        return Session.equals("currentIssueDetailId", this._id) ?
+        return Session.equals("currentTaskDetailId", this._id) ?
             "active" : "";
 
     },

@@ -81,7 +81,7 @@ Meteor.methods({
     },
 
     deleteCategory: function (categoryId) {
-        Issues.update({categoryId: categoryId}, { $set: { categoryId: null} }, true);
+        Tasks.update({categoryId: categoryId}, { $set: { categoryId: null} }, true);
         return Categories.remove(categoryId);
 
     }
