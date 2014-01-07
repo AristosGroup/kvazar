@@ -3,8 +3,10 @@
     <ul class="nav nav-pills nav-stacked no-radius m-t-sm">
         <li class="padder dk text-sm l-h-2x">
             <p>Categories
-                <a href="#" data-toggle="dropdown" data-target="#" class="category-new"><i
+                <a href="#" data-toggle="dropdown"  class="category-new"><i
                         class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
+                {{>categoryAddDropdown}}
+
             </p>
         </li>
 
@@ -12,7 +14,6 @@
         {{>categoryBarRow}}
         {{/each}}
     </ul>
-    {{>categoryAddDropdown}}
 </template>
 
 <template name="categoryBarRow">
@@ -21,9 +22,13 @@
         <div><label class="checkbox-custom">
             <input type="checkbox" name="checkboxC"> <i class="fa fa-square-o"></i> <span class="category-row-title">{{title}}</span>
         </label>
-            <a class="filter-edit" href="#" data-toggle="dropdown" data-target="#"> <i
+            <a class="filter-edit" href="#" data-toggle="dropdown"> <i
                     class="fa fa-circle pull-right m-t-xs"
-                    style="color:{{color}}"></i></a></div>
+                    style="color:{{color}}"></i></a>
+            {{>categoryEditDropdown}}
+        </div>
+
+
 
     </li>
 </template>
@@ -65,6 +70,27 @@
                 <div class="pull-right"><a href="#addCategory"
                                            class="btn btn-sm btn-success category-add">
                     <i class="fa"></i> Add Category</a></div>
+                <div class="clearfix"></div>
+            </footer>
+        </section>
+    </section>
+</template>
+
+
+<template name="categoryEditDropdown">
+    <section  class="dropdown-menu m-l-sm pull-left animated fadeInRight category-edit">
+        <div class="arrow left"></div>
+        <section class="panel bg-white">
+            <header class="panel-heading">
+                <a href="#" class="filter-name-edit" data-type="text"
+                   data-title="Enter Category name">{{title}}</a>
+            </header>
+            <div class="list-group">
+                <div class="colorpalette"></div>
+            </div>
+            <footer class="panel-footer text-sm">
+                <div class="pull-right"><a href="#removeCategory" class="btn btn-sm btn-danger filter-remove"><i
+                        class="fa"></i> Remove Category</a></div>
                 <div class="clearfix"></div>
             </footer>
         </section>

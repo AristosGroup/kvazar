@@ -14,22 +14,27 @@ Issues = new Meteor.Collection2("issues", {
         },
 
         "status.id": {
-            type: String
+            type: String,
+            optional: true
         },
         "status.title": {
-            type: String
+            type: String,
+            optional: true
         },
 
         "status.color": {
-            type: String
+            type: String,
+            optional: true
         },
 
         order: {
-            type: Number
+            type: Number,
+            optional: true
         },
 
         projectsId: {
-            type: [String]
+            type: [String],
+            optional: true
         },
 
         workspaceId: {
@@ -37,23 +42,28 @@ Issues = new Meteor.Collection2("issues", {
         },
 
         categoryId: {
-            type: String
+            type: String,
+            optional: true
         },
 
         assignedToId: {
-            type: String
+            type: String,
+            optional: true
         },
 
         authorId: {
-            type: String
+            type: String,
+            optional: true
         },
 
         ownerId: {
-            type: String
+            type: String,
+            optional: true
         },
 
         followersId: {
-            type: [String]
+            type: [String],
+            optional: true
         },
 
         createdAt: {
@@ -82,23 +92,33 @@ Issues = new Meteor.Collection2("issues", {
             optional: true
         },
 
-        isDeleted : {
-            type: Boolean
+        isDeleted: {
+            type: Boolean,
+            optional: true
         }
     },
 
     virtualFields: {
 
-        projects: function (issue) {
-            return Projects.find({_id: {$in: issue.projects_id}});
-        },
-
-        createdAtMoment: function (issue) {
+        createdAtfromNow: function (issue) {
             var day = moment.unix(issue.createdAt / 1000);
             return moment(day, "YYYYMMDD").fromNow();
         }
+
     }
 });
+
+IssuesManager = {
+    projectsByIssue: function (issue) {
+        return Projects.find({_id:  issue.projects_id});
+    },
+
+    categoryByIssue: function (issue) {
+        return Categories.findOne({_id: issue.category_id});
+    }
+
+
+};
 
 Meteor.methods({
     createTask: function (attributes) {
@@ -112,13 +132,23 @@ Meteor.methods({
         if (!attributes.subject)
             throw new Meteor.Error(422, 'Please fill in a headline');
 
-        attributes.workspaceId = user.current_workspace_id;
+        attributes.workspaceId = user.currentWorkspaceId;
         attributes.authorId = user._id;
         attributes.ownerId = user._id;
 
         var issue = Issues.insert(attributes);
 
         return issue;
+    },
+
+    updateTask: function (issue, attributes) {
+
+        var user = Meteor.user();
+        // ensure the user is logged in
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to post new stories");
+
+        return Issues.update(issue._id, {$set: attributes});
     }
 });
 
@@ -167,7 +197,7 @@ Meteor.methods({
  *
  @createNewTaskByContext: (data, context) ->
  status = Status.first({default: 1})
- data.workspace_id = User.current().current_workspace_id
+ data.workspaceId = User.current().currentWorkspaceId
  data.user_id = User.current()._id
  data.owner_id = User.current()._id
  data.status_id = status._id
@@ -177,7 +207,7 @@ Meteor.methods({
 
  @createNewEpic: (data) ->
  status = Status.first({default: 1})
- data.workspace_id = User.current().current_workspace_id
+ data.workspaceId = User.current().currentWorkspaceId
  data.type = "epic"
  data.user_id = User.current()._id
  data.status_id = status._id

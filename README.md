@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AristosGroup/kvazar.png?branch=master)](https://travis-ci.org/AristosGroup/kvazar)
+
 Kvazar is an open-source Next generation Issue Tracker built with Meteor.
 
 # License

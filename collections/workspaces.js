@@ -1,19 +1,12 @@
-Projects = new Meteor.Collection2("projects", {
-
+Workspaces = new Meteor.Collection2("workspaces", {
     schema: {
+
         title: {
             type: String,
             label: "Title"
 
         },
-
         userId: {
-            type: String,
-            label: "user Id"
-
-        },
-
-        workspaceId: {
             type: String,
             label: "user Id"
 
@@ -21,8 +14,8 @@ Projects = new Meteor.Collection2("projects", {
 
         color: {
             type: String,
-            label: "Color",
-            optional: true
+            label: "Color"
+
 
         },
 
@@ -57,32 +50,36 @@ Projects = new Meteor.Collection2("projects", {
             denyInsert: true,
             optional: true
         }
+    },
+
+    virtualFields: {
+
+
     }
 });
 
+WorkspaceManager = {
+    allProjects: function (workspace) {
+        return Projects.find({workspaceId: workspace._id});
+    },
 
-Meteor.methods({
-    createProject: function (attributes) {
+    allCategories: function (workspace) {
+        return Categories.find({workspaceId:  workspace._id});
+    },
 
-        var user = Meteor.user();
-        attributes.userId = user._id;
-        attributes.members = [user._id];
-        //todo перенести в autoValue
-        if (!attributes.title) attributes.title = 'New project';
-        if (!attributes.color) attributes.color = '#f3f5f9';
-        attributes.members = [user._id];
-        var project = Projects.insert(attributes);
-        return project;
+    allMembers: function (workspace) {
+        if (workspace.members)
+            return Meteor.users.find({_id: {$in: workspace.members}});
 
     },
 
-    updateProject: function (projectId, attributes) {
-        return Projects.update(projectId, {$set: attributes});
+    notMembers: function (workspace) {
+        return Meteor.users.find({_id: {$nin: workspace.members}});
+
     },
 
-    deleteProject: function (projectId) {
-        Issues.update({projectsId: projectId}, { $pull: { projectsId: projectId} }, true);
-        return Projects.remove(projectId);
+    allGroups: function (workspace) {
+        return Groups.find({workspaceId: workspace._id});
 
     }
-});
+};

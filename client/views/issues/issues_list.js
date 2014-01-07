@@ -18,10 +18,11 @@ Template.issuesList.events({
         if (jwerty.is('enter', e)) {
             e.preventDefault();
             var val = $(e.currentTarget).val();
-            var context = {};
-            var issue = Issue.createNewTaskByContext({subject: val}, context);
-            $(e.currentTarget).val('');
-            Session.set('currentIssueDetailId', issue._id);
+            Meteor.call('createTask', {subject: val}, function (error, id) {
+                $(e.currentTarget).val('');
+                Session.set('currentIssueDetailId', id);
+            });
+
 
         }
     },

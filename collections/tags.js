@@ -1,13 +1,14 @@
-/*
-Tags = new Meteor.Collection('tags');
+Tags = new Meteor.Collection2('tags' ,{
+    schema: {}
+});
 
 Tags.allow({
-    insert: function(userId, doc) {
+    insert: function (userId, doc) {
         // only allow posting if you are logged in
         return true;
     },
 
-    update: function(userId, doc) {
+    update: function (userId, doc) {
         // only allow posting if you are logged in
         return true;
     }
@@ -31,7 +32,7 @@ Meteor.methods({
             var newtag = Tags.find({title: tagsadded.id});
 
 
-            if (newtag.count()>0)
+            if (newtag.count() > 0)
                 Tags.update({title: tagsadded.id}, {$inc: {count: 1}});
             else {
 
@@ -53,4 +54,3 @@ Meteor.methods({
     }
 });
 
-*/

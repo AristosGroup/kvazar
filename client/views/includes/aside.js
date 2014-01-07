@@ -1,16 +1,15 @@
 Template.aside.helpers({
-    userAvatar:function() {
-        var user  = User.current();
+    userAvatar: function () {
+        var user = Meteor.user();
 
-        console.log(Gravatar.getGravatar(user));
-        return Gravatar.getGravatar(user);
+        return UsersManager.getGravatar(user);
     },
 
-    activeRouteClass: function(/* route names */) {
+    activeRouteClass: function (/* route names */) {
         var args = Array.prototype.slice.call(arguments, 0);
         args.pop();
 
-        var active = _.any(args, function(name) {
+        var active = _.any(args, function (name) {
             return Router.current().route.name === name
         });
 
@@ -20,12 +19,12 @@ Template.aside.helpers({
 
 
 Template.aside.events({
-    'click #toggle-nav' : function(e) {
+    'click #toggle-nav': function (e) {
         e.preventDefault();
         $('#nav').toggleClass('nav-vertical');
 
     },
-    'click a.logout':function(e){
+    'click a.logout': function (e) {
         e.preventDefault();
         Meteor.logout();
     }

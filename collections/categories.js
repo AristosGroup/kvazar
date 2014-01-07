@@ -1,4 +1,4 @@
-Projects = new Meteor.Collection2("projects", {
+Categories = new Meteor.Collection2("categories", {
 
     schema: {
         title: {
@@ -62,27 +62,27 @@ Projects = new Meteor.Collection2("projects", {
 
 
 Meteor.methods({
-    createProject: function (attributes) {
+    createCategory: function (attributes) {
 
         var user = Meteor.user();
         attributes.userId = user._id;
         attributes.members = [user._id];
         //todo перенести в autoValue
-        if (!attributes.title) attributes.title = 'New project';
+        if (!attributes.title) attributes.title = 'New category';
         if (!attributes.color) attributes.color = '#f3f5f9';
         attributes.members = [user._id];
-        var project = Projects.insert(attributes);
-        return project;
+        var category = Categories.insert(attributes);
+        return category;
 
     },
 
-    updateProject: function (projectId, attributes) {
-        return Projects.update(projectId, {$set: attributes});
+    updateCategory: function (categoryId, attributes) {
+        return Categories.update(categoryId, {$set: attributes});
     },
 
-    deleteProject: function (projectId) {
-        Issues.update({projectsId: projectId}, { $pull: { projectsId: projectId} }, true);
-        return Projects.remove(projectId);
+    deleteCategory: function (categoryId) {
+        Issues.update({categoryId: categoryId}, { $set: { categoryId: null} }, true);
+        return Categories.remove(categoryId);
 
     }
 });

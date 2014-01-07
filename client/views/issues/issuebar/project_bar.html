@@ -2,15 +2,17 @@
     <ul class="nav nav-pills nav-stacked no-radius m-t-sm">
         <li class="padder dk text-sm l-h-2x">
             <p>Projects
-                <a href="#"  data-toggle="dropdown" data-target="#" class="project-new"><i class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
+                <a href="#" data-toggle="dropdown" class="project-new"><i
+                        class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
+                {{>projectAddDropdown}}
+
             </p>
         </li>
 
         {{#each projects}}
-        {{>projectBarRow}}
+            {{>projectBarRow}}
         {{/each}}
     </ul>
-    {{>projectAddDropdown}}
 </template>
 
 
@@ -18,10 +20,12 @@
     <li class="filter-row" id="{{_id}}">
 
         <div><label class="checkbox-custom">
-            <input type="checkbox" name="checkboxP"> <i class="fa fa-square-o"></i> <span class="project-row-title">{{title}}</span>
+            <input type="checkbox" name="checkboxP"> <i class="fa fa-square-o"></i> <span
+                class="project-row-title">{{title}}</span>
         </label>
-            <a class="filter-edit" href="#" data-toggle="dropdown"  data-target="#">
+            <a class="filter-edit" href="#" data-toggle="dropdown">
                 <i class="fa fa-circle pull-right m-t-xs" style="color:{{color}}"></i></a>
+            {{>projectEditDropdown}}
         </div>
 
     </li>
@@ -64,6 +68,26 @@
                 <div class="pull-right"><a href="#addProject"
                                            class="btn btn-sm btn-success project-add">
                     <i class="fa"></i> Add Project</a></div>
+                <div class="clearfix"></div>
+            </footer>
+        </section>
+    </section>
+</template>
+
+<template name="projectEditDropdown">
+    <section  class="dropdown-menu m-l-sm pull-left animated fadeInRight project-edit">
+        <div class="arrow left"></div>
+        <section class="panel bg-white">
+            <header class="panel-heading">
+                <a href="#" class="filter-name-edit" data-type="text"
+                   data-title="Enter Project name">{{title}}</a>
+            </header>
+            <div class="list-group">
+                <div class="colorpalette"></div>
+            </div>
+            <footer class="panel-footer text-sm">
+                <div class="pull-right"><a href="#removeProject" class="btn btn-sm btn-danger filter-remove"><i
+                        class="fa"></i> Remove Project</a></div>
                 <div class="clearfix"></div>
             </footer>
         </section>

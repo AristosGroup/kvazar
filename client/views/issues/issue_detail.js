@@ -38,15 +38,15 @@ Template.issueDetail.rendered = function (e) {
 
     var issue = Issues.findOne(Session.get('currentIssueDetailId'));
 
-    if(!issue) return;
+    if (!issue) return;
 
     $('#projects').editable({
 
-        value:issue.projectsId,
+        value: issue.projectsId,
         escape: false,
         viewseparator: ' ',
         /*@TODO deps autorn*/
-        source: User.current().currentWorkspace().allProjects().map(function (project) {
+        source: WorkspaceManager.allProjects(CurrentWorkspace()).map(function (project) {
             project.text = project.title;
             project.id = project._id;
             return project
@@ -55,10 +55,10 @@ Template.issueDetail.rendered = function (e) {
             multiple: true,
 
             formatResult: function (item) {
-                return '<span style="color: '+item.color+'">' + item.title + '</span>';
+                return '<span style="color: ' + item.color + '">' + item.title + '</span>';
             },
             formatSelection: function (item) {
-                return '<span class="label btn-primary" style="background: '+item.color+'">' + item.title + '</span>';
+                return '<span class="label btn-primary" style="background: ' + item.color + '">' + item.title + '</span>';
 
             },
             escapeMarkup: function (m) {
@@ -69,53 +69,59 @@ Template.issueDetail.rendered = function (e) {
 
     });
 
-  //  Deps.autorun(function() {
+    //  Deps.autorun(function() {
 
-       // $('#categories').editable('disable');
-        $('#categories').editable({
+    // $('#categories').editable('disable');
+    $('#categories').editable({
 
-            value:issue.category_id,
-            escape: false,
-            viewseparator: ' ',
+        value: issue.categoryId,
+        escape: false,
+        viewseparator: ' ',
 
-            source: User.current().currentWorkspace().allCategories().map(function (project) {
-                project.text = project.title;
-                project.id = project._id;
-                return project
-            }),
-            select2: {
+        source: WorkspaceManager.allCategories(CurrentWorkspace()).map(function (project) {
+            project.text = project.title;
+            project.id = project._id;
+            return project
+        }),
+        select2: {
 
 
-                formatResult: function (item) {
-                    return '<span style="color: '+item.color+'">' + item.title + '</span>';
-                },
-                formatSelection: function (item) {
-                    return '<span class="label btn-primary" style="background: '+item.color+'">' + item.title + '</span>';
+            formatResult: function (item) {
+                return '<span style="color: ' + item.color + '">' + item.title + '</span>';
+            },
+            formatSelection: function (item) {
+                return '<span class="label btn-primary" style="background: ' + item.color + '">' + item.title + '</span>';
 
-                },
-                escapeMarkup: function (m) {
-                    return m;
-                }
+            },
+            escapeMarkup: function (m) {
+                return m;
             }
+        }
 
+
+    });
+    //  });
+
+
+    $('#projects').on('save', function (e, params) {
+        // issue.changeProjects(params.newValue);
+
+
+        Meteor.call('updateTask', issue, {projectsId: params.newValue}, function (error, id) {
+            if (error)
+                return alert(error.reason);
 
         });
-  //  });
 
-
-    $('#projects').on('save', function(e, params) {
-       // issue.changeProjects(params.newValue);
-
-        Issues.update(issue._id, {$set:{projectsId:params.newValue}}, function(error, result) {
-            //The update will fail, error will be set,
-            //and result will be undefined because "copies" is required.
-            //
-            //The list of errors is available by calling Books.simpleSchema().namedContext().invalidKeys()
-        });
     });
 
-    $('#categories').on('save', function(e, params) {
-        issue.changeCategory(params.newValue);
+    $('#categories').on('save', function (e, params) {
+
+        Meteor.call('updateTask', issue, {categoryId: params.newValue}, function (error, id) {
+            if (error)
+                return alert(error.reason);
+
+        });
     });
 
 

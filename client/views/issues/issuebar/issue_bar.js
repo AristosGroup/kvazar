@@ -7,13 +7,14 @@ Template.issueBar.helpers({
 
 Template.memberSelectOption.helpers({
     user_name: function () {
-        var user = User.init(this);
-        return user.userName();
+        var user = Meteor.user();
+        return UsersManager.userName(user);
+
     },
 
     avatar: function () {
-        var user = User.init(this);
-        return Gravatar.getGravatar(user);
+        var user = Meteor.user();
+        return UsersManager.getGravatar(user);
     }
 });
 

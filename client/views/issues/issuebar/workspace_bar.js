@@ -1,16 +1,15 @@
 Template.workspaceBar.helpers({
     currentWorkspace: function (/* route names */) {
 
-        var user = User.current();
+        var user = Meteor.user();
         if (user)
-            return user.currentWorkspace();
+            return CurrentWorkspace();
 
     },
 
     userWorkspaces: function () {
 
-        var user = User.current();
-        return user.workspacesWhithoutCurrent();
+        UsersManager.workspacesWhithoutCurrent(Meteor.user());
     }
 
 });

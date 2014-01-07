@@ -3,8 +3,9 @@
         <li class="padder dk text-sm l-h-2x">
             <div>
                 Assigned to
-                <a href="#" class="project-dropdown group-new" data-toggle="dropdown" data-target="#"><i
+                <a href="#" class="project-dropdown group-new" data-toggle="dropdown"><i
                         class="fa fa-plus-square-o pull-right m-t-xs"></i></a>
+                {{>newGroupDropdown}}
 
             </div>
         </li>
@@ -13,8 +14,7 @@
         {{>groupBarRow}}
         {{/each}}
     </ul>
-    {{>newGroupDropdown}}
-    {{>groupEditDropdown}}
+
 </template>
 
 
@@ -24,9 +24,11 @@
             <label class="checkbox-custom">
                 <input type="checkbox" name="checkboxM"> <i class="fa fa-square-o"></i> <span class="group-row-title">{{title}}</span>
             </label>
-            <a class="group-edit" href="#" data-toggle="dropdown" data-target="#"> <i
+            <a class="group-edit" href="#" data-toggle="dropdown"> <i
                     class="fa fa-circle pull-right m-t-xs"
                     ></i></a>
+            {{>groupEditDropdown}}
+
         </div>
     </li>
 
@@ -76,7 +78,7 @@
 
 <template name="groupEditDropdown">
 
-    <section id="groupEditDropdown" class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+    <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
         <div class="arrow left"></div>
         <section class="panel bg-white">
             <header class="panel-heading">

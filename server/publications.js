@@ -4,43 +4,45 @@ Meteor.publish('issues', function (options) {
 });
 
 Meteor.publish('statuses', function () {
-    return Status.find({});
+    return Statuses.find({});
 
 });
 
 Meteor.publish('users', function () {
-    return User.find({}, {fields: {'current_workspace_id': 1, emails:1, profile:1}});
+    return Meteor.users.find({}, {fields: {'currentWorkspaceId': 1, emails: 1, profile: 1}});
 });
 
 
 Meteor.publish('notifications', function () {
-    return Notification.find({user_id: this.userId});
+    return Notifications.find({userId: this.userId});
 });
 
 Meteor.publish('workspaces', function () {
-    return Workspace.find({members:this.userId});
+    return Workspaces.find({members: this.userId});
 });
 
 
 Meteor.publish('groups', function () {
-    return Group.find({members:this.userId});
+    return Groups.find({members: this.userId});
 });
 
 Meteor.publish('projects', function () {
-    return Projects.find({members:this.userId});
+    return Projects.find({members: this.userId});
 });
 
 
 Meteor.publish('categories', function () {
-    return Category.find({members:this.userId});
+    return Categories.find({members: this.userId});
 });
 
 
+Accounts.onCreateUser(function (options, user) {
+    var userId = user._id;
+    var workspace = Workspaces.insert({title: 'My workspace', userId: userId, members: [userId]});
+    user.currentWorkspaceId = workspace;
 
-Accounts.onCreateUser(function(options, user) {
-    var userId=user._id;
-    var workspace = Workspace.create({title: 'My workspace', user_id: userId, members: [userId]});
-    user.current_workspace_id = workspace._id;
+    if (Groups.find({workspaceId: workspace}).count() < 1)
+        Groups.insert({title: 'Admins', userId: userId, members: [userId], users: [userId], workspaceId: workspace});
 
     return user;
 });
