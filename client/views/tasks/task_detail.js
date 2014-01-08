@@ -16,13 +16,12 @@ Template.taskDetail.helpers({
 
     },
 
-    status: function () {
-
+    nextStatus: function () {
+        var statuses = WorkflowsManager.nextStatuses(this.statusCode);
+        if(!statuses) return false;
+        return statuses[0];
     },
 
-    statusAction: function () {
-
-    },
 
     projects: function () {
 
@@ -143,6 +142,15 @@ Template.taskDetail.events({
         e.preventDefault();
         Session.set('currentTaskDetailId', null);
 
+    },
+
+    'click .change-status' : function(e) {
+        var newStatus = $(e.currentTarget).data('next-status');
+        Meteor.call('changeTaskStatus', Session.get('currentTaskDetailId'), newStatus, function (error, id) {
+            if (error)
+                return alert(error.reason);
+
+        });
     }
 });
 

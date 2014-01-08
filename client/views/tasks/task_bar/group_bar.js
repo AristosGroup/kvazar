@@ -13,13 +13,11 @@ Template.groupBar.helpers({
 
 Template.groupBarRow.helpers({
     userName: function () {
-        var user = Meteor.user();
-        return UsersManager.userName(user);
+        return UsersManager.userName(this);
     },
 
     avatar: function () {
-        var user = Meteor.user();
-        return UsersManager.getGravatar(user);
+        return UsersManager.getGravatar(this);
     },
 
     users: function () {
@@ -74,15 +72,12 @@ Template.groupEditDropdown.helpers({
     },
 
     userName: function () {
-        var user = Meteor.user();
 
-        return UsersManager.userName(user);
+        return UsersManager.userName(this);
 
     },
     avatar: function () {
-        var user = Meteor.user();
-
-        return UsersManager.getGravatar(user);
+        return UsersManager.getGravatar(this);
     }
 });
 
@@ -92,6 +87,8 @@ Template.groupEditDropdown.rendered = function () {
     });
     var format = function (data) {
         var user = Meteor.users.findOne(data.id);
+
+
         return "<img class='thumb-xs img-circle' src='" + UsersManager.getGravatar(user) + "'/>" + ' ' + UsersManager.userName(user);
     };
 

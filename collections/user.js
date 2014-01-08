@@ -1,3 +1,15 @@
+Meteor.users.allow({
+    insert: function (userId, doc) {
+        // only allow posting if you are logged in
+        return true;
+    },
+
+    update: function (userId, doc) {
+        // only allow posting if you are logged in
+        return true;
+    }
+});
+
 UsersManager = {
 
     email: function (user) {
@@ -10,7 +22,7 @@ UsersManager = {
 
     userName: function (user) {
         var addr, email, parts;
-        email = this.email(user);
+        email = UsersManager.email(user);
         parts = email.split('@');
         addr = parts[0];
         return addr.charAt(0).toUpperCase() + addr.slice(1);

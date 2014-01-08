@@ -8,8 +8,6 @@ if (Statuses.find().count() == 0) {
         title: 'Approved',
         code: 'approved'
 
-
-
     });
 
     Statuses.insert({
@@ -62,7 +60,7 @@ if (Statuses.find().count() == 0) {
             new: ['approved', 'closed'],
             approved: ['in_focus', 'started', 'closed'],
             in_focus: ['started', 'closed'],
-            started: ['paused', 'finished', 'closed'],
+            started: ['finished', 'paused', 'closed'],
             paused: ['started', 'finished', 'closed'],
             finished: ['complete', 'in_focus', 'closed']
         })
@@ -77,7 +75,7 @@ if (Statuses.find().count() == 0) {
 
         status: new WorkflowStatus({
             in_focus: ['started'],
-            started: ['paused', 'finished'],
+            started: ['finished', 'paused'],
             paused: ['started', 'finished'],
             finished: ['started']
         })

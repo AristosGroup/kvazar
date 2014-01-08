@@ -35,6 +35,14 @@ Statuses = new Meteor.Collection2("statuses", {
         code: {
             type: String
 
+        },
+
+
+        description: {
+            type: String,
+            optional:true
+
+
         }
     }
 });

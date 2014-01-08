@@ -76,11 +76,11 @@ Workflows = new Meteor.Collection2("workflows", {
 WorkflowsManager = {
     /**
      * user workflow for current workspace
-     * @param user
      */
-    userWorkflow: function (user) {
+    userWorkflow: function () {
+        var user = Meteor.user();
         var group = GroupsManager.userGroup(user);
-        return Workflows.findOne(group.workflowCode);
+        return Workflows.findOne({code:group.workflowCode});
     },
 
     /**
@@ -90,5 +90,21 @@ WorkflowsManager = {
     userWorkflowForWorkspace: function (user, workspaceId) {
         var group = GroupsManager.userGroupForWorkspace(user, workspaceId);
         return Workflows.findOne({code: group.workflowCode});
+    },
+
+    /**
+     * get next statuses for a task status and the currentUser
+     * @param currentStatus
+     *
+     */
+    nextStatuses: function(currentStatus) {
+
+        var workflow = WorkflowsManager.userWorkflow(Meteor.user());
+        var statuses = workflow.status[currentStatus];
+        if(!statuses) return false;
+
+        return statuses.map(function(statusCode) {
+            return Statuses.findOne({code:statusCode});
+        });
     }
 };

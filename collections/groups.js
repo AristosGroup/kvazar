@@ -83,7 +83,7 @@ GroupsManager = {
     },
 
     notUsers: function (group) {
-        return  Meteor.users.find({_id: {$nin: group.users}});
+        return  Meteor.users.find({_id: {$nin: group.members}});
 
     },
     /**
@@ -91,7 +91,10 @@ GroupsManager = {
      * @param user
      */
     userGroup: function (user) {
-        return Groups.findOne({$and: {workspaceId: user.currentWorkspaceId, members: user._id}});
+        return Groups.findOne({$and: [
+            {workspaceId: user.currentWorkspaceId},
+            { members: user._id}
+        ]});
     },
 
     /**
@@ -111,6 +114,8 @@ Meteor.methods({
         attributes.userId = user._id;
         attributes.members = [user._id];
         attributes.users = [];
+        //временно
+        attributes.workflowCode = "developer";
         var group = Groups.insert(attributes);
         return group;
 

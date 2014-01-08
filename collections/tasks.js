@@ -13,16 +13,7 @@ Tasks = new Meteor.Collection2("tasks", {
 
         },
 
-        "status.id": {
-            type: String,
-            optional: true
-        },
-        "status.title": {
-            type: String,
-            optional: true
-        },
-
-        "status.color": {
+        "statusCode": {
             type: String,
             optional: true
         },
@@ -110,11 +101,11 @@ Tasks = new Meteor.Collection2("tasks", {
 
 TasksManager = {
     projectsByTask: function (task) {
-        return Projects.find({_id:  task.projects_id});
+        return Projects.find({_id: task.projectsId});
     },
 
     categoryByTask: function (task) {
-        return Categories.findOne({_id: task.category_id});
+        return Categories.findOne({_id: task.categoryId});
     }
 
 
@@ -133,6 +124,7 @@ Meteor.methods({
             throw new Meteor.Error(422, 'Please fill in a headline');
 
         attributes.workspaceId = user.currentWorkspaceId;
+        attributes.statusCode = WorkflowsManager.userWorkflow(Meteor.user()).defaultStatus;
         attributes.authorId = user._id;
         attributes.ownerId = user._id;
 
@@ -149,6 +141,16 @@ Meteor.methods({
             throw new Meteor.Error(401, "You need to login to post new stories");
 
         return Tasks.update(task._id, {$set: attributes});
+    },
+
+    changeTaskStatus: function (taskId, statusCode) {
+
+        var user = Meteor.user();
+        // ensure the user is logged in
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to post new stories");
+
+        return Tasks.update(taskId, {$set: {statusCode: statusCode}});
     }
 });
 

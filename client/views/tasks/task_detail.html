@@ -12,7 +12,7 @@
                 <div class="pull-right">
                     <div class="m-b-sm ">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-success">Approve</button>
+                            {{#if nextStatus}}<button type="button" class="btn btn-sm btn-success change-status {{nextStatus.code}}" data-next-status="{{nextStatus.code}}">{{nextStatus.title}}</button>{{/if}}
                             <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu pull-right">
