@@ -1,0 +1,12 @@
+#!/bin/bash
+
+APP_ENV="production"
+
+demeteorizer
+
+forever stop .demeteorized/bundle/main.js
+
+source config/"$APP_ENV"/env.sh
+
+forever -l forever.log -o log/out.log -e log/err.log --append -m 5 -minUptime 1000 -spinSleepTime 1000 start .demeteorized/bundle/main.js
+
