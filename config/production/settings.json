@@ -1,7 +1,7 @@
 {
-"public" : {
-"ga": {
-"account":"UA-47005586-1"
-}
-}
+    "public": {
+        "ga": {
+            "account": "UA-47005586-1"
+        }
+    }
 }

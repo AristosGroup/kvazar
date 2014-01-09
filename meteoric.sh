@@ -49,7 +49,7 @@ else
 fi
 
 if [ -z "$EC2_PEM_FILE" ]; then
-	SSH_HOST="root@$APP_HOST" SSH_OPT="-p 2222"
+	SSH_HOST="dev@$APP_HOST" SSH_OPT="-p 2222"
 else
 	SSH_HOST="ubuntu@$APP_HOST" SSH_OPT="-i $EC2_PEM_FILE"
 fi
