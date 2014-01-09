@@ -15,6 +15,7 @@
     "Dropzonejs": {},
     "spin": {},
     "collection2": {},
-    "collection-hooks": {}
+    "collection-hooks": {},
+     "streams" : {}
   }
 }

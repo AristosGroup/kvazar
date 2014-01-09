@@ -2,6 +2,9 @@
 
 Kvazar is an open-source Next generation Issue Tracker built with Meteor.
 
+#Description
+    [kvazarjs.com](http://kvazarjs.com)
+
 # License
 - Kvazar is distributed under the  GNU General Public License, version 2:
   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
