@@ -1,0 +1,245 @@
+{
+  "format": "browser-program-pre1",
+  "page": "app.html",
+  "manifest": [
+    {
+      "path": "11538bcf9b241bf5f50c571c048ca644b831be13.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/11538bcf9b241bf5f50c571c048ca644b831be13.js",
+      "size": 983996,
+      "hash": "11538bcf9b241bf5f50c571c048ca644b831be13"
+    },
+    {
+      "path": "dffb33d5f8b8d50c0eb8ad6e133cc1f2c90e747b.css",
+      "where": "client",
+      "type": "css",
+      "cacheable": true,
+      "url": "/dffb33d5f8b8d50c0eb8ad6e133cc1f2c90e747b.css",
+      "size": 254541,
+      "hash": "dffb33d5f8b8d50c0eb8ad6e133cc1f2c90e747b"
+    },
+    {
+      "path": "packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.eot",
+      "size": 20290,
+      "hash": "23799c0aa7b60fb1a66993d024f98ac105e74e93"
+    },
+    {
+      "path": "packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.ttf",
+      "size": 41236,
+      "hash": "536d2b1b2f3462fb122df1922f2e232546f1b11d"
+    },
+    {
+      "path": "packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.svg",
+      "size": 62850,
+      "hash": "ecee9033d9183117d8f59df0e7238e2b24002b24"
+    },
+    {
+      "path": "packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.woff",
+      "size": 23292,
+      "hash": "c6ea7b1a5bb16b160cc9b8a02f6f6371b5ef7b73"
+    },
+    {
+      "path": "packages/select2/lib/select2/select2.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/select2/lib/select2/select2.png",
+      "size": 613,
+      "hash": "2d350341a645ad33ab5604aca16c05f22a83ff51"
+    },
+    {
+      "path": "packages/select2/lib/select2/select2x2.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/select2/lib/select2/select2x2.png",
+      "size": 845,
+      "hash": "9d87bfb8803a812ab69eadcaf8cea48c86ace020"
+    },
+    {
+      "path": "packages/select2/lib/select2/select2-spinner.gif",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/select2/lib/select2/select2-spinner.gif",
+      "size": 1849,
+      "hash": "dcabdd743fd3e9d7bd5647abeb86e66a3e6f9597"
+    },
+    {
+      "path": "packages/x-editable-bootstrap3/lib/bootstrap3-editable/img/clear.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/x-editable-bootstrap3/lib/bootstrap3-editable/img/clear.png",
+      "size": 509,
+      "hash": "9cf9c382899e5b17be2a395ca87a13dfb077f9c4"
+    },
+    {
+      "path": "packages/x-editable-bootstrap3/lib/bootstrap3-editable/img/loading.gif",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/x-editable-bootstrap3/lib/bootstrap3-editable/img/loading.gif",
+      "size": 1849,
+      "hash": "dcabdd743fd3e9d7bd5647abeb86e66a3e6f9597"
+    },
+    {
+      "path": "packages/Dropzonejs/public/images/spritemap.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/Dropzonejs/public/images/spritemap.png",
+      "size": 16954,
+      "hash": "7723d5dd08c4e9a4a8afd57fdf6fa77889c99e57"
+    },
+    {
+      "path": "packages/Dropzonejs/public/images/spritemap@2x.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/Dropzonejs/public/images/spritemap@2x.png",
+      "size": 41065,
+      "hash": "5c73c2289612560c7c738bc06834a4c8abf201b5"
+    },
+    {
+      "path": "app/css/plugin.css",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/css/plugin.css",
+      "size": 6715,
+      "hash": "c8a8137b29fe5d26dec7d1a2cd8346972e2f7bb5"
+    },
+    {
+      "path": "app/images/asana.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/asana.png",
+      "size": 65385,
+      "hash": "f8214c29d9cdaf1cdf07475441abecb13a064b3a"
+    },
+    {
+      "path": "app/images/avatar.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/avatar.jpg",
+      "size": 16831,
+      "hash": "69d9b5924c74e0c4b20359c980be3cd6c73148ac"
+    },
+    {
+      "path": "app/images/avatar_default.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/avatar_default.jpg",
+      "size": 1233,
+      "hash": "e8aa4fada8faf94e3d19e03649ef182bd4a573b9"
+    },
+    {
+      "path": "app/images/ipad.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/ipad.png",
+      "size": 152753,
+      "hash": "3f9fc0e05f1984cc39e5acb3230ed99a69a915a1"
+    },
+    {
+      "path": "app/images/iphone.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/iphone.png",
+      "size": 62476,
+      "hash": "b0ab08b3afae7a57c6ae8f10cf134479c66629d3"
+    },
+    {
+      "path": "app/images/logo.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/logo.png",
+      "size": 822,
+      "hash": "5b8891c8eb411e6bd5910ec27cf4f708ab69be58"
+    },
+    {
+      "path": "app/images/macpro.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/macpro.png",
+      "size": 127628,
+      "hash": "3b60936dcb3f986a27013c1d3ecdeceaeda85977"
+    },
+    {
+      "path": "app/images/redmine.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/redmine.png",
+      "size": 66347,
+      "hash": "7a807a0013fa5dcd0c7b3e41fac6a3096c4f941b"
+    },
+    {
+      "path": "app/images/thumb_1.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/thumb_1.jpg",
+      "size": 12776,
+      "hash": "bcb82d5b4e470c8b892f91b55395851ce3e33f19"
+    },
+    {
+      "path": "app/images/thumb_2.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/thumb_2.jpg",
+      "size": 14830,
+      "hash": "5386c4cf3ade45f0d4951900ccd3e776a25bb851"
+    },
+    {
+      "path": "app/images/thumb_3.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/thumb_3.jpg",
+      "size": 14301,
+      "hash": "2c2079cfa13a9e9cd092c0441ff8ad6da95bf8dd"
+    },
+    {
+      "path": "app/client/css/img/form.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/client/css/img/form.png",
+      "size": 5461,
+      "hash": "cb709359a611027d1113c31248b35c382e6a3f85"
+    },
+    {
+      "path": "app.html",
+      "where": "internal",
+      "hash": "6d3a04f5fca40e9872f1bd4d54e27a29ffbb2b73"
+    }
+  ]
+}

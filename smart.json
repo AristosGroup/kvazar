@@ -18,6 +18,6 @@
     "collection2": {},
     "collection-hooks": {},
      "streams" : {},
-      "minimongoid": {}
+     "GAnalytics": {}
   }
 }

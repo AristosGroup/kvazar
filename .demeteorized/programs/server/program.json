@@ -1,0 +1,383 @@
+{
+  "format": "javascript-image-pre1",
+  "arch": "os.osx.x86_64",
+  "load": [
+    {
+      "path": "packages/underscore.js",
+      "sourceMap": "packages/underscore.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/meteor.js",
+      "sourceMap": "packages/meteor.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/reload.js",
+      "sourceMap": "packages/reload.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/json.js",
+      "sourceMap": "packages/json.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/ejson.js",
+      "sourceMap": "packages/ejson.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/logging.js",
+      "node_modules": "npm/logging/main/node_modules",
+      "sourceMap": "packages/logging.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/routepolicy.js",
+      "sourceMap": "packages/routepolicy.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/webapp.js",
+      "node_modules": "npm/webapp/main/node_modules",
+      "sourceMap": "packages/webapp.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/check.js",
+      "sourceMap": "packages/check.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/random.js",
+      "sourceMap": "packages/random.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/deps.js",
+      "sourceMap": "packages/deps.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/ordered-dict.js",
+      "sourceMap": "packages/ordered-dict.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/geojson-utils.js",
+      "sourceMap": "packages/geojson-utils.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/minimongo.js",
+      "sourceMap": "packages/minimongo.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/livedata.js",
+      "node_modules": "npm/livedata/main/node_modules",
+      "sourceMap": "packages/livedata.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/follower-livedata.js",
+      "sourceMap": "packages/follower-livedata.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/application-configuration.js",
+      "sourceMap": "packages/application-configuration.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/insecure.js",
+      "sourceMap": "packages/insecure.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/mongo-livedata.js",
+      "node_modules": "npm/mongo-livedata/main/node_modules",
+      "sourceMap": "packages/mongo-livedata.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/autoupdate.js",
+      "sourceMap": "packages/autoupdate.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/standard-app-packages.js",
+      "sourceMap": "packages/standard-app-packages.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/spark.js",
+      "sourceMap": "packages/spark.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/preserve-inputs.js",
+      "sourceMap": "packages/preserve-inputs.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/select2.js",
+      "sourceMap": "packages/select2.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/moment.js",
+      "sourceMap": "packages/moment.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/jquery.js",
+      "sourceMap": "packages/jquery.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/bootstrap-3.js",
+      "sourceMap": "packages/bootstrap-3.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/service-configuration.js",
+      "sourceMap": "packages/service-configuration.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/accounts-base.js",
+      "sourceMap": "packages/accounts-base.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/srp.js",
+      "sourceMap": "packages/srp.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/email.js",
+      "node_modules": "npm/email/main/node_modules",
+      "sourceMap": "packages/email.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/accounts-password.js",
+      "sourceMap": "packages/accounts-password.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/oauth.js",
+      "sourceMap": "packages/oauth.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/accounts-oauth.js",
+      "sourceMap": "packages/accounts-oauth.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/oauth2.js",
+      "sourceMap": "packages/oauth2.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/http.js",
+      "sourceMap": "packages/http.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/github.js",
+      "sourceMap": "packages/github.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/accounts-github.js",
+      "sourceMap": "packages/accounts-github.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/keybindings.js",
+      "sourceMap": "packages/keybindings.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/google.js",
+      "sourceMap": "packages/google.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/accounts-google.js",
+      "sourceMap": "packages/accounts-google.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/npm.js",
+      "sourceMap": "packages/npm.js.map",
+      "sourceMapRoot": "packages",
+      "assets": {
+        "../../packages.json": "assets/packages.json"
+      }
+    },
+    {
+      "path": "packages/GAnalytics.js",
+      "sourceMap": "packages/GAnalytics.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/coffeescript.js",
+      "sourceMap": "packages/coffeescript.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/reactive-dict.js",
+      "sourceMap": "packages/reactive-dict.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/iron-router.js",
+      "node_modules": "npm/iron-router/main/node_modules",
+      "sourceMap": "packages/iron-router.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/iron-router-progress.js",
+      "sourceMap": "packages/iron-router-progress.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/x-editable-bootstrap3.js",
+      "sourceMap": "packages/x-editable-bootstrap3.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/bootstrap-daterangepicker.js",
+      "sourceMap": "packages/bootstrap-daterangepicker.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/autocomplete.js",
+      "sourceMap": "packages/autocomplete.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/font-awesome.js",
+      "sourceMap": "packages/font-awesome.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/crypto-base.js",
+      "sourceMap": "packages/crypto-base.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/crypto-md5.js",
+      "sourceMap": "packages/crypto-md5.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/accounts-ui-bootstrap-3.js",
+      "sourceMap": "packages/accounts-ui-bootstrap-3.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/Dropzonejs.js",
+      "sourceMap": "packages/Dropzonejs.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/streams.js",
+      "sourceMap": "packages/streams.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/spin.js",
+      "sourceMap": "packages/spin.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/collection-hooks.js",
+      "sourceMap": "packages/collection-hooks.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/simple-schema.js",
+      "node_modules": "npm/simple-schema/main/node_modules",
+      "sourceMap": "packages/simple-schema.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/collection2.js",
+      "sourceMap": "packages/collection2.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/session.js",
+      "sourceMap": "packages/session.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/templating.js",
+      "sourceMap": "packages/templating.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/handlebars.js",
+      "node_modules": "npm/handlebars/main/node_modules",
+      "sourceMap": "packages/handlebars.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/global-imports.js"
+    },
+    {
+      "path": "app/lib/permissions.js"
+    },
+    {
+      "path": "app/lib/router.js"
+    },
+    {
+      "path": "app/collections/categories.js"
+    },
+    {
+      "path": "app/collections/groups.js"
+    },
+    {
+      "path": "app/collections/notifications.js"
+    },
+    {
+      "path": "app/collections/projects.js"
+    },
+    {
+      "path": "app/collections/statuses.js"
+    },
+    {
+      "path": "app/collections/tags.js"
+    },
+    {
+      "path": "app/collections/tasks.js"
+    },
+    {
+      "path": "app/collections/user.js"
+    },
+    {
+      "path": "app/collections/workflows.js"
+    },
+    {
+      "path": "app/collections/workspaces.js"
+    },
+    {
+      "path": "app/server/dropbox.js"
+    },
+    {
+      "path": "app/server/fixtures.js"
+    },
+    {
+      "path": "app/server/publications.js"
+    },
+    {
+      "path": "app/package.js"
+    }
+  ]
+}
