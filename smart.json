@@ -17,6 +17,7 @@
     "spin": {},
     "collection2": {},
     "collection-hooks": {},
-    "streams": {}
+    "streams": {},
+    "analytics": {}
   }
 }
