@@ -15,7 +15,6 @@ keybindings
 underscore
 accounts-google
 npm
-GAnalytics
 coffeescript
 iron-router
 iron-router-progress
@@ -32,3 +31,4 @@ spin
 collection-hooks
 collection2
 spiderable
+fast-render

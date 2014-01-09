@@ -57,10 +57,10 @@ fi
 
 
 SETUP="
-sudo mkdir -p $APP_DIR;
+  mkdir -p $APP_DIR;
 cd $APP_DIR;
 pwd;
-sudo git clone $GIT_URL $APP_NAME;
+  git clone $GIT_URL $APP_NAME;
 "
 
 if [ -z "$APP_PATH" ]; then
@@ -76,21 +76,21 @@ DEPLOY="
 cd $APP_DIR;
 cd $APP_NAME;
 echo Updating codebase;
-sudo git fetch origin;
-sudo git checkout $GIT_BRANCH;
-sudo git pull;
+ git fetch origin;
+ git checkout $GIT_BRANCH;
+ git pull;
 cd $APP_PATH;
 if [ "$FORCE_CLEAN" == "true" ]; then
     echo Killing forever and node;
-    sudo killall nodejs;
+      killall nodejs;
     echo Cleaning bundle files;
-    sudo rm -rf ../bundle > /dev/null 2>&1;
-    sudo rm -rf ../bundle.tgz > /dev/null 2>&1;
+      rm -rf ../bundle > /dev/null 2>&1;
+      rm -rf ../bundle.tgz > /dev/null 2>&1;
 fi;
 echo Creating new bundle. This may take a few minutes;
-sudo $METEOR_CMD bundle ../bundle.tgz $METEOR_OPTIONS;
+  $METEOR_CMD bundle ../bundle.tgz $METEOR_OPTIONS;
 cd ..;
-sudo tar -zxvf bundle.tgz;
+  tar -zxvf bundle.tgz;
 export MONGO_URL=$MONGO_URL;
 export ROOT_URL=$ROOT_URL;
 if [ -n "$MAIL_URL" ]; then
@@ -106,7 +106,7 @@ fi;
 
 DEPLOY="$DEPLOY
 echo Starting forever;
-sudo -E forever restart bundle/main.js || forever start bundle/main.js;
+  -E forever restart bundle/main.js || forever start bundle/main.js;
 "
 
 case "$1" in

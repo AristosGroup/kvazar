@@ -17,7 +17,7 @@
     "spin": {},
     "collection2": {},
     "collection-hooks": {},
-     "streams" : {},
-     "GAnalytics": {}
+    "streams": {},
+    "fast-render": {}
   }
 }
