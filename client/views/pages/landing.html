@@ -534,7 +534,7 @@
 <template name="testCommentForm">
     <!-- comment form -->
     <article class="comment-item media">
-        <a class="pull-left thumb-sm avatar"><img src="images/avatar_default.jpg" class="img-circle"></a>
+        <a class="pull-left thumb-sm avatar"><img src="{{avatar}}" class="img-circle"></a>
         <section class="media-body">
             {{#autoForm schema=TestCommentsForm id="testCommentForm"}}
             <div class="input-group">
@@ -549,11 +549,11 @@
                           </span>
 
                 {{#if afFieldIsInvalid 'message'}}
-                <span class="help-block">{{afFieldMessage 'message'}}</span>
+                <div class="help-block">{{afFieldMessage 'message'}}</div>
                 {{/if}}
 
                 {{#if afFieldIsInvalid 'email'}}
-                <span class="help-block">{{afFieldMessage 'email'}}</span>
+                <div class="help-block">{{afFieldMessage 'email'}}</div>
                 {{/if}}
             </div>
             {{/autoForm}}

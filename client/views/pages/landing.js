@@ -47,11 +47,15 @@ Template.landing.helpers({
         return TestComments.find();
     },
 
-    userName : function() {
-        return UsersManager.userName({emails:[{address:this.email}]});
+    userName: function () {
+        return UsersManager.userName({emails: [
+            {address: this.email}
+        ]});
     },
-    avatar: function() {
-        return UsersManager.getGravatar({emails:[{address:this.email}]});
+    avatar: function () {
+        return UsersManager.getGravatar({emails: [
+            {address: this.email}
+        ]});
     },
 
     createdAtfromNow: function () {
@@ -61,7 +65,31 @@ Template.landing.helpers({
 });
 
 
+Template.testCommentForm.avatar = function () {
+    var av = Session.get('commentatorAvatar');
+    if (!av)
+        return 'images/avatar_default.jpg';
 
+    else {
+        var hash = CryptoJS.MD5(av).toString();
+        return '//www.gravatar.com/avatar/' + hash;
+    }
+};
+
+Template.testCommentForm.events({
+    'keyup [name=email], change [name=email]': function (event, template) {
+        var val = $(event.currentTarget).val();
+        if (SchemaRegEx.Email.test(val)) {
+            Session.set('commentatorAvatar', val);
+        } else {
+            Session.set('commentatorAvatar', null);
+        }
+
+    },
+    'reset form': function (event, template) {
+        Session.set('commentatorAvatar', null);
+    }
+});
 
 Template.testCommentForm.TestCommentsForm = function () {
 
@@ -71,25 +99,25 @@ Template.testCommentForm.TestCommentsForm = function () {
     TestCommentsForm.hooks({
 
         before: {
-            insert: function(doc) {
+            insert: function (doc) {
                 var email = doc.email;
 
-/*                if(!Meteor.user())
-                {
-                    var testUser = Meteor.users.find({'emails.address':email});
+                /*                if(!Meteor.user())
+                 {
+                 var testUser = Meteor.users.find({'emails.address':email});
 
-                    if(testUser)
-                        Meteor.loginWithPassword(testUser);
-                    else {
-                        Accounts.createUser({email:email,password:Random.id()}, function() {});
-                    }
-                }*/
+                 if(testUser)
+                 Meteor.loginWithPassword(testUser);
+                 else {
+                 Accounts.createUser({email:email,password:Random.id()}, function() {});
+                 }
+                 }*/
 
 
                 return doc;
             }
         },
-        onSuccess: function(operation, result, template) {
+        onSuccess: function (operation, result, template) {
 
         }
     });
