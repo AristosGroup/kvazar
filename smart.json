@@ -18,6 +18,7 @@
     "collection2": {},
     "collection-hooks": {},
     "streams": {},
-    "analytics": {}
+    "analytics": {},
+    "autoform": {}
   }
 }

@@ -1,3 +1,8 @@
+Meteor.publish('testComments', function () {
+    return TestComments.find();
+});
+
+
 Meteor.publish('tasks', function (options) {
     return Tasks.find({}, options);
 
