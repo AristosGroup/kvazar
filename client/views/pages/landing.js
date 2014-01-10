@@ -45,6 +45,18 @@ Template.landing.rendered = function () {
 Template.landing.helpers({
     comments: function () {
         return TestComments.find();
+    },
+
+    userName : function() {
+        return UsersManager.userName({emails:[{address:this.email}]});
+    },
+    avatar: function() {
+        return UsersManager.getGravatar({emails:[{address:this.email}]});
+    },
+
+    createdAtfromNow: function () {
+        var day = moment.unix(this.createdAt / 1000);
+        return moment(day, "YYYYMMDD").fromNow();
     }
 });
 
@@ -62,7 +74,7 @@ Template.testCommentForm.TestCommentsForm = function () {
             insert: function(doc) {
                 var email = doc.email;
 
-                if(!Meteor.user())
+/*                if(!Meteor.user())
                 {
                     var testUser = Meteor.users.find({'emails.address':email});
 
@@ -71,7 +83,7 @@ Template.testCommentForm.TestCommentsForm = function () {
                     else {
                         Accounts.createUser({email:email,password:Random.id()}, function() {});
                     }
-                }
+                }*/
 
 
                 return doc;

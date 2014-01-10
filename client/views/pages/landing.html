@@ -487,15 +487,15 @@
 
                 {{#each comments}}
                 <article id="comment-id-{{_id}}" class="comment-item">
-                    <a class="pull-left thumb-sm avatar"><img src="images/avatar_default.jpg" class="img-circle"></a>
+                    <a class="pull-left thumb-sm avatar"><img src="{{avatar}}" class="img-circle"></a>
                     <span class="arrow left"></span>
                     <section class="comment-body panel">
                         <header class="panel-heading">
-                            <a href="#">{{email}}</a>
-                            <label class="label bg-success m-l-xs">User</label>
+                            <a href="#">{{userName}}</a>
+                            <label class="label bg-success m-l-xs">Guest</label>
                         <span class="text-muted m-l-sm pull-right">
                           <i class="fa fa-clock-o"></i>
-                          about 1 hour ago
+                          {{createdAtfromNow}}
                         </span>
                         </header>
                         <div class="panel-body">
