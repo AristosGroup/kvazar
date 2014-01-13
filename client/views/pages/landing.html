@@ -474,7 +474,7 @@
 
 
 <div id="comments" class="bg-light b-t b-b clearfix">
-    <div class="container  m-xl">
+    <div class="container  m-xl" >
         <h2>Comments</h2>
 
         <div class="row">
@@ -484,7 +484,7 @@
 
                 <!-- / .comment-reply -->
 
-
+<div style="max-height: 600px; overflow-y: scroll">
                 {{#each comments}}
                 <article id="comment-id-{{_id}}" class="comment-item">
                     <a class="pull-left thumb-sm avatar"><img src="{{avatar}}" class="img-circle"></a>
@@ -505,7 +505,7 @@
                     </section>
                 </article>
                 {{/each}}
-
+</div>
                 {{>testCommentForm}}
 
             </section>
@@ -541,21 +541,21 @@
                 <!--  <input id="testCommentEmail" style="width: 30%" type="text" class="form-control" placeholder="Input your email here">
                   <input id="testCommentText" style="width: 68%; margin-left: 20px" type="text" class="form-control" placeholder="Input your comment here">-->
 
-                {{afFieldInput 'email' placeholder="Input your email here"}}
-                {{afFieldInput 'message' placeholder="Input your comment here"}}
+                {{afFieldInput 'email' placeholder="Input your email here"  style="width: 30%"}}
+                {{afFieldInput 'message' placeholder="Input your comment here" style="width: 68%; margin-left: 20px"}}
                           <span class="input-group-btn">
                             <button id="submitTestCommentForm" class="btn btn-primary insert" type="submit">Submit
                             </button>
                           </span>
 
+            </div>
                 {{#if afFieldIsInvalid 'message'}}
-                <div class="help-block">{{afFieldMessage 'message'}}</div>
+                    <div class="help-block">{{afFieldMessage 'message'}}</div>
                 {{/if}}
 
                 {{#if afFieldIsInvalid 'email'}}
-                <div class="help-block">{{afFieldMessage 'email'}}</div>
+                    <div class="help-block">{{afFieldMessage 'email'}}</div>
                 {{/if}}
-            </div>
             {{/autoForm}}
         </section>
     </article>

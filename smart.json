@@ -18,7 +18,8 @@
     "collection2": {},
     "collection-hooks": {},
     "streams": {},
-    "analytics": {},
-    "autoform": {}
+    "autoform": {},
+    "twit": {},
+    "smart-collections": {}
   }
 }

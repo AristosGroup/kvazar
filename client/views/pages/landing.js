@@ -14,19 +14,7 @@ Template.landing.rendered = function () {
         });
 
 
-    $('[data-ride="animated"]').appear();
-    if (!$('html').hasClass('ie no-ie10')) {
-        $('[data-ride="animated"]').addClass('appear');
-        $('[data-ride="animated"]').on('appear', function () {
-            var $el = $(this), $ani = ($el.data('animation') || 'fadeIn'), $delay;
-            if (!$el.hasClass('animated')) {
-                $delay = $el.data('delay') || 0;
-                setTimeout(function () {
-                    $el.removeClass('appear').addClass($ani + " animated");
-                }, $delay);
-            }
-        });
-    }
+
 
     $(document).on('click.app', 'ul.nav [href^="#"]', function (e) {
         e.preventDefault();
@@ -44,7 +32,7 @@ Template.landing.rendered = function () {
 
 Template.landing.helpers({
     comments: function () {
-        return TestComments.find();
+        return TestComments.find({},{sort:{createdAt:1}, limit:100});
     },
 
     userName: function () {
@@ -96,13 +84,13 @@ Template.testCommentForm.TestCommentsForm = function () {
 
     TestCommentsForm = new AutoForm(TestComments);
 
-    TestCommentsForm.hooks({
+/*    TestCommentsForm.hooks({
 
         before: {
             insert: function (doc) {
                 var email = doc.email;
 
-                /*                if(!Meteor.user())
+                *//*                if(!Meteor.user())
                  {
                  var testUser = Meteor.users.find({'emails.address':email});
 
@@ -111,7 +99,7 @@ Template.testCommentForm.TestCommentsForm = function () {
                  else {
                  Accounts.createUser({email:email,password:Random.id()}, function() {});
                  }
-                 }*/
+                 }*//*
 
 
                 return doc;
@@ -120,7 +108,7 @@ Template.testCommentForm.TestCommentsForm = function () {
         onSuccess: function (operation, result, template) {
 
         }
-    });
+    });*/
 
     return TestCommentsForm;
 };

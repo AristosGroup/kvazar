@@ -1,3 +1,4 @@
+//TestCommentsSC = new Meteor.SmartCollection("test_comments");
 TestComments = new Meteor.Collection2("test_comments", {
     schema: {
 
@@ -12,7 +13,7 @@ TestComments = new Meteor.Collection2("test_comments", {
         message: {
             type: String,
             label: "Message",
-            min: 10
+            min: 1
 
         },
 
@@ -41,6 +42,14 @@ TestComments = new Meteor.Collection2("test_comments", {
             denyInsert: true,
             optional: true
         }
+    }
+});
+
+
+TestComments.allow({
+    insert: function(userId, doc) {
+        // only allow posting if you are logged in
+        return true;
     }
 });
 

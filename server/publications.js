@@ -1,5 +1,5 @@
-Meteor.publish('testComments', function () {
-    return TestComments.find();
+Meteor.publish('testComments', function (opts) {
+    return TestComments.find({}, opts);
 });
 
 
@@ -56,6 +56,32 @@ Accounts.onCreateUser(function (options, user) {
 
     return user;
 });
+
+
+Twit = new TwitMaker({
+    consumer_key: 'qqYFPykEqnLVS5Pj1QA9A',
+    consumer_secret: 'ePNNysJf1fwDEOKrH5uIR0qNLbNMNuvy1pwBdK3PX0',
+    access_token: '1160113094-0LOhKA6ayx2GfzPRAuOA6oB0uvrDzwQLYQIRnUP',
+    access_token_secret: 'UFyAsUkggvgIundxdBMj3ev6kIYu4A322UrsR7lhNGcYi'
+});
+
+
+var stream = Twit.stream('statuses/filter', { track: '#EXADirectioners' });
+
+function handle_message(msg) {
+  //  return TestComments.insert({email: 'twitterRobot@test.ru', message: msg.text});
+
+}
+
+bound_handle_message = Meteor.bindEnvironment(handle_message, function(e) {
+    console.log("exception! " + e);
+});
+
+stream.on('tweet', function (tweet) {
+    bound_handle_message(tweet);
+});
+
+
 
 
 

@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-insecure
 preserve-inputs
 select2
 moment
@@ -32,5 +31,6 @@ collection-hooks
 collection2
 spiderable
 http
-analytics
 autoform
+twit
+smart-collections
