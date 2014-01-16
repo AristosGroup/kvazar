@@ -20,6 +20,8 @@
     "streams": {},
     "autoform": {},
     "twit": {},
-    "smart-collections": {}
+    "smart-collections": {},
+    "highcharts": {},
+    "filter-collections": {}
   }
 }

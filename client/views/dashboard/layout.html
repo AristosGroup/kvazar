@@ -1,5 +1,5 @@
 <template name="dashboardLayout">
-
+<section class="hbox stretch bg-white-only">
 <!-- .aside -->
 <aside class="aside aside-lg b-r">
     <section class="vbox">
@@ -94,108 +94,9 @@
                 <aside>
                     <section class="vbox">
                         <section class="scrollable wrapper">
-                            <div class="clearfix">
-                                <section class="panel panel-info col-lg-6 no-padder">
-                                    <form>
-                                        <textarea class="form-control no-border" rows="2" placeholder="Share something..."></textarea>
-                                    </form>
-                                    <footer class="panel-footer bg-light lter">
-                                        <button class="btn btn-info pull-right btn-sm font-bold">SHARE</button>
-                                        <ul class="nav nav-pills nav-sm">
-                                            <li><a href="#"><i class="fa fa-camera text-muted"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-video-camera text-muted"></i></a></li>
-                                        </ul>
-                                    </footer>
-                                </section>
-                            </div>
-                            <div class="btn-group m-b" data-toggle="buttons">
-                                <label class="btn btn-sm btn-white active">
-                                    <input type="radio" name="options" id="option1"> Timeline
-                                </label>
-                                <label class="btn btn-sm btn-white">
-                                    <input type="radio" name="options" id="option2"> Activity
-                                </label>
-                            </div>
-                            <section class="comment-list block">
-                                <article id="comment-id-1" class="comment-item">
-                          <span class="fa-stack pull-left m-l-xs">
-                            <i class="fa fa-circle text-info fa-stack-2x"></i>
-                            <i class="fa fa-film fa-stack-1x text-white"></i>
-                          </span>
-                                    <section class="comment-body m-b-lg">
-                                        <header>
-                                            <a href="#"><strong>John smith</strong></a> shared a <a href="#" class="text-info">video</a> to you
-                              <span class="text-muted text-xs">
-                                24 minutes ago
-                              </span>
-                                        </header>
-                                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.</div>
-                                    </section>
-                                </article>
-                                <!-- .comment-reply -->
-                                <article id="comment-id-2" class="comment-reply">
-                                    <article class="comment-item">
-                                        <a class="pull-left thumb-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <section class="comment-body m-b-lg">
-                                            <header>
-                                                <a href="#"><strong>John smith</strong></a>
-                                <span class="text-muted text-xs">
-                                  26 minutes ago
-                                </span>
-                                            </header>
-                                            <div> Morbi id neque quam. Aliquam.</div>
-                                        </section>
-                                    </article>
-                                    <article class="comment-item">
-                                        <a class="pull-left thumb-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <section class="comment-body m-b-lg">
-                                            <header>
-                                                <a href="#"><strong>Mike</strong></a>
-                                <span class="text-muted text-xs">
-                                  26 minutes ago
-                                </span>
-                                            </header>
-                                            <div>Good idea.</div>
-                                        </section>
-                                    </article>
-                                </article>
-                                <!-- / .comment-reply -->
-                                <article id="comment-id-2" class="comment-item">
-                          <span class="fa-stack pull-left m-l-xs">
-                            <i class="fa fa-circle text-success fa-stack-2x"></i>
-                            <i class="fa fa-file-text-o text-white fa-stack-1x"></i>
-                          </span>
-                                    <section class="comment-body m-b-lg">
-                                        <header>
-                                            <a href="#"><strong>John Doe</strong></a>
-                              <span class="text-muted text-xs">
-                                1 hour ago
-                              </span>
-                                        </header>
-                                        <div>Lorem ipsum dolor sit amet, consecteter adipiscing elit.</div>
-                                    </section>
-                                </article>
-                                <article id="comment-id-2" class="comment-item">
-                          <span class="fa-stack pull-left m-l-xs">
-                            <i class="fa fa-circle text-danger fa-stack-2x"></i>
-                            <i class="fa fa-check fa-stack-1x text-white"></i>
-                          </span>
-                                    <section class="comment-body m-b-lg">
-                                        <header>
-                                            <a href="#"><strong>Jonathan</strong></a> completed a task
-                              <span class="text-muted text-xs">
-                                1 hour ago
-                              </span>
-                                        </header>
-                                        <div>Consecteter adipiscing elit.</div>
-                                    </section>
-                                </article>
-                            </section>
-                            <a href="#" class="btn btn-white btn-sm"><i class="fa fa-plus icon-muted"></i> more</a>
+
+                          <div id="chart"></div>
+
                         </section>
                     </section>
                 </aside>
@@ -203,5 +104,7 @@
         </section>
     </section>
 </aside>
+<!-- /.aside -->
+</section>
 <!-- /.aside -->
 </template>

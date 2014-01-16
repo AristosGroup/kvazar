@@ -2,6 +2,11 @@ Meteor.publish('testComments', function (opts) {
     return TestComments.find({}, opts);
 });
 
+Meteor.publish('reports', function () {
+    return Reports.find({});
+
+});
+
 
 Meteor.publish('tasks', function (options) {
     return Tasks.find({}, options);
