@@ -2,6 +2,14 @@
 
 Kvazar is an open-source Next generation Issue Tracker built with Meteor.
 
+
+  
+  Never mind that I rarely commits!
+  I am developing a few packages in another application, and these packets will be transferred to  Kvazar in the near future.
+  
+  
+  
+
 #Description
   [kvazarjs.com](http://kvazarjs.com)
 
@@ -19,3 +27,5 @@ Kvazar is an open-source Next generation Issue Tracker built with Meteor.
 
   # Demo
   Coming soon...
+  
+
